@@ -36,20 +36,6 @@ Auth::routes();
 
 
 Route::get('/home', 'publics\\PublicController@index')->name('home');
-Route::get('/contact', 'publics\\PublicController@contact');
-Route::get('/find-job', 'publics\\PublicController@findJob');
-Route::get('/find-profil', 'publics\\PublicController@findProfil');
-Route::get('/post-job', 'publics\\PublicController@postJob');
-Route::get('/show-job/{id}','publics\\PublicController@showJob');
 
 
-Route::resource('admin/categories', 'Admin\\CategoriesController');
-Route::resource('admin/profiles', 'Admin\\ProfilesController');
-Route::resource('admin/projets', 'Admin\\ProjetsController');
-Route::resource('admin/commandes', 'Admin\\CommandesController');
-Route::resource('admin/skills', 'Admin\\SkillsController');
-Route::resource('admin/skillprofiles', 'Admin\\SkillprofilesController');
-Route::resource('admin/skillprojets', 'Admin\\SkillprojetsController');
 Route::resource('admin/users', 'Admin\\UsersController');
-Route::resource('admin/employeurs', 'Admin\\EmployeursController');
-Route::resource('admin/freelances', 'Admin\\FreelancesController');
