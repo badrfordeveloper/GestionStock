@@ -39,3 +39,12 @@ Route::get('/home', 'publics\\PublicController@index')->name('home');
 
 
 Route::resource('admin/users', 'Admin\\UsersController');
+Route::resource('admin/categories', 'Admin\\CategoriesController');
+Route::resource('admin/achats', 'Admin\\AchatsController');
+Route::resource('admin/commandes', 'Admin\\CommandesController');
+Route::resource('admin/ligneachats', 'Admin\\LigneachatsController');
+Route::resource('admin/lignecommandes', 'Admin\\LignecommandesController');
+Route::resource('admin/produits', 'Admin\\ProduitsController');
+Route::resource('admin/retours', 'Admin\\RetoursController');
+Route::resource('admin/types', 'Admin\\TypesController');
+Route::resource('admin/ventes', 'Admin\\VentesController');
