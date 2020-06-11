@@ -1,4 +1,8 @@
 @extends('layouts.app')
+@section('css')
+<!-- css for Select2 -->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+@endsection
 
 @section('content')
     <div class="row wrapper border-bottom white-bg page-heading">
@@ -48,4 +52,15 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('script')
+
+<!-- script for Select2 -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
+<script type="text/javascript">
+            $( ".select2" ).select2({
+            maximumInputLength: 20 // only allow terms up to 20 characters long
+        });
+</script>
 @endsection

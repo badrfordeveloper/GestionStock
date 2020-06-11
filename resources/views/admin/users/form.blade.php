@@ -53,14 +53,26 @@
     {!! $errors->first('societe', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
-<div class="form-group row {{ $errors->has('type_id') ? 'has-error' : ''}}">
-    <label for="type_id" class="col-sm-2 col-form-label">{{ 'Type Id' }}</label>
-	<div class="col-sm-10">
-    	<input class="form-control" name="type_id" type="number" id="type_id" value="{{ isset($user->type_id) ? $user->type_id : old('type_id') }}" >
 
-    {!! $errors->first('type_id', '<p class="help-block">:message</p>') !!}
+
+<div class="form-group row {{ $errors->has('type_id') ? 'has-error' : ''}}">
+    <label class="col-sm-2 col-form-label">Type</label>
+
+    <div class="col-sm-10">
+        <select  class="select2 form-control custom-select" id="type_id" name="type_id" style="width: 100%; height:36px;">
+                    <option value="" selected>Selectionnez</option>
+                    @if(count($types))
+                        @foreach($types as $obj)
+                            <option value="{{ $obj->id }}"  @if(isset($user->type_id) && $user->type_id== $obj->id )selected @endif>{{ $obj->libelle }}</option>
+                        @endforeach
+                    @endif
+        </select>
+
+        {!! $errors->first('type_id', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
+
+
 
 
 <div class="form-group row">

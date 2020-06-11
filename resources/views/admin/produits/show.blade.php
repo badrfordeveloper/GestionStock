@@ -46,7 +46,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $produit->id }}</td>
                                     </tr>
-                                    <tr><th> Nom </th><td> {{ $produit->nom }} </td></tr><tr><th> Description </th><td> {{ $produit->description }} </td></tr><tr><th> Image </th><td> {{ $produit->image }} </td></tr><tr><th> Prix </th><td> {{ $produit->prix }} </td></tr><tr><th> Qunatite </th><td> {{ $produit->qunatite }} </td></tr><tr><th> Categorie Id </th><td> {{ $produit->categorie_id }} </td></tr>
+                                    <tr><th> Nom </th><td> {{ $produit->nom }} </td></tr><tr><th> Description </th><td> {{ $produit->description }} </td></tr><tr><th> Image </th><td> {{ $produit->image }} </td></tr><tr><th> Prix </th><td> {{ $produit->prix }} </td></tr><tr><th> Quantite </th><td> {{ $produit->quantite }} </td></tr><tr><th> Categorie Id </th><td> {{ $produit->categorie_id }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

@@ -1,4 +1,8 @@
 @extends('layouts.app')
+@section('css')
+<!-- css for Select2 -->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+@endsection
 
 @section('content')
 
@@ -50,4 +54,24 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+
+<!-- to show name file  in input file (file u selected) -->
+
+<script type="text/javascript">
+    $('.custom-file-input').on('change', function() {
+       let fileName = $(this).val().split('\\').pop();
+       $(this).next('.custom-file-label').addClass("selected").html(fileName);
+    }); 
+</script>
+
+
+<!-- script for Select2 -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
+<script type="text/javascript">
+            $( ".select2" ).select2({
+            maximumInputLength: 20 // only allow terms up to 20 characters long
+        });
+</script>
 @endsection

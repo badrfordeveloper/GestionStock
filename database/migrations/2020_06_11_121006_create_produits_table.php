@@ -19,7 +19,7 @@ class CreateProduitsTable extends Migration
             $table->longText('description')->nullable();
             $table->string('image')->nullable();
             $table->float('prix')->nullable();
-            $table->integer('qunatite')->nullable();
+            $table->integer('quantite')->nullable();
             $table->foreignId('categorie_id')->constrained('categories')->onDelete('cascade')->onUpdate('cascade');
             });
     }

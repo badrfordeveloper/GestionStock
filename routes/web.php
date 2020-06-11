@@ -50,3 +50,4 @@ Route::resource('admin/types', 'Admin\\TypesController');
 Route::resource('admin/ventes', 'Admin\\VentesController');
 
 Route::resource('admin/users', 'Admin\\UsersController');
+Route::resource('admin/produits', 'Admin\\ProduitsController');

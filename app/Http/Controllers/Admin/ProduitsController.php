@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
 use App\Produit;
+use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProduitsController extends Controller
 {
@@ -46,7 +48,8 @@ class ProduitsController extends Controller
      */
     public function create()
     {
-        return view('admin.produits.create');
+        $categories=Category::All();
+        return view('admin.produits.create',compact('categories'));
     }
 
     /**
@@ -58,8 +61,13 @@ class ProduitsController extends Controller
      */
     public function store(Request $request)
     {
+
+        $directoryPhoto = 'produits';
+        Storage::makeDirectory($directoryPhoto);
         
         $requestData = $request->all();
+
+        if($request->hasFile('image')) $requestData['image']= $request->file('image')->store($directoryPhoto);
         
         Produit::create($requestData);
 
@@ -89,9 +97,10 @@ class ProduitsController extends Controller
      */
     public function edit($id)
     {
+        $categories=Category::All();
         $produit = Produit::findOrFail($id);
 
-        return view('admin.produits.edit', compact('produit'));
+        return view('admin.produits.edit', compact('produit','categories'));
     }
 
     /**
@@ -108,6 +117,16 @@ class ProduitsController extends Controller
         $requestData = $request->all();
         
         $produit = Produit::findOrFail($id);
+
+        $oldPhoto =$produit->image;
+        $directoryPhoto = 'produits';
+        Storage::makeDirectory($directoryPhoto);
+
+        if($request->hasFile('image')) $requestData['image']= $request->file('image')->store($directoryPhoto);
+        if( !empty($requestData['image']) ) Storage::delete($oldPhoto);
+
+
+
         $produit->update($requestData);
 
         return redirect('admin/produits')->with('flash_message', 'Produit updated!');
@@ -122,6 +141,8 @@ class ProduitsController extends Controller
      */
     public function destroy($id)
     {
+         $produit=Produit::find($id);
+        Storage::delete($produit->image);
         Produit::destroy($id);
 
         return redirect('admin/produits')->with('flash_message', 'Produit deleted!');

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
 use App\User;
+use App\Type;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -48,7 +49,8 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('admin.users.create');
+        $types=Type::All();
+        return view('admin.users.create',compact('types'));
     }
 
     /**
@@ -91,9 +93,10 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
+        $types=Type::All();
         $user = User::findOrFail($id);
 
-        return view('admin.users.edit', compact('user'));
+        return view('admin.users.edit', compact('user','types'));
     }
 
     /**
