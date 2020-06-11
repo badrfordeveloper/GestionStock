@@ -15,9 +15,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'nom','prenom', 'email', 'password','username','role','photo','cover','tel','dateNaissance','sexe','adresse'
-    ];
+     protected $fillable = ['nom', 'prenom', 'email', 'password', 'tel', 'adresse', 'societe', 'type_id'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -37,8 +35,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function profile()
+    public function type()
     {
-        return $this->hasOne('App\Profile');
+        return $this->belongsTo('App\Type');
+    }
+    public function commandes()
+    {
+        return $this->hasMany('App\Commande');
+    }
+    public function achats()
+    {
+        return $this->hasMany('App\Achat');
     }
 }

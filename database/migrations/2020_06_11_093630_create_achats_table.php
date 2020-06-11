@@ -17,7 +17,6 @@ class CreateAchatsTable extends Migration
             $table->timestamps();
             $table->dateTime('date')->nullable();
             $table->string('etat')->nullable();
-            $table->integer('user_id')->unsigned();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
             });
     }
