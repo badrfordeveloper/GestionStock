@@ -35,7 +35,7 @@
                         
                     </li>
                     <li>
-                        <a href="{{ url(Config::get('constants.ADMIN_PATH').'projets')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Projets</span></a>
+                        <a href="{{ url(Config::get('constants.ADMIN_PATH').'produits')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Produits</span></a>
                     </li>
 
                      <li>
@@ -43,19 +43,28 @@
                     </li>
 
                     <li>
-                        <a href="{{ url(Config::get('constants.ADMIN_PATH').'freelances')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Freelancers</span></a>
-                    </li>
-                    <li>
-                        <a href="{{ url(Config::get('constants.ADMIN_PATH').'employeurs')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Employeurs</span></a>
+                        <a href="{{ url(Config::get('constants.ADMIN_PATH').'achats')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Achats</span></a>
                     </li>
                     <li>
                         <a href="{{ url(Config::get('constants.ADMIN_PATH').'commandes')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Commandes</span></a>
                     </li>
                     <li>
+                        <a href="{{ url(Config::get('constants.ADMIN_PATH').'ligneachats')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Ligne achats</span></a>
+                    </li>
+                    <li>
                         <a href="{{ url(Config::get('constants.ADMIN_PATH').'categories')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Catégories</span></a>
                     </li>
                     <li>
-                        <a href="{{ url(Config::get('constants.ADMIN_PATH').'skills')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">skills</span></a>
+                        <a href="{{ url(Config::get('constants.ADMIN_PATH').'lignecommandes')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Ligne commandes</span></a>
+                    </li>  
+                    <li>
+                        <a href="{{ url(Config::get('constants.ADMIN_PATH').'retours')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Retours</span></a>
+                    </li>    
+                    <li>
+                        <a href="{{ url(Config::get('constants.ADMIN_PATH').'types')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Types</span></a>
+                    </li>     
+                    <li>
+                        <a href="{{ url(Config::get('constants.ADMIN_PATH').'ventes')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Ventes</span></a>
                     </li>            
 
                     
