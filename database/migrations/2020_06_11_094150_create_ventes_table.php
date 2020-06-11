@@ -17,7 +17,6 @@ class CreateVentesTable extends Migration
             $table->timestamps();
             $table->dateTime('date')->nullable();
             $table->string('etat')->nullable();
-            $table->integer('commande_id')->unsigned();
             $table->foreignId('commande_id')->constrained('commandes')->onDelete('cascade')->onUpdate('cascade');
             });
     }

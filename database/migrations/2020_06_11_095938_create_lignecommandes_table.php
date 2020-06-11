@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateLigneachatsTable extends Migration
+class CreateLignecommandesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,15 +12,13 @@ class CreateLigneachatsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ligneachats', function (Blueprint $table) {
+        Schema::create('lignecommandes', function (Blueprint $table) {
             $table->id(); 
             $table->timestamps();
-            $table->integer('produit_id')->unsigned();
-            $table->integer('achat_id')->unsigned();
             $table->float('quantite')->nullable();
             $table->float('prix_unite')->nullable();
             $table->foreignId('produit_id')->constrained('produits')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('achat_id')->constrained('achats')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('commande_id')->constrained('commandes')->onDelete('cascade')->onUpdate('cascade');
             });
     }
 
@@ -31,6 +29,6 @@ class CreateLigneachatsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('ligneachats');
+        Schema::drop('lignecommandes');
     }
 }

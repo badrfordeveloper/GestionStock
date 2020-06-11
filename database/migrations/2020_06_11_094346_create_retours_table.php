@@ -17,7 +17,6 @@ class CreateRetoursTable extends Migration
             $table->timestamps();
             $table->dateTime('date')->nullable();
             $table->string('etat')->nullable();
-            $table->integer('vente_id')->unsigned();
             $table->foreignId('vente_id')->constrained('ventes')->onDelete('cascade')->onUpdate('cascade');
             });
     }

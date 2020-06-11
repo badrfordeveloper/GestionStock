@@ -4,21 +4,13 @@
 
     <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-10">
-            @if($role == "admin")
-                <h2>Users</h2>
-            @else
-                <h2>Employeurs</h2>
-            @endif
+            <h2>Users</h2>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                     <a href="{{ url(Config::get('constants.ADMIN_PATH')) }}">Tableau de Board</a>
                 </li>
                  <li class="breadcrumb-item">
-                    @if($role == "admin")
                     <a href="{{ url(Config::get('constants.ADMIN_PATH').'users') }}">Users</a>
-                    @else
-                    <a href="{{ url(Config::get('constants.ADMIN_PATH').'employeurs') }}">Employeurs</a>
-                    @endif
                 </li>
                   <li class="breadcrumb-item active">
                     <strong>Voir</strong>
@@ -34,11 +26,7 @@
             <div class="col-lg-12">
                 <div class="ibox ">
                     <div class="ibox-title">
-                         @if($role == "admin")
-                            <h5>User</h5>
-                        @else
-                            <h5>Employeur</h5>
-                        @endif
+                        <h5>User</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -55,24 +43,15 @@
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered table-hover">
                                 <tbody>
-                                    <tr><th>ID</th><td>{{ $user->id }}</td></tr>
-                                    <tr><th> Photo </th><td> <img src="{{ asset('storage/'.$user->photo) }}" height="60px" alt=""> </td></tr>
-                                    <tr><th> Cover </th><td> <img src="{{ asset('storage/'.$user->cover) }}" height="60px" alt=""></td></tr>
-                                    <tr><th> Nom </th><td> {{ $user->nom }} </td></tr>
-                                    <tr><th> Prenom </th><td> {{ $user->prenom }} </td></tr>
-                                    <tr><th> Username </th><td> {{ $user->username }} </td></tr>
-                                    <tr><th> Email </th><td> {{ $user->email }} </td></tr>
-                                    <tr><th> Password </th><td> {{ $user->password }} </td></tr>
-                                    <tr><th> Role </th><td> {{ $user->role }} </td></tr>
-                                    <tr><th> Tel </th><td> {{ $user->tel }} </td></tr>
-                                    <tr><th> DateNaissance </th><td> {{ $user->dateNaissance }} </td></tr>
-                                    <tr><th> Sexe </th><td> {{ $user->sexe }} </td></tr>
-                                    <tr><th> Adresse </th><td> {{ $user->adresse }} </td></tr>
+                                    <tr>
+                                        <th>ID</th><td>{{ $user->id }}</td>
+                                    </tr>
+                                    <tr><th> Nom </th><td> {{ $user->nom }} </td></tr><tr><th> Prenom </th><td> {{ $user->prenom }} </td></tr><tr><th> Email </th><td> {{ $user->email }} </td></tr><tr><th> Password </th><td> {{ $user->password }} </td></tr><tr><th> Tel </th><td> {{ $user->tel }} </td></tr><tr><th> Adresse </th><td> {{ $user->adresse }} </td></tr><tr><th> Societe </th><td> {{ $user->societe }} </td></tr><tr><th> Type Id </th><td> {{ $user->type_id }} </td></tr>
                                 </tbody>
                             </table>
                         </div>
 
-                         <a href="{{ url('/admin/users/' . $user->id . '/edit') }}" title="Edit user"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editer</button></a>
+                         <a href="{{ url('/admin/users/' . $user->id . '/edit') }}" title="Edit User"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editer</button></a>
 
 
                         <div class="table-responsive" style="display:inline">
@@ -80,7 +59,7 @@
                         <form method="POST" action="{{ url('admin/users' . '/' . $user->id) }}" accept-charset="UTF-8" style="display:inline">
                             {{ method_field('DELETE') }}
                             {{ csrf_field() }}
-                            <button type="submit" class="btn btn-danger btn-sm" title="Delete user" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Supprimer</button>
+                            <button type="submit" class="btn btn-danger btn-sm" title="Delete User" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Supprimer</button>
                         </form>
 
                     </div>

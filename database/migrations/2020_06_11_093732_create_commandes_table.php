@@ -18,7 +18,6 @@ class CreateCommandesTable extends Migration
             $table->dateTime('date')->nullable();
             $table->float('total')->nullable();
             $table->string('status')->nullable();
-            $table->integer('user_id')->unsigned();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
             });
     }
