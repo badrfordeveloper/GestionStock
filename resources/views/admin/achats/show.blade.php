@@ -46,7 +46,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $achat->id }}</td>
                                     </tr>
-                                    <tr><th> Date </th><td> {{ $achat->date }} </td></tr><tr><th> Etat </th><td> {{ $achat->etat }} </td></tr><tr><th> User Id </th><td> {{ $achat->user_id }} </td></tr>
+                                    <tr><th> Date </th><td> {{ $achat->date }} </td></tr><tr><th> Total </th><td> {{ $achat->total }} </td></tr><tr><th> Facture </th><td> {{ $achat->facture }} </td></tr><tr><th> Fournisseur </th><td> {{ $achat->user->nom .' '.$achat->user->prenom }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

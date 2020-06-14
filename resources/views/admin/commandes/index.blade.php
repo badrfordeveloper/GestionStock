@@ -53,7 +53,7 @@
                                         <th>#</th><th>Date</th>
             <th>Total</th>
             <th>Status</th>
-            <th>User Id</th>
+            <th>Client</th>
             <th><i class="fa fa-wrench"></i></th>
                                     </tr>
                                 </thead>
@@ -64,7 +64,7 @@
                                         <td>{{ $item->date }}</td>
             <td>{{ $item->total }}</td>
             <td>{{ $item->status }}</td>
-            <td>{{ $item->user_id }}</td>
+            <td>{{ $item->user->nom .' '.$item->user->prenom }}</td>
             
 
 
@@ -99,7 +99,7 @@
                                     <th>#</th><th>Date</th>
             <th>Total</th>
             <th>Status</th>
-            <th>User Id</th>
+            <th>Client</th>
             <th><i class="fa fa-wrench"></i></th>
                                 </tr>
                             </tfoot>

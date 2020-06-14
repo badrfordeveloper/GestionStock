@@ -25,7 +25,7 @@ class Retour extends Model
      *
      * @var array
      */
-    protected $fillable = ['date', 'etat', 'vente_id'];
+    protected $fillable = ['date', 'vente_id'];
 
     public function vente()
     {

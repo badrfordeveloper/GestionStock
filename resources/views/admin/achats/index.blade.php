@@ -51,8 +51,9 @@
                                 <thead>
                                     <tr>
                                         <th>#</th><th>Date</th>
-            <th>Etat</th>
-            <th>User Id</th>
+            <th>Total</th>
+            <th>Facture</th>
+            <th>Fournisseur</th>
             <th><i class="fa fa-wrench"></i></th>
                                     </tr>
                                 </thead>
@@ -61,8 +62,8 @@
                                     <tr class="gradeX">
                                       <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->date }}</td>
-            <td>{{ $item->etat }}</td>
-            <td>{{ $item->user_id }}</td>
+            <td>{{ $item->total }}</td>
+            <td>{{ $item->user->nom .' '.$item->user->prenom }}</td>
             
 
 
@@ -95,8 +96,9 @@
                             <tfoot>
                                 <tr>
                                     <th>#</th><th>Date</th>
-            <th>Etat</th>
-            <th>User Id</th>
+            <th>Total</th>
+            <th>Facture</th>
+            <th>Fournisseur</th>
             <th><i class="fa fa-wrench"></i></th>
                                 </tr>
                             </tfoot>

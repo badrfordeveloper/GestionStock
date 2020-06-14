@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
 use App\Commande;
+use App\User;
 use Illuminate\Http\Request;
 
 class CommandesController extends Controller
@@ -44,7 +45,8 @@ class CommandesController extends Controller
      */
     public function create()
     {
-        return view('admin.commandes.create');
+        $clients = User::all();
+        return view('admin.commandes.create',compact('clients'));
     }
 
     /**
@@ -88,8 +90,9 @@ class CommandesController extends Controller
     public function edit($id)
     {
         $commande = Commande::findOrFail($id);
+        $clients = User::all();
 
-        return view('admin.commandes.edit', compact('commande'));
+        return view('admin.commandes.edit', compact('commande','clients'));
     }
 
     /**

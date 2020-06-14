@@ -26,8 +26,6 @@ class RetoursController extends Controller
 
         if (!empty($keyword)) {
             $retours = Retour::where('date', 'LIKE', "%$keyword%")
-                ->orWhere('etat', 'LIKE', "%$keyword%")
-                ->orWhere('vente_id', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
             $retours = Retour::latest()->paginate($perPage);

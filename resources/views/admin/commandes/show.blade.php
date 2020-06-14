@@ -46,7 +46,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $commande->id }}</td>
                                     </tr>
-                                    <tr><th> Date </th><td> {{ $commande->date }} </td></tr><tr><th> Total </th><td> {{ $commande->total }} </td></tr><tr><th> Status </th><td> {{ $commande->status }} </td></tr><tr><th> User Id </th><td> {{ $commande->user_id }} </td></tr>
+                                    <tr><th> Date </th><td> {{ $commande->date }} </td></tr><tr><th> Total </th><td> {{ $commande->total }} </td></tr><tr><th> Status </th><td> {{ $commande->status }} </td></tr><tr><th> Client </th><td> {{ $commande->user->nom.' '. $commande->user->prenom }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

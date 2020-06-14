@@ -25,7 +25,7 @@ class Achat extends Model
      *
      * @var array
      */
-    protected $fillable = ['date', 'etat', 'user_id'];
+    protected $fillable = ['date', 'total', 'facture', 'user_id'];
 
     public function user()
     {

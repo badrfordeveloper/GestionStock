@@ -46,7 +46,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $retour->id }}</td>
                                     </tr>
-                                    <tr><th> Date </th><td> {{ $retour->date }} </td></tr><tr><th> Etat </th><td> {{ $retour->etat }} </td></tr><tr><th> Vente Id </th><td> {{ $retour->vente_id }} </td></tr>
+                                    <tr><th> Date </th><td> {{ $retour->date }} </td></tr><tr><th> Vente Id </th><td> {{ $retour->vente_id }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

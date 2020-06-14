@@ -21,12 +21,22 @@
     {!! $errors->first('status', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
-<div class="form-group row {{ $errors->has('user_id') ? 'has-error' : ''}}">
-    <label for="user_id" class="col-sm-2 col-form-label">{{ 'User Id' }}</label>
-	<div class="col-sm-10">
-    	<input class="form-control" name="user_id" type="number" id="user_id" value="{{ isset($commande->user_id) ? $commande->user_id : old('user_id') }}" >
 
-    {!! $errors->first('user_id', '<p class="help-block">:message</p>') !!}
+
+<div class="form-group row {{ $errors->has('user_id') ? 'has-error' : ''}}">
+    <label class="col-sm-2 col-form-label">Client</label>
+
+    <div class="col-sm-10">
+        <select  class="select2 form-control custom-select" id="user_id" name="user_id" style="width: 100%; height:36px;">
+                    <option value="" selected>Selectionnez</option>
+                    @if(count($clients))
+                        @foreach($clients as $obj)
+                            <option value="{{ $obj->id }}"  @if(isset($commande->user_id) && $commande->user_id== $obj->id )selected @endif>{{ $obj->nom .' '.$obj->prenom }}</option>
+                        @endforeach
+                    @endif
+        </select>
+
+        {!! $errors->first('user_id', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
 

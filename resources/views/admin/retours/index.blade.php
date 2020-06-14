@@ -51,7 +51,6 @@
                                 <thead>
                                     <tr>
                                         <th>#</th><th>Date</th>
-            <th>Etat</th>
             <th>Vente Id</th>
             <th><i class="fa fa-wrench"></i></th>
                                     </tr>
@@ -61,7 +60,6 @@
                                     <tr class="gradeX">
                                       <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->date }}</td>
-            <td>{{ $item->etat }}</td>
             <td>{{ $item->vente_id }}</td>
             
 
@@ -95,7 +93,6 @@
                             <tfoot>
                                 <tr>
                                     <th>#</th><th>Date</th>
-            <th>Etat</th>
             <th>Vente Id</th>
             <th><i class="fa fa-wrench"></i></th>
                                 </tr>

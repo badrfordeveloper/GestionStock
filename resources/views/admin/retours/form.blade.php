@@ -5,14 +5,7 @@
     {!! $errors->first('date', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
-<div class="form-group row {{ $errors->has('etat') ? 'has-error' : ''}}">
-    <label for="etat" class="col-sm-2 col-form-label">{{ 'Etat' }}</label>
-	<div class="col-sm-10">
-    	<input class="form-control" name="etat" type="text" id="etat" value="{{ isset($retour->etat) ? $retour->etat : old('etat') }}" >
 
-    {!! $errors->first('etat', '<p class="help-block">:message</p>') !!}
-    </div>
-</div>
 <div class="form-group row {{ $errors->has('vente_id') ? 'has-error' : ''}}">
     <label for="vente_id" class="col-sm-2 col-form-label">{{ 'Vente Id' }}</label>
 	<div class="col-sm-10">

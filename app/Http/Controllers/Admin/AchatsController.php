@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
 use App\Achat;
+use App\User;
 use Illuminate\Http\Request;
 
 class AchatsController extends Controller
@@ -26,8 +27,6 @@ class AchatsController extends Controller
 
         if (!empty($keyword)) {
             $achats = Achat::where('date', 'LIKE', "%$keyword%")
-                ->orWhere('etat', 'LIKE', "%$keyword%")
-                ->orWhere('user_id', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
             $achats = Achat::latest()->paginate($perPage);
@@ -43,7 +42,8 @@ class AchatsController extends Controller
      */
     public function create()
     {
-        return view('admin.achats.create');
+        $fournisseurs = User::all();
+        return view('admin.achats.create',compact('fournisseurs'));
     }
 
     /**
@@ -87,8 +87,9 @@ class AchatsController extends Controller
     public function edit($id)
     {
         $achat = Achat::findOrFail($id);
+        $fournisseurs = User::all();
 
-        return view('admin.achats.edit', compact('achat'));
+        return view('admin.achats.edit', compact('achat','fournisseurs'));
     }
 
     /**
