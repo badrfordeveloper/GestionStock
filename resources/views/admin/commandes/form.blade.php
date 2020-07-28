@@ -1,18 +1,11 @@
 <div class="form-group row {{ $errors->has('date') ? 'has-error' : ''}}">
     <label for="date" class="col-sm-2 col-form-label">{{ 'Date' }}</label>
 	<div class="col-sm-10">
-    	<input class="form-control" name="date" type="datetime-local" id="date" value="{{ isset($commande->date) ? $commande->date : old('date')}}" >
+    	<input class="form-control" name="date" type="datetime-local" id="date" value="{{ isset($commande->date) ?  \Carbon\Carbon::parse($commande->date)->toDatetimelocalString() : ''}}">
     {!! $errors->first('date', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
-<div class="form-group row {{ $errors->has('total') ? 'has-error' : ''}}">
-    <label for="total" class="col-sm-2 col-form-label">{{ 'Total' }}</label>
-	<div class="col-sm-10">
-    	<input class="form-control" name="total" type="number" id="total" value="{{ isset($commande->total) ? $commande->total : old('total') }}" >
 
-    {!! $errors->first('total', '<p class="help-block">:message</p>') !!}
-    </div>
-</div>
 <div class="form-group row {{ $errors->has('status') ? 'has-error' : ''}}">
     <label for="status" class="col-sm-2 col-form-label">{{ 'Status' }}</label>
 	<div class="col-sm-10">
@@ -41,9 +34,42 @@
 </div>
 
 
+<input id="project">
+
+
+<table id="products">
+    <thead>
+        <tr>
+            <th>Produit</th>
+            <th>Prix unitaire</th>
+            <th>Current Prix</th>
+            <th>Quantité</th>
+            <th>Current Quantité</th>
+            <th>Total</th>
+            <th>supprimer</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+    <tfoot>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>Total General</th>
+            <th id="Total">0</th>
+            <th></th>
+
+        </tr>
+        
+    </tfoot>
+</table>
+
+
 <div class="form-group row">
     <div class="col-sm-4 col-sm-offset-2">
-        <button class="btn btn-primary btn-sm" type="submit">{{ $formMode === 'edit' ? 'Modifier' : 'Ajouter' }}</button>
+        <button class="btn btn-primary btn-sm" id="mysubmit" type="submit">{{ $formMode === 'edit' ? 'Modifier' : 'Ajouter' }}</button>
     </div>
 </div>
 

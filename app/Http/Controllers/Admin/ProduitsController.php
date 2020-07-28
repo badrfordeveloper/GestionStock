@@ -147,4 +147,18 @@ class ProduitsController extends Controller
 
         return redirect('admin/produits')->with('flash_message', 'Produit deleted!');
     }
+
+    public function getProducts(Request $request)
+    {
+         
+
+         $produits=Produit::where('nom', 'LIKE', $request->input('term').'%')
+         ->select('produits.*','produits.quantite as StockQuantite','produits.prix as Currentprix')
+         ->get();
+
+        return $produits;
+    }
+
+
+    
 }

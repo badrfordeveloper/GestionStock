@@ -51,3 +51,5 @@ Route::resource('admin/ventes', 'Admin\\VentesController');
 
 Route::resource('admin/users', 'Admin\\UsersController');
 Route::resource('admin/produits', 'Admin\\ProduitsController');
+
+Route::post('getProducts', 'Admin\\ProduitsController@getProducts');

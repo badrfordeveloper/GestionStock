@@ -39,5 +39,10 @@ class Produit extends Model
     {
         return $this->hasMany('App\Ligneachat');
     }
+
+    public function commandes()
+    {
+        return $this->belongsToMany('App\Commande');
+    }
     
 }

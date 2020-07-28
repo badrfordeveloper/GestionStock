@@ -7,6 +7,9 @@ use App\Http\Requests;
 
 use App\Commande;
 use App\User;
+use App\Produit;
+use App\Lignecommande; 
+use App\Commande_produit; 
 use Illuminate\Http\Request;
 
 class CommandesController extends Controller
@@ -58,12 +61,53 @@ class CommandesController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $requestData = $request->all();
-        
-        Commande::create($requestData);
+        dd($request->post() );
+        // retrieve data from serialize array becarful with order of input
+        $Date=$request->mydata[1]['value'];
+        $Status=$request->mydata[2]['value'];
+        $Client_id=$request->mydata[3]['value'];
 
-        return redirect('admin/commandes')->with('flash_message', 'Commande added!');
+        $total=0;
+
+        // calculer total et reduce qtte from stock
+        foreach ($request->myproduct as $p) {
+
+            $total+=$p['prix']*$p['RQtte'];
+  /*          $produit = Produit::find($p['id']);
+            $produit->quantite -= $p['RQtte'];
+            $produit->save();*/
+        }
+
+
+        //add Commande
+        $commande = new Commande;
+        $commande->date = $Date ;
+        $commande->status = $Status ;
+        $commande->total = $total ;
+        $commande->user_id = $Client_id ;
+        $commande->save();
+
+
+        //add the product in ligneCommande
+        foreach ($request->myproduct as $p) {
+
+
+            $commande->Produits()->attach($p['id'],['quantite' =>  $p['RQtte'] ,'prix_unite' => $p['prix']]);
+
+  /*          $lignecommande = new Lignecommande;
+            $lignecommande->quantite = $p['RQtte'];
+            $lignecommande->prix_unite = $p['prix'];
+            $lignecommande->produit_id = $p['id'];
+            $lignecommande->commande_id =  $commande->id;
+            $lignecommande->save();*/
+        }
+
+        echo 'ajouter avec Succes';
+    /*    $requestData = $request->all();
+        
+        Commande::create($requestData);*/
+
+      /*  return redirect('admin/commandes')->with('flash_message', 'Commande added!');*/
     }
 
     /**
@@ -89,10 +133,33 @@ class CommandesController extends Controller
      */
     public function edit($id)
     {
+/*
+            Currentprix: 200
+            StockQuantite: 10
+            categorie_id: 2
+            created_at: "2020-06-29T10:17:25.000000Z"
+            description: "description products"
+            id: 1
+            image: "produits/y1MnjR4g6YZajhtqpmE4mMoFQ5QwpwxfCbeRFWyE.png"
+            nom: "produits1"
+            prix: 200
+            quantite: 10
+            updated_at: "2020-07-14T09:52:48.000000Z"
+
+            $*/
+
+        $commande_produit = Commande_produit::where('commande_id','=',$id)
+                            ->join('produits', 'produits.id', '=', 'commande_produit.produit_id')
+                            ->select('produits.id', 'produits.created_at', 'produits.updated_at', 'produits.nom', 'produits.description', 'produits.image', 'commande_produit.prix_unite as prix', 'commande_produit.quantite', 'produits.categorie_id','produits.quantite as StockQuantite','produits.prix as Currentprix')
+                            ->get();
+               
         $commande = Commande::findOrFail($id);
+
+  /*      dd($commande_produit) ;*/
+   
         $clients = User::all();
 
-        return view('admin.commandes.edit', compact('commande','clients'));
+        return view('admin.commandes.edit', compact('commande','clients','commande_produit'));
     }
 
     /**
@@ -105,13 +172,75 @@ class CommandesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-        $requestData = $request->all();
-        
-        $commande = Commande::findOrFail($id);
-        $commande->update($requestData);
 
-        return redirect('admin/commandes')->with('flash_message', 'Commande updated!');
+
+
+         // retrieve data from serialize array becarful with order of input
+        $Date=$request->mydata[2]['value'];
+        $Status=$request->mydata[3]['value'];
+        $Client_id=$request->mydata[4]['value'];
+
+        $total=0;
+
+        
+
+        // calculer total et reduce qtte from stock
+        foreach ($request->myproduct as $p) {
+
+            $total+=$p['prix']*$p['RQtte'];
+  /*          $produit = Produit::find($p['id']);
+            $produit->quantite -= $p['RQtte'];
+            $produit->save();*/
+        }
+
+
+        //add Commande
+
+            $commande = Commande::findOrFail($id);
+            $commande->date = $Date ;
+            $commande->status = $Status ;
+            $commande->total = $total ;
+            $commande->user_id = $Client_id ;
+            $commande->save();
+
+                $data = array();
+
+                //add the product in ligneCommande
+                foreach ($request->myproduct as $p) {
+          /*          if(count($data)>=1){
+                        array_push($data[0], $p['id'] => array('quantite' =>  $p['RQtte'] ,'prix_unite' => $p['prix']));
+                    }
+                    else{*/
+                        $data[$p['id'] ]=array('quantite' =>  $p['RQtte'] ,'prix_unite' => $p['prix']);
+                          /*array_push($data, [$p['id'] => array('quantite' =>  $p['RQtte'] ,'prix_unite' => $p['prix'])]);*/
+              /*      }*/
+                    
+                /*    $commande->Produits()->attach($p['id'],['quantite' =>  $p['RQtte'] ,'prix_unite' => $p['prix']]);*/
+
+          /*          $lignecommande = new Lignecommande;
+                    $lignecommande->quantite = $p['RQtte'];
+                    $lignecommande->prix_unite = $p['prix'];
+                    $lignecommande->produit_id = $p['id'];
+                    $lignecommande->commande_id =  $commande->id;
+                    $lignecommande->save();*/
+                }
+               
+
+                 $commande->Produits()->sync( $data);
+
+     /*   dd($data );*/
+
+ 
+
+        echo 'update avec Succes';
+
+
+        
+      /*  $requestData = $request->all();
+        
+      
+
+        return redirect('admin/commandes')->with('flash_message', 'Commande updated!');*/
     }
 
     /**
@@ -123,6 +252,9 @@ class CommandesController extends Controller
      */
     public function destroy($id)
     {
+        $commande=Commande::find($id);
+        $commande->Produits()->detach();
+
         Commande::destroy($id);
 
         return redirect('admin/commandes')->with('flash_message', 'Commande deleted!');

@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Commande extends Model
+class Commande_produit extends Model
 {
-    /**
+	    /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'commandes';
+    protected $table = 'commande_produit';
 
     /**
     * The database primary key value.
@@ -25,9 +25,10 @@ class Commande extends Model
      *
      * @var array
      */
-    protected $fillable = ['date', 'total', 'status', 'user_id'];
+    
+    protected $fillable = ['quantite', 'prix_unite', 'produit_id', 'commande_id'];
 
-    public function user()
+/*    public function user()
     {
         return $this->belongsTo('App\User');
     }
@@ -43,6 +44,5 @@ class Commande extends Model
      public function Produits()
     {
         return $this->belongsToMany('App\Produit');
-    }
-    
+    }*/
 }
