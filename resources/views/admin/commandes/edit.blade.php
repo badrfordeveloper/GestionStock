@@ -3,10 +3,15 @@
 @section('css')
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <style type="text/css">
-    .warning{
-        background-color: red
+    .error{
+        background-color: yellow !important
 
     }
+    .warning{
+        background-color: red !important
+
+    }
+    
 </style>
 @endsection
 
@@ -257,6 +262,9 @@
                    if(myproduct[i].quantite>myproduct[i].StockQuantite){
                         myclass="warning"
                          $("#mysubmit").prop("disabled", true);
+                    }
+                    else if(myproduct[i].prix != myproduct[i].Currentprix){
+                        myclass="error"
                     }
 
                     // en V2  u have to check if the quantité change change the class  +  prix

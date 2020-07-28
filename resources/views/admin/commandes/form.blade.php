@@ -33,11 +33,16 @@
     </div>
 </div>
 
+<div class="form-group row">
+    <label for="project" class="col-sm-2 col-form-label">Produit</label>
+    <div class="col-sm-10">
+        <input class="form-control"  id="project"  >
+    </div>
+</div>
 
-<input id="project">
-
-
-<table id="products">
+<div class="row">
+    <div class="col-md-12">
+        <table id="products" class="table table-bordered table-striped">
     <thead>
         <tr>
             <th>Produit</th>
@@ -65,6 +70,9 @@
         
     </tfoot>
 </table>
+    </div>
+</div>
+
 
 
 <div class="form-group row">

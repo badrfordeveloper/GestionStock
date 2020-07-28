@@ -154,8 +154,7 @@
                     mydata:frm.serializeArray()
                 } ,
                 success: function (data) {
-                /*    window.location.href = "{{ url(Config::get('constants.ADMIN_PATH').'commandes')}}";
-*/
+                    window.location.href = "{{ url(Config::get('constants.ADMIN_PATH').'commandes')}}";
                 },
                 error: function (data) {
                     console.log('An error occurred.');

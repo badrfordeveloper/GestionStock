@@ -61,7 +61,7 @@ class CommandesController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->post() );
+        
         // retrieve data from serialize array becarful with order of input
         $Date=$request->mydata[1]['value'];
         $Status=$request->mydata[2]['value'];
