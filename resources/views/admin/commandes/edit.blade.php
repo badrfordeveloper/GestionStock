@@ -3,11 +3,11 @@
 @section('css')
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <style type="text/css">
-    .error{
+    .warning{
         background-color: yellow !important
 
     }
-    .warning{
+    .error{
         background-color: red !important
 
     }
@@ -118,8 +118,10 @@
                     var myclass=""
 
                     if(ui.item.quantite<1){
-                        myclass="warning"
+                        myclass="error"
                          $("#mysubmit").prop("disabled", true);
+                    } else if(ui.item.prix != ui.item.Currentprix){
+                        myclass="warning"
                     }
                         
 
@@ -208,11 +210,14 @@
 
                     for (var i in myproduct) {
                         if (myproduct[i].id == id) {
+                             console.log( $( this ).parent().parent().hasClass('error'));
                             if(qtte > myproduct[i].StockQuantite){
-                                $( this ).parent().parent().addClass('warning');
+                                $( this ).parent().parent().addClass('error');
                                 $("#mysubmit").prop("disabled", true);
-                            }else if(qtte <= myproduct[i].quantite &&  $( this ).parent().parent().hasClass('warning') ){
-                                        $( this ).parent().parent().removeClass( "warning" )
+
+                            }else if(qtte <= myproduct[i].StockQuantite &&  $( this ).parent().parent().hasClass('error') ){
+                                console.log("tets");
+                                        $( this ).parent().parent().removeClass( "error" )
                             }
                             myproduct[i].RQtte = qtte;
                             break; //Stop this loop, we found it!
@@ -260,11 +265,11 @@
             for (var i in myproduct) { 
                     var myclass=""
                    if(myproduct[i].quantite>myproduct[i].StockQuantite){
-                        myclass="warning"
+                        myclass="error"
                          $("#mysubmit").prop("disabled", true);
                     }
                     else if(myproduct[i].prix != myproduct[i].Currentprix){
-                        myclass="error"
+                        myclass="warning"
                     }
 
                     // en V2  u have to check if the quantité change change the class  +  prix

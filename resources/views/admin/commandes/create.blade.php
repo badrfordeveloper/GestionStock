@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <style type="text/css">
     .warning{
-        background-color: red
+        background-color: red !important
 
     }
 </style>
@@ -194,10 +194,10 @@
 
                     for (var i in myproduct) {
                         if (myproduct[i].id == id) {
-                            if(qtte > myproduct[i].quantite){
+                            if(qtte > myproduct[i].StockQuantite){
                                 $( this ).parent().parent().addClass('warning');
                                 $("#mysubmit").prop("disabled", true);
-                            }else if(qtte <= myproduct[i].quantite &&  $( this ).parent().parent().hasClass('warning') ){
+                            }else if(qtte <= myproduct[i].StockQuantite &&  $( this ).parent().parent().hasClass('warning') ){
                                         $( this ).parent().parent().removeClass( "warning" )
                             }
                             myproduct[i].RQtte = qtte;
