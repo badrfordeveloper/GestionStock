@@ -22,7 +22,40 @@
     </div>
 </div> -->
 
-<div class="form-group row {{ $errors->has('image') ? 'has-error' : ''}}">
+<fieldset>
+    <legend>Photos </legend>
+    <div class="row">
+        @for ($i = 0; $i < 6; $i++)
+        <div class="col-md-2">
+            <div class="form-group">
+                @if( isset($produit->photos[$i]) )
+                    <div class="file-img">
+
+                        <a href="#" class="icon-close" data-img="{{ $produit->photos[$i]->id }}" style="display: block;">x</a>
+
+                        <div id="imagePreview" class="imagePreview" style='background-image: url("{{ asset("storage/".$produit->photos[$i]->image )}}");'></div>
+
+                        <input id="uploadFile" type="file" name="image_{{ $i+1 }}" class="img uploadFile" />
+
+                    </div>
+                @else
+                    <div class="file-img">
+
+                        <a href="#" class="icon-close">x</a>
+
+                        <div id="imagePreview" class="imagePreview">Selectionnez image</div>
+
+                        <input id="uploadFile" type="file" name="image_{{ $i+1 }}" class="img uploadFile" />
+
+                    </div>
+                @endif
+            </div>
+        </div>
+        @endfor
+    </div>
+</fieldset>
+
+<!-- <div class="form-group row {{ $errors->has('image') ? 'has-error' : ''}}">
     <label for="image" class="col-sm-2 col-form-label">{{ 'Image' }}</label>
     <div class="col-sm-10">
          <div class="custom-file">
@@ -32,7 +65,7 @@
            {!! $errors->first('image', '<p class="help-block">:message</p>') !!}
     </div>
  
-</div>
+</div> -->
 
 
 <div class="form-group row {{ $errors->has('prix') ? 'has-error' : ''}}">

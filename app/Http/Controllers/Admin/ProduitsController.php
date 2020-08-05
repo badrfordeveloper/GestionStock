@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
 use App\Produit;
+use App\Photo;
 use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -67,9 +68,26 @@ class ProduitsController extends Controller
         
         $requestData = $request->all();
 
-        if($request->hasFile('image')) $requestData['image']= $request->file('image')->store($directoryPhoto);
+        //if($request->hasFile('image')) $requestData['image']= $request->file('image')->store($directoryPhoto);
         
-        Produit::create($requestData);
+        $produit = Produit::create($requestData);
+
+        for ($i = 0 ; $i < 6 ; $i++) 
+        {
+            if ($request->hasFile('image_'.($i+1))) 
+            {
+                $photo =new Photo();
+
+                $directory = 'images/pr'.$produit->id;
+
+                Storage::makeDirectory($directory);
+
+                $photo->image = $request->file('image_'.($i+1))->store($directory);
+                $photo->produit_id = $produit->id;
+                $photo->save();
+                
+            }
+        }
 
         return redirect('admin/produits')->with('flash_message', 'Produit added!');
     }
@@ -118,16 +136,31 @@ class ProduitsController extends Controller
         
         $produit = Produit::findOrFail($id);
 
-        $oldPhoto =$produit->image;
+        /*$oldPhoto =$produit->image;
         $directoryPhoto = 'produits';
         Storage::makeDirectory($directoryPhoto);
 
         if($request->hasFile('image')) $requestData['image']= $request->file('image')->store($directoryPhoto);
-        if( !empty($requestData['image']) ) Storage::delete($oldPhoto);
-
-
+        if( !empty($requestData['image']) ) Storage::delete($oldPhoto);*/
 
         $produit->update($requestData);
+
+        for ($i = 0 ; $i < 6 ; $i++) 
+        {
+            if ($request->hasFile('image_'.($i+1))) 
+            {
+                $photo =new Photo();
+
+                $directory = 'images/pr'.$produit->id;
+
+                Storage::makeDirectory($directory);
+
+                $photo->image = $request->file('image_'.($i+1))->store($directory);
+                $photo->produit_id = $produit->id;
+                $photo->save();
+                
+            }
+        }
 
         return redirect('admin/produits')->with('flash_message', 'Produit updated!');
     }
@@ -157,6 +190,19 @@ class ProduitsController extends Controller
          ->get();
 
         return $produits;
+    }
+
+     public function delete_image($id)
+    {
+       /* $image = Image::where('produit_id',$produit_id)->get();*/
+        $photo = Photo::find($id);
+
+        Storage::delete($photo->image);
+
+        $photo->delete();
+
+        return 1;
+
     }
 
 

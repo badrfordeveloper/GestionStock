@@ -44,5 +44,10 @@ class Produit extends Model
     {
         return $this->belongsToMany('App\Commande');
     }
+
+    public function photos()
+    {
+        return $this->hasMany('App\Photo');
+    }
     
 }

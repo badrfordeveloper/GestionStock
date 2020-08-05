@@ -52,4 +52,7 @@ Route::resource('admin/ventes', 'Admin\\VentesController');
 Route::resource('admin/users', 'Admin\\UsersController');
 Route::resource('admin/produits', 'Admin\\ProduitsController');
 
+Route::get('admin/delete-image/{id}', 'Admin\\ProduitsController@delete_image');
+
+
 Route::post('getProducts', 'Admin\\ProduitsController@getProducts');

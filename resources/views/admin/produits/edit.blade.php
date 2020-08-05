@@ -74,4 +74,67 @@
             maximumInputLength: 20 // only allow terms up to 20 characters long
         });
 </script>
+<script type="text/javascript">
+      $(function() {
+        $(".uploadFile").on("change", function() {
+          _imgFile = $(this);
+          var files = !!this.files ? this.files : [];
+          if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+
+          if (/^image/.test(files[0].type)) { // only image file
+            var reader = new FileReader(); // instance of the FileReader
+            reader.readAsDataURL(files[0]); // read the local file
+
+            reader.onloadend = function() { // set image data as background of div
+              _imgFile.prev().text("").css("background-image", "url(" + this.result + ")").parent().find('.icon-close').show();
+            }
+          }
+        });
+
+        $('.imagePreview').click(function() {
+          $(this).next().trigger('click');
+        });
+
+        $('a.icon-close').click(function(event) {
+          event.preventDefault();
+          var _icon_close = $(this);
+          if ($(this).attr('data-img')) 
+          {
+             var _id_img = $(this).attr('data-img');
+             if(confirm("Voulez vous vraiment supprimer cette image") == true)
+             {
+                $.ajax({
+                  url: '{{ url("admin/delete-image")."/" }}' +_id_img,
+                })
+                .done(function() {
+
+                  _icon_close.parent().find('.imagePreview').css('background-image', 'none').text('Selectionnez image');
+                  var _input = _icon_close.parent().find('.uploadFile');
+                  _input.replaceWith(_input.val('').clone(true));
+                  _icon_close.hide();
+
+                  alert("Image supprimé avec success !")
+                  console.log("success");
+                })
+                .fail(function() {
+                  console.log("error");
+                })
+                .always(function() {
+                  console.log("complete");
+                });
+                
+             }
+          } 
+          else 
+          {
+            $(this).parent().find('.imagePreview').css('background-image', 'none').text('Selectionnez image');
+
+            var _input = $(this).parent().find('.uploadFile');
+            _input.replaceWith(_input.val('').clone(true));
+            $(this).hide();
+          }
+
+          });
+      });
+</script>
 @endsection
