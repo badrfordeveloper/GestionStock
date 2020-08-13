@@ -71,6 +71,14 @@
                                          <div class="btn-group">
                                                 <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle">Actions</button>
                                                 <ul class="dropdown-menu">
+
+                                                    @if($item->etat != "en retour")
+
+                                                    <li>
+                                                        <a class="dropdown-item" href="{{ url(Config::get('constants.ADMIN_PATH').'toRetour/'. $item->id) }}"><i class="fa fa-eye" aria-hidden="true"></i>A retourne</a>
+                                                    </li>
+                                                    @endif
+
                                                     <li>
                                                         <a class="dropdown-item" href="{{ url(Config::get('constants.ADMIN_PATH').'ventes/'. $item->id) }}" title="View Category"><i class="fa fa-eye" aria-hidden="true"></i> Voir</a>
                                                     </li>

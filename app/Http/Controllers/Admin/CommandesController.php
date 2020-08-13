@@ -48,7 +48,7 @@ class CommandesController extends Controller
      */
     public function create()
     {
-        $clients = User::all();
+        $clients = User::where('type_id',3)->get();
         return view('admin.commandes.create',compact('clients'));
     }
 
@@ -157,7 +157,7 @@ class CommandesController extends Controller
 
   /*      dd($commande_produit) ;*/
    
-        $clients = User::all();
+        $clients = User::where('type_id',3)->get();
 
         return view('admin.commandes.edit', compact('commande','clients','commande_produit'));
     }

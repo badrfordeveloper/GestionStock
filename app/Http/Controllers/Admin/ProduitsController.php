@@ -183,10 +183,17 @@ class ProduitsController extends Controller
 
     public function getProducts(Request $request)
     {
-         
-
          $produits=Produit::where('nom', 'LIKE', $request->input('term').'%')
          ->select('produits.*','produits.quantite as StockQuantite','produits.prix as Currentprix')
+         ->get();
+
+        return $produits;
+    }
+
+    public function getProductsForAchats(Request $request)
+    {
+         $produits=Produit::where('nom', 'LIKE', $request->input('term').'%')
+         ->select('produits.id','produits.nom')
          ->get();
 
         return $produits;

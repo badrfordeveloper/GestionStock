@@ -43,33 +43,33 @@
 <div class="row">
     <div class="col-md-12">
         <table id="products" class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Produit</th>
-            <th>Prix unitaire</th>
-            <th>Current Prix</th>
-            <th>Quantité</th>
-            <th>Current Quantité</th>
-            <th>Total</th>
-            <th>supprimer</th>
-        </tr>
-    </thead>
-    <tbody>
-    </tbody>
-    <tfoot>
-        <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th>Total General</th>
-            <th id="Total">0</th>
-            <th></th>
+            <thead>
+                <tr>
+                    <th>Produit</th>
+                    <th>Prix unitaire</th>
+                    <th>Current Prix</th>
+                    <th>Quantité</th>
+                    <th>Current Quantité</th>
+                    <th>Total</th>
+                    <th>supprimer</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th>Total General</th>
+                    <th id="Total">0</th>
+                    <th></th>
 
-        </tr>
-        
-    </tfoot>
-</table>
+                </tr>
+                
+            </tfoot>
+        </table>
     </div>
 </div>
 
