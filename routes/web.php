@@ -30,12 +30,18 @@ Route::group(
 );
 Auth::routes();
 
-Route::get('/', 'publics\\PublicController@index');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/categorie-liste/{id}', 'HomeController@byCategorie');
+Route::get('/detail-produit/{id}/{name}', 'HomeController@detailProduct');
+Route::get('/panier', 'HomeController@panier');
+Route::get('/addtocart/{id}', 'HomeController@addToCart');
+Route::get('/getCountCart', 'HomeController@getCountCart');
+
+
 
 Auth::routes();
 
 
-Route::get('/home', 'publics\\PublicController@index')->name('home');
 
 
 Route::resource('admin/users', 'Admin\\UsersController');
