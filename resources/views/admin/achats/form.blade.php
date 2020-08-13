@@ -1,26 +1,19 @@
 <div class="form-group row {{ $errors->has('date') ? 'has-error' : ''}}">
     <label for="date" class="col-sm-2 col-form-label">{{ 'Date' }}</label>
 	<div class="col-sm-10">
-    	<input class="form-control" name="date" type="datetime-local" id="date" value="{{ isset($achat->date) ? $achat->date : old('date')}}" >
+    	<input class="form-control" name="date" type="datetime-local" id="date" value="{{ isset($achat->date) ?  \Carbon\Carbon::parse($achat->date)->toDatetimelocalString() : ''}}" >
     {!! $errors->first('date', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
-<div class="form-group row {{ $errors->has('total') ? 'has-error' : ''}}">
-    <label for="total" class="col-sm-2 col-form-label">{{ 'Total' }}</label>
-	<div class="col-sm-10">
-    	<input class="form-control" name="total" type="text" id="total" value="{{ isset($achat->total) ? $achat->total : old('total') }}" >
 
-    {!! $errors->first('total', '<p class="help-block">:message</p>') !!}
-    </div>
-</div>
-<div class="form-group row {{ $errors->has('facture') ? 'has-error' : ''}}">
+<!-- <div class="form-group row {{ $errors->has('facture') ? 'has-error' : ''}}">
     <label for="facture" class="col-sm-2 col-form-label">{{ 'Facture' }}</label>
     <div class="col-sm-10">
         <input class="form-control" name="facture" type="text" id="facture" value="{{ isset($achat->facture) ? $achat->facture : old('facture') }}" >
 
     {!! $errors->first('facture', '<p class="help-block">:message</p>') !!}
     </div>
-</div>
+</div> -->
 
 
 <div class="form-group row {{ $errors->has('user_id') ? 'has-error' : ''}}">
@@ -39,6 +32,48 @@
         {!! $errors->first('user_id', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
+
+
+<div class="form-group row">
+    <label for="project" class="col-sm-2 col-form-label">Produit</label>
+    <div class="col-sm-10">
+        <input class="form-control"  id="project"  >
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table id="products" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Produit</th>
+                    <!-- <th>Prix unitaire</th>
+                    <th>Current Prix</th> -->
+                    <th>Quantité</th>
+                  <!--   <th>Current Quantité</th>
+                    <th>Total</th> -->
+                    <th>supprimer</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th></th>
+                    <th></th>
+               <!--      <th></th>
+                    <th></th>
+                    <th>Total General</th>
+                    <th id="Total">0</th> -->
+                    <th></th>
+
+                </tr>
+                
+            </tfoot>
+        </table>
+    </div>
+</div>
+
 
 
 <div class="form-group row">

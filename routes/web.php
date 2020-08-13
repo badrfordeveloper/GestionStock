@@ -49,6 +49,8 @@ Route::resource('admin/retours', 'Admin\\RetoursController');
 Route::resource('admin/types', 'Admin\\TypesController');
 Route::resource('admin/ventes', 'Admin\\VentesController');
 
+
+
 Route::resource('admin/users', 'Admin\\UsersController');
 Route::resource('admin/produits', 'Admin\\ProduitsController');
 
@@ -56,3 +58,7 @@ Route::get('admin/delete-image/{id}', 'Admin\\ProduitsController@delete_image');
 
 
 Route::post('getProducts', 'Admin\\ProduitsController@getProducts');
+Route::post('getProductsForAchats', 'Admin\\ProduitsController@getProductsForAchats');
+
+Route::get('admin/toVente/{commande}', 'Admin\\VentesController@addVenteFromCommande');
+Route::get('admin/toRetour/{vente}', 'Admin\\RetoursController@addRetourFromVente');

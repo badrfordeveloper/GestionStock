@@ -60,11 +60,11 @@
                                 <tbody>
                                     @foreach($commandes as $item)
                                     <tr class="gradeX">
-                                      <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->date }}</td>
-            <td>{{ $item->total }}</td>
-            <td>{{ $item->status }}</td>
-            <td>{{ $item->user->nom .' '.$item->user->prenom }}</td>
+                                        <td>{{ $item->total }}</td>
+                                        <td>{{ $item->status }}</td>
+                                        <td>{{ $item->user->nom .' '.$item->user->prenom }}</td>
             
 
 
@@ -73,6 +73,12 @@
                                          <div class="btn-group">
                                                 <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle">Actions</button>
                                                 <ul class="dropdown-menu">
+
+                                                     @if($item->etat != "en vente")
+                                                    <li>
+                                                        <a class="dropdown-item" href="{{ url(Config::get('constants.ADMIN_PATH').'toVente/'. $item->id) }}"><i class="fa fa-eye" aria-hidden="true"></i>A Vente</a>
+                                                    </li>
+                                                    @endif
                                                     <li>
                                                         <a class="dropdown-item" href="{{ url(Config::get('constants.ADMIN_PATH').'commandes/'. $item->id) }}" title="View Category"><i class="fa fa-eye" aria-hidden="true"></i> Voir</a>
                                                     </li>

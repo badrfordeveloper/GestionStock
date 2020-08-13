@@ -6,7 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
 use App\Vente;
+use App\Commande;
+use App\Commande_produit; 
+use App\Produit;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+
 
 class VentesController extends Controller
 {
@@ -19,6 +24,57 @@ class VentesController extends Controller
      *
      * @return \Illuminate\View\View
      */
+
+    public function addVenteFromCommande(Commande $commande){
+
+        if($commande->status = "en vente"){
+
+            // get commande produit
+             $commande_produit = Commande_produit::where('commande_id','=',$commande->id)
+                        ->join('produits', 'produits.id', '=', 'commande_produit.produit_id')
+                        ->select('commande_produit.*')
+                        ->get();
+  
+            // check if stock still exist
+             $flag=false;
+            foreach ($commande_produit as $p) {
+                    $produit = Produit::find($p->produit_id);
+                     if( $produit->quantite<$p->quantite){
+                        $flag=true;
+                     }
+            }
+            // update quantity of products in stock if still available
+            if(!$flag){
+                foreach ($commande_produit as $p) {
+                    $produit = Produit::find($p->produit_id);
+                    $produit->quantite -= $p->quantite;
+                    $produit->save();
+                }
+            }
+            else{
+                return redirect('admin/commandes')->with('error', 'cant effect vente cause of quantité');
+            }
+
+            //update status of commande
+            $commande->status = "en vente" ;
+            $commande->save();
+
+
+                       
+            // add vente
+            $vente = new Vente;
+            $vente->date = Carbon::now();
+            $vente->etat = "en vente" ;
+            $vente->commande_id =  $commande->id ;
+            $vente->save();
+        }
+
+            return redirect('admin/ventes')->with('flash_message', 'Vente added!');
+
+
+
+    }
+
     public function index(Request $request)
     {
         $keyword = $request->get('search');

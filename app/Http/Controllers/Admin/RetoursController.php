@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
 use App\Retour;
+use App\Vente;
+use App\Commande_produit; 
+use App\Produit;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class RetoursController extends Controller
@@ -19,6 +23,46 @@ class RetoursController extends Controller
      *
      * @return \Illuminate\View\View
      */
+
+     public function addRetourFromVente(Vente $vente){
+
+            if($vente->etat != "en retour"){
+
+            // get commande produit
+
+             $commande_produit = Commande_produit::where('commande_id','=',$vente->commande->id)
+                        ->join('produits', 'produits.id', '=', 'commande_produit.produit_id')
+                        ->select('commande_produit.*')
+                        ->get();
+  
+  
+                foreach ($commande_produit as $p) {
+                    $produit = Produit::find($p->produit_id);
+                    $produit->quantite += $p->quantite;
+                    $produit->save();
+                }
+
+
+            //update status of commande
+            $vente->etat = "en retour" ;
+            $vente->save();
+
+
+                       
+            // add vente
+            $retour = new Retour;
+            $retour->date = Carbon::now();
+            $retour->vente_id =  $vente->id ;
+            $retour->save();
+
+            }
+
+            return redirect('admin/retours')->with('flash_message', 'Retour added!');
+
+
+
+    }
+
     public function index(Request $request)
     {
         $keyword = $request->get('search');

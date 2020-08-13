@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Achat extends Model
+class Achat_produit extends Model
 {
-    /**
+        /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'achats';
+    protected $table = 'achat_produit';
 
     /**
     * The database primary key value.
@@ -25,20 +25,24 @@ class Achat extends Model
      *
      * @var array
      */
-    protected $fillable = ['date', 'total', 'facture', 'user_id'];
+    
+    protected $fillable = ['quantite', 'costPrix', 'produit_id', 'achat_id'];
 
-    public function user()
+/*    public function user()
     {
         return $this->belongsTo('App\User');
     }
-    public function ligneachats()
+    public function lignecommandes()
     {
-        return $this->hasMany('App\Ligneachat');
+        return $this->hasMany('App\Lignecommande');
+    }
+    public function ventes()
+    {
+        return $this->hasMany('App\Vente');
     }
 
-    public function Produits()
+     public function Produits()
     {
         return $this->belongsToMany('App\Produit');
-    }
-    
+    }*/
 }
