@@ -54,21 +54,11 @@
                                
                             </div>
 
-                            <form method="POST" action="#" id="infodataDirect">
+                            <form method="POST" action="{{ url('envoyerdemmandenow') }}" >
 
                             {{ csrf_field() }}
+                            <input type="hidden" id="key" name="key" value="{{ $produit->id }}">
 
-                                <!--{{ url('envoyerdemmandenow/'.$produit->id) }}<div class="product-size-wrapper">
-                                    <h4>Size:</h4>
-
-                                    <ul>
-                                        <li><a href="#">XS</a></li>
-                                        <li class="active"><a href="#">S</a></li>
-                                        <li><a href="#">M</a></li>
-                                        <li><a href="#">XL</a></li>
-                                        <li><a href="#">XXL</a></li>
-                                    </ul>
-                                </div>-->
                                 
                                 <div class="row">
                                     <div class="form-group col-sm-2 col-3 col-qte">
@@ -220,7 +210,7 @@
                                                     <button type="submit" class="btn btn-primary send-request-cart-detail lx-add-to-cart"><i class="fas fa-cart-plus"></i> {{ __('msg.commander') }}</button>
                                               
                                                 </div>  
-                                                                                        <div class="lx-clear-fix"></div>                    
+                                                <div class="lx-clear-fix"></div>                    
 
                                         </div>
                                     </div>
