@@ -200,7 +200,7 @@
                 							<input type="hidden" name="date" class="form-control" value="<?=date("Y-m-d H:i:s") ?>" />
 
 											<div class="product-add-to-cart lx-cart-next-step">
-												<button type="submit" id="submit" class="btn btn-primary send-request-cart-detail lx-add-to-cart"><i class="fas fa-cart-plus"></i> {{ __('msg.valid_frm') }}</button>
+												<button type="submit" id="submit" class="btn btn-primary send-request-cart-detail lx-add-to-cart"><i class="fas fa-cart-plus"></i> Envoyer</button>
 											</div>
 											<div class="lx-clear-fix"></div>	
 										</div>

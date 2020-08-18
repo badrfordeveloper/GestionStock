@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Produit;
 use App\Photo;
 use App\Category;
+use App\User;
+use App\Commande;
+
 
 class HomeController extends Controller
 {
@@ -242,7 +245,6 @@ class HomeController extends Controller
             foreach(session('cart') as $id => $details)
             {
 
-
                 $variants ="";
                 if (count($details['attrs']) == count($details['valattrs'])) 
                 {
@@ -271,59 +273,41 @@ class HomeController extends Controller
     
     public function thanks()
     {
-        $data =array("categories"=> $this->categories,"currency"=>$this->param->val);
+        $data =array("categories"=> $this->categories,"currency"=>"dhs");
 
         return view('public/merci',$data);
     }
 
-    function postform(Request $request)
-    {
-        echo 'place order';
-    }
-
-    public function placeorder(commandeRequest $request)
+    public function placeorder(Request $request)
     {
         $cart = session()->get('cart');
+        $user=User::firstOrNew([
+                'email' => $request->input('email'),
+                'nom' => $request->input('nom'),
+              ]);
+        if(!$user->id)
+        {
+            $user->nom = $request->input('nom');
+            $user->email = $request->input('email');
+            $user->tel = $request->input('tel');
+            $user->adresse = $request->input('adresse');
+            $user->type_id = 3;
+            $user->save();
+        }
 
         $commande =new Commande();
-        $commande->num = 'ref154745';
         $commande->date = date("Y-m-d H:i:s");
-        $commande->nom_cl = $request->input('nom');
-        $commande->tel_cl = $request->input('tel');
-        $commande->adresse_cl = $request->input('adresse');
-        $commande->ville_cl = $request->input('ville');
-        /*$commande->email_cl = $request->input('email');*/
-
-
+        $commande->status="en attente";
+        $commande->user_id=$user->id;
         $commande->save();
-
 
         if (count($cart) > 0) 
         {
             foreach($cart as $id => $details)
             {
-                $commandeligne =new Lignecommande();
-                $commandeligne->commande_id = $commande->id;
-                $commandeligne->produit_id =  $details['id'];
-                $commandeligne->quantite = $details['quantity'];
-
-                $variants ="";
-                if (count($details['attrs']) == count($details['valattrs'])) 
-                {
-                    
-                    for($i = 0 ; $i < count($details['attrs']) ;$i++)
-                    {
-                        $variants.=$details['attrs'][$i]." : ". $details['valattrs'][$i]. " || ";
-                    }
-
-                    $commandeligne->variants = $variants;
-                }
-
-                $commandeligne ->save();
-
                 $produit = Produit::find($details['id']);
-                $produit->quantite_stock = $produit->quantite_stock - $details['quantity'];
-                $produit->save();
+
+                $commande->Produits()->attach($details['id'],['quantite' =>  $details['quantity'],'prix_unite' => $produit->prix ]);
 
             }
 
@@ -331,8 +315,14 @@ class HomeController extends Controller
 
         }
 
-         return "1";
+         return redirect('merci');
 
+    }
+    public function placeorderNow(Request $request)
+    {
+        $this->addToCart($request->input('key'),false,$request->input('qty'));
+        $this->placeorder($request);
+         return redirect('merci');
     }
 
 }
