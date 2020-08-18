@@ -252,11 +252,19 @@ class CommandesController extends Controller
      */
     public function destroy($id)
     {
+
         $commande=Commande::find($id);
-        $commande->Produits()->detach();
 
-        Commande::destroy($id);
+        if($commande->status != "en vente"){
+            
+            $commande->Produits()->detach();
 
-        return redirect('admin/commandes')->with('flash_message', 'Commande deleted!');
+            Commande::destroy($id);
+
+            return redirect('admin/commandes')->with('flash_message', 'Commande deleted!');
+
+        }else {
+            return redirect('admin/commandes')->with('error', 'cant delete this commande!');
+        }
     }
 }

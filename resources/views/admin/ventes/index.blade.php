@@ -87,13 +87,13 @@
                                                         <a class="dropdown-item" href="{{ url(Config::get('constants.ADMIN_PATH').'ventes/' . $item->id . '/edit') }}" title="Edit Category"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editer</a>
                                                     </li>
 
-                                                    <li>
+                                                  <!--   <li>
                                                         <form method="POST" action="{{ url(Config::get('constants.ADMIN_PATH').'ventes' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                             {{ method_field('DELETE') }}
                                                             {{ csrf_field() }}
                                                             <button type="submit" class="dropdown-item" title="Delete Vente" onclick="return confirm('Voulez vous vraiment supprimer ?')"><i class="fa fa-trash-o" aria-hidden="true"></i> Supprimer</button>
                                                         </form>
-                                                    </li>
+                                                    </li> -->
                                                 </ul>
                                             </div>
                                         </td>

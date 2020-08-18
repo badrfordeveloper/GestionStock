@@ -74,7 +74,7 @@
                                                 <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle">Actions</button>
                                                 <ul class="dropdown-menu">
 
-                                                     @if($item->etat != "en vente")
+                                                     @if($item->status != "en vente")
                                                     <li>
                                                         <a class="dropdown-item" href="{{ url(Config::get('constants.ADMIN_PATH').'toVente/'. $item->id) }}"><i class="fa fa-eye" aria-hidden="true"></i>A Vente</a>
                                                     </li>
@@ -87,6 +87,8 @@
                                                         <a class="dropdown-item" href="{{ url(Config::get('constants.ADMIN_PATH').'commandes/' . $item->id . '/edit') }}" title="Edit Category"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editer</a>
                                                     </li>
 
+                                                    @if($item->status != "en vente")
+
                                                     <li>
                                                         <form method="POST" action="{{ url(Config::get('constants.ADMIN_PATH').'commandes' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                             {{ method_field('DELETE') }}
@@ -94,6 +96,7 @@
                                                             <button type="submit" class="dropdown-item" title="Delete Commande" onclick="return confirm('Voulez vous vraiment supprimer ?')"><i class="fa fa-trash-o" aria-hidden="true"></i> Supprimer</button>
                                                         </form>
                                                     </li>
+                                                    @endif
                                                 </ul>
                                             </div>
                                         </td>
