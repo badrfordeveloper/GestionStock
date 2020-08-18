@@ -72,7 +72,7 @@
                                 
                                 <div class="row">
                                     <div class="form-group col-sm-2 col-3 col-qte">
-                                        <label for="quantite_stock">{{ __('msg.lbl_qty') }} :</label>
+                                        <label for="quantite_stock">Quantité :</label>
                                         <input type="number" class="form-control" id="qty" name="qty" value="1">
                                     </div>
                                 </div>
@@ -115,11 +115,11 @@
                                         <div class="lx-g2">
                                             <div class="lx-cart-total">
                                                 <div class="lx-cart-info-address">
-                                                    <h3>{{ __('msg.title_form_placeorder') }}</h3>
+                                                    <h3>S'il vous plaît remplir le formulaire pour compléter la demande</h3>
 
                                                     <div class="form-group">
-                                                        <label for="nom">{{ __('msg.frm_name_cl')}} </label>
-                                                        <input type="text" class="form-control" placeholder="{{ __('msg.frm_name_cl')}}" name="nom" id="nom" value="{{ old('nom') }}" />
+                                                        <label for="nom">Nom Complet </label>
+                                                        <input type="text" class="form-control" placeholder="Nom Complet" name="nom" id="nom" value="{{ old('nom') }}" />
                                                         <span class="error" id="error-nom">
                                                             @if ($errors->has('nom'))
                                                                {{$errors->first('nom')}} 
@@ -128,8 +128,8 @@
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <label for="tel">{{ __('msg.frm_tel_cl')}} </label>
-                                                        <input type="text" class="form-control" placeholder="{{ __('msg.frm_tel_cl')}}" name="tel" id="tel" value="{{ old('tel') }}" />
+                                                        <label for="tel">Téléphone </label>
+                                                        <input type="text" class="form-control" placeholder="Téléphone" name="tel" id="tel" value="{{ old('tel') }}" />
                                                         <span class="error" id="error-tel">
                                                              @if ($errors->has('tel'))
                                                                 {{$errors->first('tel')}}
@@ -138,8 +138,8 @@
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <label for="tel">{{ __('msg.frm_tel_cn')}} </label>
-                                                        <input type="text" class="form-control" placeholder="{{ __('msg.frm_tel_cn')}}" name="confirmation_tel" id="confirmation_tel" value="{{ old('confirmation_tel') }}" />
+                                                        <label for="tel">Confirmation téléphone </label>
+                                                        <input type="text" class="form-control" placeholder="Confirmation téléphone" name="confirmation_tel" id="confirmation_tel" value="{{ old('confirmation_tel') }}" />
 
                                                         <span class="error" id="error-confirmation_tel">
                                                             @if ($errors->has('confirmation_tel'))
@@ -148,10 +148,18 @@
                                                         </span>
 
                                                     </div>
+                                                    <div class="form-group">
+                                                        <label for="email">Email </label>
+                                                        <input type="text" class="form-control" placeholder="Email" name="email" id="email" value="{{ old('email') }}" />
+                                                        
+
+                                                        <span class="error" id="error-email">@if ($errors->has('email')){{$errors->first('email')}}@endif</span>
+                                                        
+                                                    </div>
 
                                                     <div class="form-group">
-                                                        <label for="adresse">{{ __('msg.frm_adresse_cl')}} </label>
-                                                        <input type="text" class="form-control" placeholder="{{ __('msg.frm_adresse_cl')}}" name="adresse" id="adresse" value="{{ old('adresse') }}" />
+                                                        <label for="adresse">Adresse </label>
+                                                        <input type="text" class="form-control" placeholder="Adresse" name="adresse" id="adresse" value="{{ old('adresse') }}" />
 
                                                         <span class="error" id="error-adresse"> 
                                                             @if ($errors->has('adresse'))
@@ -162,8 +170,8 @@
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <label for="ville">{{ __('msg.frm_ville_cl')}} </label>
-                                                        <input type="text" class="form-control" placeholder="{{ __('msg.frm_ville_cl')}}" name="ville" id="ville" value="{{ old('ville') }}" />
+                                                        <label for="ville">Ville </label>
+                                                        <input type="text" class="form-control" placeholder="Ville" name="ville" id="ville" value="{{ old('ville') }}" />
 
                                                         <span class="error" id="error-ville">
                                                             @if ($errors->has('ville'))
@@ -174,8 +182,8 @@
                                                     </div>
                                                     
                                                     <div class="form-group">
-                                                        <label for="description">{{ __('msg.frm_description_cl')}} </label>
-                                                        <input type="textarea" class="form-control" placeholder="{{ __('msg.frm_desplaceholder_cl')}}" name="description" id="description" value="{{ old('description') }}" />
+                                                        <label for="description">Notes sur la Commande(facultatif)</label>
+                                                        <input type="textarea" class="form-control" placeholder="Notes sur la Commande(facultatif)" name="description" id="description" value="{{ old('description') }}" />
 
                                                         <span class="error" id="error-description">
                                                             @if ($errors->has('description'))
@@ -299,9 +307,9 @@
                                 <div class="single-product-box">
                                     <div class="product-image">
                                         <a href="{{ url('detail-produit/'.$pr->id.'/'.urldecode($pr->nom_pr))}}">
-                                            <img src="@if(@count($pr->photos) > 0) {{asset('storage/'.$pr->images[0]->images) }} @else {{asset('img/default.png')}} @endif" alt="{{ $pr->nom_pr }}" />
-                                            @if( @$pr->images[1]->image != null)
-                                            <img src="{{ asset('storage/'.$pr->images[1]->image) }}" alt="{{ $pr->nom }}" />
+                                            <img src="@if(@count($pr->photos) > 0) {{asset('storage/'.$pr->photos[0]->image) }} @else {{asset('img/default.png')}} @endif" alt="{{ $pr->nom_pr }}" />
+                                            @if( @$pr->photos[1]->image != null)
+                                            <img src="{{ asset('storage/'.$pr->photos[1]->image) }}" alt="{{ $pr->nom }}" />
                                             @endif
                                         </a>
                                     </div>
