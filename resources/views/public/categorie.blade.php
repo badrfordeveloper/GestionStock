@@ -71,14 +71,14 @@
                                     </div>
 
                                     <div class="product-content">
-                                        <h3><a class="trunc" href="{{ url('detail-produit/'.$pr->id.'/'.urldecode($pr->nom_pr))}}">{{ $pr->nom}}</a></h3>
+                                        <h3><a class="trunc" href="{{ url('detail-produit/'.$pr->id.'/'.urldecode($pr->nom))}}">{{ $pr->nom}}</a></h3>
             
                                         <div class="product-price">
             
                                             <span class="new-price">{{ $pr->prix.' '.$currency }}</span>
                 
                                         </div>
-                                        @if($pr->quantite_stock <= 0) <p class="outofstock">Répture en stock </p> @endif
+                                        @if($pr->quantite <= 0) <p class="outofstock">Répture en stock </p> @endif
 
 
                                         <div class="rating">
@@ -89,9 +89,9 @@
                                             <i class="far fa-star"></i>
                                         </div>
 
-                                        @if($pr->quantite_stock > 0)
+                                        @if($pr->quantite > 0)
 
-                                        <a href="{{ url('/addtocart/'.$pr->id)}}" class="btn btn-light">Ajouter au Panier</a>
+                                        <a href="#" data-key="{{$pr->id}}" class="btn btn-light addToCart">Ajouter au Panier</a>
                                         <a href="{{ url('/commander/'.$pr->id)}}" class="btn btn-primary">Commander</a>
                                         
                                         @else

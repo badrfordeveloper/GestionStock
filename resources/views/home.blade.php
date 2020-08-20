@@ -132,7 +132,7 @@
                                         <span class="new-price">{{ $pr->prix.' '.$currency }}</span>
 
                                     </div>
-                                     @if(1==2) <p class="outofstock">Répture en stock </p> @endif
+                                     @if($pr->quantite <= 0) <p class="outofstock">Répture en stock </p> @endif
 
                                     <div class="rating">
                                         <i class="fas fa-star"></i>
@@ -142,7 +142,7 @@
                                         <i class="far fa-star"></i>
                                     </div>
 
-                                    @if(1==1)
+                                    @if($pr->quantite > 0)
 
                                     <a href="#" data-key="{{$pr->id}}" class="btn btn-light addToCart">Ajouter au Panier</a>
                                     <a href="{{ url('/commander/'.$pr->id)}}" class="btn btn-primary">Commander</a>
@@ -222,7 +222,7 @@
                                         <span class="new-price">{{ $pr->prix.' '.$currency }}</span>
 
                                     </div>
-                                     @if(1==2) <p class="outofstock">Répture en stock </p> @endif
+                                    @if($pr->quantite <= 0) <p class="outofstock">Répture en stock </p> @endif
 
                                     <div class="rating">
                                         <i class="fas fa-star"></i>
@@ -232,7 +232,7 @@
                                         <i class="far fa-star"></i>
                                     </div>
 
-                                    @if(1==1)
+                                    @if($pr->quantite > 0)
 
                                     <a href="#" data-key="{{$pr->id}}" class="btn btn-light addToCart">Ajouter au Panier</a>
                                     <a href="{{ url('/commander/'.$pr->id)}}" class="btn btn-primary">Commander</a>

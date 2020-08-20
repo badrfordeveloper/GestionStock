@@ -124,7 +124,7 @@ class HomeController extends Controller
                         "name" => $product->nom,
                         "quantity" => $qantity,
                         "price" => $price,
-                        "photos" => $product->images,
+                        "photos" => $product->photos,
                         "attrs" => $attrs,
                         "valattrs" =>$valattrs
                     ]
@@ -151,7 +151,7 @@ class HomeController extends Controller
                 "name" => $product->nom,
                 "quantity" => $qantity,
                 "price" => $price,
-                "photos" => $product->images,
+                "photos" => $product->photos,
                 "attrs" => $attrs,
                 "valattrs" =>$valattrs
             ];
@@ -211,6 +211,7 @@ class HomeController extends Controller
             session()->flash('success', __('Produit supprimé avec succeess') );
         }
     }
+
 
     public function commander(Request $request, $id,$detailPr = 0)
     {
@@ -281,35 +282,42 @@ class HomeController extends Controller
     public function placeorder(Request $request)
     {
         $cart = session()->get('cart');
-        $user=User::firstOrNew([
-                'email' => $request->input('email'),
-                'nom' => $request->input('nom'),
-              ]);
-        if(!$user->id)
-        {
-            $user->nom = $request->input('nom');
-            $user->email = $request->input('email');
-            $user->tel = $request->input('tel');
-            $user->adresse = $request->input('adresse');
-            $user->type_id = 3;
-            $user->save();
-        }
-
-        $commande =new Commande();
-        $commande->date = date("Y-m-d H:i:s");
-        $commande->status="en attente";
-        $commande->user_id=$user->id;
-        $commande->save();
 
         if (count($cart) > 0) 
         {
+            $user=User::firstOrNew([
+                    'email' => $request->input('email'),
+                    'nom' => $request->input('nom'),
+                  ]);
+            if(!$user->id)
+            {
+                $user->nom = $request->input('nom');
+                $user->email = $request->input('email');
+                $user->tel = $request->input('tel');
+                $user->adresse = $request->input('adresse');
+                $user->type_id = 3;
+                $user->save();
+            }
+
+            $commande =new Commande();
+            $commande->date = date("Y-m-d H:i:s");
+            $commande->status="en attente";
+            $commande->user_id=$user->id;
+            $commande->save();
+            $total=0;
+
+                  
             foreach($cart as $id => $details)
             {
                 $produit = Produit::find($details['id']);
 
                 $commande->Produits()->attach($details['id'],['quantite' =>  $details['quantity'],'prix_unite' => $produit->prix ]);
 
+                $total+=$produit->prix *$details['quantity'];
             }
+
+            $commande->total=$total;
+            $commande->save();
 
             $request->session()->forget('cart');
 

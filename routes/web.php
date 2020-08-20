@@ -36,6 +36,8 @@ Route::get('/detail-produit/{id}/{name}', 'HomeController@detailProduct');
 Route::get('/panier', 'HomeController@panier');
 Route::get('/addtocart/{id}', 'HomeController@addToCart');
 Route::get('/getCountCart', 'HomeController@getCountCart');
+Route::patch('update-cart', 'HomeController@updateCart');
+Route::delete('remove-from-cart', 'HomeController@removeCart');
 Route::get('/commander/{id}', 'HomeController@commanderNow');
 Route::post('envoyerdemmande', 'HomeController@placeorder');
 Route::post('envoyerdemmandenow', 'HomeController@placeorderNow');
