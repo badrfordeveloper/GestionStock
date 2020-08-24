@@ -53,6 +53,7 @@
                             <div class="product-review">
                                
                             </div>
+                            @if($produit->quantite  > 0)
 
                             <form method="POST" action="{{ url('envoyerdemmandenow') }}" >
 
@@ -214,6 +215,11 @@
 
                                         </div>
                                     </div>
+                                    
+                                </div>
+                                </form>
+                                @endif
+                                <div class="col-md-12">
                                     <div class="lx-share row">
                                         <div class="col-md-4 text-center"><a href="tel:212619682004" class="btn btn-default lx-color1"><i class="fa fa-phone"></i> 212619682004 </a></div>
 
@@ -224,7 +230,6 @@
 
                                     </div>
                                 </div>
-                                </form>
 
                             </div>
 
