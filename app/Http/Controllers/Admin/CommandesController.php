@@ -119,9 +119,18 @@ class CommandesController extends Controller
      */
     public function show($id)
     {
+         $commande_produit = Commande_produit::where('commande_id','=',$id)
+                            ->join('produits', 'produits.id', '=', 'commande_produit.produit_id')
+                            ->select('produits.id', 'produits.created_at', 'produits.updated_at', 'produits.nom', 'produits.description', 'produits.image', 'commande_produit.prix_unite as prix', 'commande_produit.quantite', 'produits.categorie_id','produits.quantite as StockQuantite','produits.prix as Currentprix')
+                            ->get();
+               
         $commande = Commande::findOrFail($id);
 
-        return view('admin.commandes.show', compact('commande'));
+  /*      dd($commande_produit) ;*/
+   
+        $clients = User::where('type_id',3)->get();
+
+        return view('admin.commandes.show', compact('commande','clients','commande_produit'));
     }
 
     /**

@@ -115,9 +115,17 @@ class AchatsController extends Controller
      */
     public function show($id)
     {
-        $achat = Achat::findOrFail($id);
+        $achat_produit = Achat_produit::where('achat_id','=',$id)
+                        ->join('produits', 'produits.id', '=', 'achat_produit.produit_id')
+                        ->select('produits.id', 'produits.nom','achat_produit.quantite as RQtte')
+                        ->get();
 
-        return view('admin.achats.show', compact('achat'));
+        $achat = Achat::findOrFail($id);
+        $fournisseurs = User::where('type_id',4)->get();
+
+        return view('admin.achats.show', compact('achat','fournisseurs','achat_produit'));
+
+        /*return view('admin.achats.show', compact('achat'));*/
     }
 
     /**

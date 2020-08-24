@@ -80,7 +80,8 @@
                                                     @endif
 
                                                     <li>
-                                                        <a class="dropdown-item" href="{{ url(Config::get('constants.ADMIN_PATH').'ventes/'. $item->id) }}" title="View Category"><i class="fa fa-eye" aria-hidden="true"></i> Voir</a>
+                                                     <!--    <a class="dropdown-item" href="{{ url(Config::get('constants.ADMIN_PATH').'ventes/'. $item->id) }}" title="View Category"><i class="fa fa-eye" aria-hidden="true"></i> Voir</a> -->
+                                                      <a class="dropdown-item show"   data-key="{{$item->id}}" href="#" title="View Category"><i class="fa fa-eye" aria-hidden="true"></i> Voir</a>
                                                     </li>
 
                                                     <li>
@@ -115,6 +116,21 @@
             </div>
         </div>
     </div>
+
+      <!-- Model  -->
+
+        <button style="display: none" id="mymodel" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
+
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+            </div>
+          </div>
+        </div>
+
+    <!-- end Model -->
+
 @endsection
 
 
@@ -184,4 +200,29 @@
         });
 
     </script>
+
+       <!-- script model  -->
+     <script>
+            $(".show").click(function(event) {
+
+                var _key = $(this).attr('data-key');
+
+                $.ajax({
+                    url: "{{ url(Config::get('constants.ADMIN_PATH').'ventes/') }}"+'/'+_key,
+                })
+                .done(function(data) {
+
+                $('.modal-content').html(data);            
+                $('#mymodel').trigger('click');
+                    console.log(data);
+                })
+                .fail(function() {
+                    console.log("error");
+                })
+                .always(function() {
+                    console.log("complete");
+                });
+            });
+
+     </script>
 @endsection

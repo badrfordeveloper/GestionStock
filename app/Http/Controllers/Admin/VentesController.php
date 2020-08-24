@@ -7,6 +7,7 @@ use App\Http\Requests;
 
 use App\Vente;
 use App\Commande;
+use App\User;
 use App\Commande_produit; 
 use App\Produit;
 use Illuminate\Http\Request;
@@ -128,9 +129,23 @@ class VentesController extends Controller
      */
     public function show($id)
     {
-        $vente = Vente::findOrFail($id);
+        
 
-        return view('admin.ventes.show', compact('vente'));
+            $vente = Vente::findOrFail($id);
+
+
+                 $commande_produit = Commande_produit::where('commande_id','=',$vente->commande_id)
+                            ->join('produits', 'produits.id', '=', 'commande_produit.produit_id')
+                            ->select('produits.id', 'produits.created_at', 'produits.updated_at', 'produits.nom', 'produits.description', 'produits.image', 'commande_produit.prix_unite as prix', 'commande_produit.quantite', 'produits.categorie_id','produits.quantite as StockQuantite','produits.prix as Currentprix')
+                            ->get();
+               
+        
+
+  /*      dd($commande_produit) ;*/
+   
+        $clients = User::where('type_id',3)->get();
+
+        return view('admin.ventes.show', compact('vente','clients','commande_produit'));
     }
 
     /**
