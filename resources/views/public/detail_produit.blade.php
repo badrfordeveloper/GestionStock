@@ -21,6 +21,9 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="products-page-gallery">
                             <div class="product-page-gallery-main">
+                                <div class="item">
+                                    <img src="{{asset('storage/'.$produit->image) }}" alt="{{ $produit->nom }}">
+                                </div>
 
                                 @foreach($produit->photos as $img)
                                 <div class="item">
@@ -31,7 +34,9 @@
                             </div>
 
                             <div class="product-page-gallery-preview">
-
+                                <div class="item">
+                                    <img src="{{asset('storage/'.$produit->image) }}" alt="{{ $produit->nom }}">
+                                </div>
                                 @foreach($produit->photos as $img)
                                 <div class="item">
                                     <img src="{{asset('storage/'.$img->image) }}" alt="{{ $produit->nom }}">
@@ -302,9 +307,9 @@
                                 <div class="single-product-box">
                                     <div class="product-image">
                                         <a href="{{ url('detail-produit/'.$pr->id.'/'.urldecode($pr->nom_pr))}}">
-                                            <img src="@if(@count($pr->photos) > 0) {{asset('storage/'.$pr->photos[0]->image) }} @else {{asset('img/default.png')}} @endif" alt="{{ $pr->nom_pr }}" />
-                                            @if( @$pr->photos[1]->image != null)
-                                            <img src="{{ asset('storage/'.$pr->photos[1]->image) }}" alt="{{ $pr->nom }}" />
+                                           <img src="@if($pr->image!= null) {{asset('storage/'.$pr->image) }} @else {{asset('img/default.png')}} @endif" alt="{{ $pr->nom_pr }}" />
+                                            @if( @$pr->photos[0]->image )
+                                            <img src="{{ asset('storage/'.$pr->photos[0]->image) }}" alt="{{ $pr->nom_pr }}" />
                                             @endif
                                         </a>
                                     </div>

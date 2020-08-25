@@ -100,13 +100,20 @@
         $('a.icon-close').click(function(event) {
           event.preventDefault();
           var _icon_close = $(this);
+          var _url="";
+          if ($(this).attr('data-img')=="true") {
+            _url='{{ url("admin/delete-main-image")."/" }}';
+          } else {
+             _url='{{ url("admin/delete-image")."/" }}';
+          }
+
           if ($(this).attr('data-img')) 
           {
              var _id_img = $(this).attr('data-img');
              if(confirm("Voulez vous vraiment supprimer cette image") == true)
              {
                 $.ajax({
-                  url: '{{ url("admin/delete-image")."/" }}' +_id_img,
+                  url:  _url+_id_img,
                 })
                 .done(function() {
 

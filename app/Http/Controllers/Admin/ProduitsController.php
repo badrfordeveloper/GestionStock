@@ -68,7 +68,7 @@ class ProduitsController extends Controller
         
         $requestData = $request->all();
 
-        //if($request->hasFile('image')) $requestData['image']= $request->file('image')->store($directoryPhoto);
+        if($request->hasFile('image')) $requestData['image']= $request->file('image')->store($directoryPhoto);
         
         $produit = Produit::create($requestData);
 
@@ -136,12 +136,12 @@ class ProduitsController extends Controller
         
         $produit = Produit::findOrFail($id);
 
-        /*$oldPhoto =$produit->image;
+        $oldPhoto =$produit->image;
         $directoryPhoto = 'produits';
         Storage::makeDirectory($directoryPhoto);
 
         if($request->hasFile('image')) $requestData['image']= $request->file('image')->store($directoryPhoto);
-        if( !empty($requestData['image']) ) Storage::delete($oldPhoto);*/
+        if( !empty($requestData['image']) ) Storage::delete($oldPhoto);
 
         $produit->update($requestData);
 
@@ -207,6 +207,17 @@ class ProduitsController extends Controller
         Storage::delete($photo->image);
 
         $photo->delete();
+
+        return 1;
+
+    }
+     public function delete_main_image($produitId)
+    {
+       /* $image = Image::where('produit_id',$produit_id)->get();*/
+        $produit=Produit::find($produitId);
+        $produit->image =NULL;
+
+        Storage::delete($produit->image);
 
         return 1;
 

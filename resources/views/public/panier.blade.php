@@ -73,7 +73,7 @@
 					                                        <tr>
 					                                            <td class="product-thumbnail" width="100px">
 					                                                <a href="#">
-					                                                    <img src="@if(@count($details['photos']) > 0) {{asset('storage/'.$details['photos'][0]->image) }} @else {{asset('img/default.png')}} @endif" alt="item">
+					                                                    <img src="@if($details['image'] != null) {{asset('storage/'.$details['image'] }} @else {{asset('img/default.png')}} @endif" alt="item">
 					                                                </a>
 					                                            </td>
 
