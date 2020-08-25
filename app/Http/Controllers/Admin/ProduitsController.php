@@ -193,7 +193,7 @@ class ProduitsController extends Controller
     public function getProductsForAchats(Request $request)
     {
          $produits=Produit::where('nom', 'LIKE', $request->input('term').'%')
-         ->select('produits.id','produits.nom')
+          ->select('produits.id','produits.nom','produits.image')
          ->get();
 
         return $produits;

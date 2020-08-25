@@ -117,7 +117,7 @@ class AchatsController extends Controller
     {
         $achat_produit = Achat_produit::where('achat_id','=',$id)
                         ->join('produits', 'produits.id', '=', 'achat_produit.produit_id')
-                        ->select('produits.id', 'produits.nom','achat_produit.quantite as RQtte')
+                        ->select('produits.id', 'produits.nom', 'produits.image','achat_produit.quantite as RQtte')
                         ->get();
 
         $achat = Achat::findOrFail($id);
@@ -140,7 +140,7 @@ class AchatsController extends Controller
 
                $achat_produit = Achat_produit::where('achat_id','=',$id)
                             ->join('produits', 'produits.id', '=', 'achat_produit.produit_id')
-                            ->select('produits.id', 'produits.nom','achat_produit.quantite as RQtte')
+                            ->select('produits.id', 'produits.nom', 'produits.image','achat_produit.quantite as RQtte')
                             ->get();
 
         $achat = Achat::findOrFail($id);

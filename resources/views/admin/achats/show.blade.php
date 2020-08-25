@@ -48,6 +48,7 @@
                                 <table id="products" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
+                                            <th>Image</th>
                                             <th>Produit</th>
                                             <!-- <th>Prix unitaire</th>
                                             <th>Current Prix</th> -->
@@ -61,6 +62,7 @@
                                     </tbody>
                                     <tfoot>
                                         <tr>
+                                            <th></th>
                                             <th></th>
                                             <th></th>
                                        <!--      <th></th>
@@ -102,6 +104,7 @@
 
             for (var i in myproduct) { 
                     var myclass=""
+                    var mysrc="{{ asset('storage/') }}/"+myproduct[i].image
                 /*   if(myproduct[i].quantite>myproduct[i].StockQuantite){
                         myclass="error"
                          $("#mysubmit").prop("disabled", true);
@@ -117,7 +120,7 @@
 
            
             /*$( "#products tbody" ).append( "<tr class='"+myclass+"' data-id='"+myproduct[i].id+"'> <td>"+myproduct[i].nom+"</td><<td><input type='number' class='qtte' value='"+myproduct[i].RQtte+"' min='1'  max='200' /></td><td><button  type='button' class='supprimerRow'> delete </button></td></tr>" );*/
-            $( "#products tbody" ).append( "<tr class='"+myclass+"' data-id='"+myproduct[i].id+"'> <td>"+myproduct[i].nom+"</td><<td>"+myproduct[i].RQtte+"</td></tr>" );
+            $( "#products tbody" ).append( '<tr class="'+myclass+'" data-id="'+myproduct[i].id+'"><td><img src="'+mysrc+'" height="60px" alt=""></td>  <td>'+myproduct[i].nom+'</td><<td>'+myproduct[i].RQtte+'</td></tr>' );
             }
             console.log(myproduct);
          /*   refreshTotal();*/

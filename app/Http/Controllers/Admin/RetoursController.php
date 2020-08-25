@@ -118,7 +118,7 @@ class RetoursController extends Controller
         $retour = Retour::findOrFail($id);
                  $commande_produit = Commande_produit::where('commande_id','=',$retour->vente->commande_id)
                             ->join('produits', 'produits.id', '=', 'commande_produit.produit_id')
-                            ->select('produits.id', 'produits.created_at', 'produits.updated_at', 'produits.nom', 'produits.description', 'produits.image', 'commande_produit.prix_unite as prix', 'commande_produit.quantite', 'produits.categorie_id','produits.quantite as StockQuantite','produits.prix as Currentprix')
+                            ->select('produits.id', 'produits.created_at', 'produits.updated_at', 'produits.nom','produits.image', 'produits.description', 'produits.image', 'commande_produit.prix_unite as prix', 'commande_produit.quantite', 'produits.categorie_id','produits.quantite as StockQuantite','produits.prix as Currentprix')
                             ->get();
                
 

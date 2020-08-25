@@ -45,6 +45,7 @@
         <table id="products" class="table table-bordered table-striped">
             <thead>
                 <tr>
+                    <th>Image</th>
                     <th>Produit</th>
                     <th>Prix unitaire</th>
                     <th>Current Prix</th>
@@ -58,6 +59,7 @@
             </tbody>
             <tfoot>
                 <tr>
+                     <th></th>
                     <th></th>
                     <th></th>
                     <th></th>

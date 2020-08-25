@@ -115,6 +115,7 @@
 
             if(flag){
                     var myclass=""
+                     var mysrc="{{ asset('storage/') }}/"+ui.item.image
 
                  /*   if(ui.item.quantite<1){
                         myclass="error"
@@ -126,7 +127,7 @@
 
                      ui.item.RQtte = 1;
     
-                      $( "#products tbody" ).append( "<tr class='"+myclass+"' data-id='"+ui.item.id+"'> <td>"+ui.item.nom+"</td><td><input type='number' class='qtte' value='"+ui.item.RQtte+"' min='1'  max='200' /><td><button  type='button' class='supprimerRow'> delete </button></td></tr>" );
+                      $( "#products tbody" ).append( '<tr class="'+myclass+'" data-id="'+ui.item.id+'"><td><img src="'+mysrc+'" height="60px" alt=""></td> <td>'+ui.item.nom+'</td><td><input type="number" class="qtte" value="'+ui.item.RQtte+'" min="1"  max="200" /><td><button  type="button" class="supprimerRow"> delete </button></td></tr>' );
 
 /*                    $( "#project-id" ).val( ui.item.nom );
                     $( "#project-description" ).html( ui.item.description );*/
@@ -262,6 +263,8 @@
 
             for (var i in myproduct) { 
                     var myclass=""
+
+                     var mysrc="{{ asset('storage/') }}/"+myproduct[i].image
                 /*   if(myproduct[i].quantite>myproduct[i].StockQuantite){
                         myclass="error"
                          $("#mysubmit").prop("disabled", true);
@@ -273,10 +276,7 @@
                     // en V2  u have to check if the quantité change change the class  +  prix
                    /* myproduct[i].RQtte= myproduct[i].quantite;*/
 
-              
-
-           
-            $( "#products tbody" ).append( "<tr class='"+myclass+"' data-id='"+myproduct[i].id+"'> <td>"+myproduct[i].nom+"</td><<td><input type='number' class='qtte' value='"+myproduct[i].RQtte+"' min='1'  max='200' /></td><td><button  type='button' class='supprimerRow'> delete </button></td></tr>" );
+                    $( "#products tbody" ).append( '<tr class="'+myclass+'" data-id="'+myproduct[i].id+'"><td><img src="'+mysrc+'" height="60px" alt=""></td> <td>'+myproduct[i].nom+'</td><td><input type="number" class="qtte" value="'+myproduct[i].RQtte+'" min="1"  max="200" /><td><button  type="button" class="supprimerRow"> delete </button></td></tr>' );
             }
             console.log(myproduct);
          /*   refreshTotal();*/
