@@ -64,7 +64,7 @@
                                 @foreach($produits as $item)
                                 <tr class="gradeX">
                                   <td>{{ $loop->iteration }}</td>
-                                  <td><img src="{{ asset('storage/'.$item->photos[0]->image) }}" height="60px" alt=""></td>
+                                  <td><img src="{{ asset('storage/'.$item->image) }}" height="60px" alt=""></td>
                                   <td>{{ $item->nom }}</td>
                                   <td>{{ $item->description }}</td>
                                   <td>{{ $item->prix }}</td>

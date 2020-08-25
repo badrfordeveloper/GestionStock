@@ -106,15 +106,17 @@
 
             if(flag){
                     var myclass=""
+                     var mysrc="{{ asset('storage/') }}/"+ui.item.image
 
                  /*   if(ui.item.quantite>ui.item.StockQuantite){
                         myclass="warning"
                          $("#mysubmit").prop("disabled", true);
                     }*/
-                        
+                        console.log(mysrc);
 
-                     ui.item.RQtte = 1;
-                    $( "#products tbody" ).append( "<tr class='"+myclass+"' data-id='"+ui.item.id+"'> <td>"+ui.item.nom+"</td><td><input type='number' class='qtte' value='"+ui.item.RQtte+"' min='1'  max='200' /><td><button  type='button' class='supprimerRow'> delete </button></td></tr>" );
+                   ui.item.RQtte = 1;
+                        $( "#products tbody" ).append( '<tr class="'+myclass+'" data-id="'+ui.item.id+'"><td><img src="'+mysrc+'" height="60px" alt=""></td> <td>"'+ui.item.nom+'"</td><td><input type="number" class="qtte" value="'+ui.item.RQtte+'" min="1"  max="200" /><td><button  type="button" class="supprimerRow"> delete </button></td></tr>' );
+                  /*  $( "#products tbody" ).append( "<tr class='"+myclass+"' data-id='"+ui.item.id+"'><td><img src='"+mysrc+"' height="60px" alt=""></td> <td>"+ui.item.nom+"</td><td><input type='number' class='qtte' value='"+ui.item.RQtte+"' min='1'  max='200' /><td><button  type='button' class='supprimerRow'> delete </button></td></tr>" );*/
   /*                  $( "#project-id" ).val( ui.item.nom );
                     $( "#project-description" ).html( ui.item.description );*/
 
