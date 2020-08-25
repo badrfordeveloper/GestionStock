@@ -23,6 +23,36 @@
 </div> -->
 
 <fieldset>
+    <legend>Photos Principal </legend>
+    <div class="row">
+        <div class="col-md-2">
+            <div class="form-group">
+                @if( isset($produit->image) )
+                    <div class="file-img">
+
+                        <a href="#" class="icon-close" data-main="true" data-img="{{ $produit->id }}" style="display: block;">x</a>
+
+                        <div id="imagePreview" class="imagePreview" style='background-image: url("{{ asset("storage/".$produit->image )}}");'></div>
+
+                        <input id="uploadFileMain" type="file" name="image" class="img uploadFile" />
+
+                    </div>
+                @else
+                    <div class="file-img">
+
+                        <a href="#" class="icon-close">x</a>
+
+                        <div id="imagePreview" class="imagePreview">Selectionnez image</div>
+
+                        <input id="uploadFileMain" type="file" name="image" class="img uploadFile" />
+
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
+</fieldset>
+<fieldset>
     <legend>Photos </legend>
     <div class="row">
         @for ($i = 0; $i < 6; $i++)
