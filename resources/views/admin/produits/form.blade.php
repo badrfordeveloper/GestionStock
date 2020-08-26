@@ -132,6 +132,15 @@
     </div>
 </div>
 
+<div class="form-group row {{ $errors->has('landingPage') ? 'has-error' : ''}}">
+    <label for="landingPage" class="col-sm-2 col-form-label">{{ 'Url Landing Page' }}</label>
+    <div class="col-sm-10">
+        <input class="form-control" name="landingPage" type="text" id="landingPage" value="{{ isset($produit->landingPage) ? $produit->landingPage : old('landingPage') }}" >
+
+    {!! $errors->first('landingPage', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
+
 
 
 <div class="form-group row">
