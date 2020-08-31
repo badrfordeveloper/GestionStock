@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Storage;
 
 class ProduitsController extends Controller
 {
+    protected $table = "produits";
     public function __construct()
     {
         $this->middleware('auth');

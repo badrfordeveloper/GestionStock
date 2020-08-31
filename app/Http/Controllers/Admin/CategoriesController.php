@@ -10,7 +10,9 @@ use App\Category;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
-{
+{    
+    protected $table = "categories";
+
     public function __construct()
     {
         $this->middleware('auth');

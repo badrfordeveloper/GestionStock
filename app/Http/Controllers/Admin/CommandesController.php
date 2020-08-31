@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 
 class CommandesController extends Controller
 {
+    protected $table = "commandes";
     public function __construct()
     {
         $this->middleware('auth');

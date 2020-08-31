@@ -17,6 +17,7 @@ use Carbon\Carbon;
 
 class VentesController extends Controller
 {
+    protected $table = "ventes";
     public function __construct()
     {
         $this->middleware('auth');

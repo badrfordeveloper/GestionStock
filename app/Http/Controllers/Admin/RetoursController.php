@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 
 class RetoursController extends Controller
 {
+    protected $table = "retours";
     public function __construct()
     {
         $this->middleware('auth');

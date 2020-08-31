@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 
 class TypesController extends Controller
 {
+    protected $table = "types";
     public function __construct()
     {
         $this->middleware('auth');

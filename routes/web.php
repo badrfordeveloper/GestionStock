@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Acce;
 
 
 Route::group(
@@ -79,10 +80,10 @@ Route::get('admin/toRetour/{vente}', 'Admin\\RetoursController@addRetourFromVent
 
 Route::get('myrole',function(){
 
-	  /*$tables = array("societes","banques","abonnements","agencebancaires","comptesbancaires","conditionfinancieres","credocs","demandereglements","detailslivraisonexports","dossierexports","dossierimports","droitconstates","echances","factorings","fluxexploitations","lignesbancaires","loiabonnements","matricefluxerps","naturedefluxs","transporteurs","users");
-	  $acces = array("liste","ajouter","modifier","supprimer","afficher");*/
+	  /*$tables = array("societes","banques","abonnements","agencebancaires","comptesbancaires","conditionfinancieres","credocs","demandereglements","detailslivraisonexports","dossierexports","dossierimports","droitconstates","echances","factorings","fluxexploitations","lignesbancaires","loiabonnements","matricefluxerps","naturedefluxs","transporteurs","users");*/
+	  $acces = array("liste","ajouter","modifier","supprimer","afficher");
 
-	  $tables =array("societes");
+	  $tables =array("achats","produits","categories","commandes","retours","types","users","ventes");
  
 	    foreach ($tables as $table) 
 	    {
