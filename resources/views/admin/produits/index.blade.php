@@ -57,6 +57,7 @@
                                     <th>Prix</th>
                                     <th>Quantite</th>
                                     <th>Categorie</th>
+                                    <th>Landing Page</th>
                                     <th><i class="fa fa-wrench"></i></th>
                                 </tr>
                             </thead>
@@ -70,6 +71,7 @@
                                   <td>{{ $item->prix }}</td>
                                   <td>{{ $item->quantite }}</td>
                                   <td>{{ $item->categorie->libelle}}</td>
+                                  <td>{{ $item->landingPage }}</td>
 
 
 
@@ -108,6 +110,7 @@
                                 <th>Prix</th>
                                 <th>Quantite</th>
                                 <th>Categorie</th>
+                                <th>Landing Page</th>
                                 <th><i class="fa fa-wrench"></i></th>
                             </tr>
                         </tfoot>
