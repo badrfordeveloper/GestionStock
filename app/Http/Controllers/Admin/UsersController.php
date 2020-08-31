@@ -7,6 +7,7 @@ use App\Http\Requests;
 
 use App\User;
 use App\Type;
+use App\Helpers\Checker;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller

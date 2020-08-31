@@ -10,6 +10,7 @@ use App\Commande;
 use App\User;
 use App\Commande_produit; 
 use App\Produit;
+use App\Helpers\Checker;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 

@@ -7,6 +7,7 @@ use App\Http\Requests;
 
 use App\Type;
 use App\Acce;
+use App\Helpers\Checker;
 use Illuminate\Http\Request;
 
 class TypesController extends Controller

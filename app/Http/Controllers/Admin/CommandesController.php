@@ -10,6 +10,8 @@ use App\User;
 use App\Produit;
 use App\Lignecommande; 
 use App\Commande_produit; 
+use App\Helpers\Checker;
+
 use Illuminate\Http\Request;
 
 class CommandesController extends Controller

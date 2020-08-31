@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Produit;
 use App\Photo;
 use App\Category;
+use App\Helpers\Checker;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 

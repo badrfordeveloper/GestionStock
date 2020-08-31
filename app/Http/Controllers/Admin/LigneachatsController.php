@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
 use App\Ligneachat;
+use App\Helpers\Checker;
 use Illuminate\Http\Request;
 
 class LigneachatsController extends Controller

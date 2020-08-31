@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
 use App\Lignecommande;
+use App\Helpers\Checker;
 use Illuminate\Http\Request;
 
 class LignecommandesController extends Controller
