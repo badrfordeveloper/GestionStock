@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
 use App\Type;
+use App\Acce;
 use Illuminate\Http\Request;
 
 class TypesController extends Controller
@@ -21,6 +22,8 @@ class TypesController extends Controller
      */
     public function index(Request $request)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         $keyword = $request->get('search');
         $perPage = 25;
 
@@ -41,7 +44,11 @@ class TypesController extends Controller
      */
     public function create()
     {
-        return view('admin.types.create');
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
+        $acces = Acce::all();
+        $accestable=Acce::groupBy('table')->get();
+        return view('admin.types.create',compact('acces','accestable'));
     }
 
     /**
@@ -53,10 +60,27 @@ class TypesController extends Controller
      */
     public function store(Request $request)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
         
         $requestData = $request->all();
         
         Type::create($requestData);
+
+        $type =new Type();
+
+        $type->libelle = $request->input('libelle');
+
+        $type->save();
+
+        $acces = $request->input('acces');
+
+        foreach ($acces as $acc) 
+        {
+
+            $type->acces()->attach($acc);
+        }
+
+
 
         return redirect('admin/types')->with('flash_message', 'Type added!');
     }
@@ -70,6 +94,8 @@ class TypesController extends Controller
      */
     public function show($id)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         $type = Type::findOrFail($id);
 
         return view('admin.types.show', compact('type'));
@@ -84,9 +110,19 @@ class TypesController extends Controller
      */
     public function edit($id)
     {
-        $type = Type::findOrFail($id);
+            if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
 
-        return view('admin.types.edit', compact('type'));
+        $type = Type::findOrFail($id);
+        $accestable=Acce::groupBy('table')->get();
+        $acces=Acce::all();
+        $accesByRole =array();
+
+        foreach ($type->acces as $val) 
+        {
+            array_push($accesByRole, $val->id);
+        }
+
+        return view('admin.types.edit', compact('type','acces','accestable','accesByRole'));
     }
 
     /**
@@ -99,12 +135,19 @@ class TypesController extends Controller
      */
     public function update(Request $request, $id)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         
         $requestData = $request->all();
         
         $type = Type::findOrFail($id);
-        $type->update($requestData);
+        $type->libelle = $request->input('libelle');
+        $type->save();
 
+        $acces = $request->input('acces');
+        
+        $type->acces()->sync($acces);
+    
         return redirect('admin/types')->with('flash_message', 'Type updated!');
     }
 
@@ -117,6 +160,8 @@ class TypesController extends Controller
      */
     public function destroy($id)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         Type::destroy($id);
 
         return redirect('admin/types')->with('flash_message', 'Type deleted!');

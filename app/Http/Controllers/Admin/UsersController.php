@@ -22,6 +22,8 @@ class UsersController extends Controller
      */
     public function index(Request $request)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         $keyword = $request->get('search');
         $perPage = 25;
 
@@ -49,6 +51,8 @@ class UsersController extends Controller
      */
     public function create()
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         $types=Type::All();
         return view('admin.users.create',compact('types'));
     }
@@ -62,6 +66,7 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
         
         $requestData = $request->all();
         
@@ -79,6 +84,8 @@ class UsersController extends Controller
      */
     public function show($id)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         $user = User::findOrFail($id);
 
         return view('admin.users.show', compact('user'));
@@ -93,6 +100,8 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         $types=Type::All();
         $user = User::findOrFail($id);
 
@@ -109,6 +118,7 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
         
         $requestData = $request->all();
         
@@ -127,6 +137,8 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         User::destroy($id);
 
         return redirect('admin/users')->with('flash_message', 'User deleted!');

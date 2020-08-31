@@ -9,10 +9,14 @@ use App\Achat;
 use App\Produit;
 use App\Achat_produit;
 use App\User;
+use App\Helpers\Checker;
 use Illuminate\Http\Request;
+
 
 class AchatsController extends Controller
 {
+    protected $table = "achats";
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -24,6 +28,9 @@ class AchatsController extends Controller
      */
     public function index(Request $request)
     {
+               
+        if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         $keyword = $request->get('search');
         $perPage = 25;
 
@@ -44,6 +51,8 @@ class AchatsController extends Controller
      */
     public function create()
     {
+        if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         $fournisseurs = User::where('type_id',4)->get();
         return view('admin.achats.create',compact('fournisseurs'));
     }
@@ -57,29 +66,27 @@ class AchatsController extends Controller
      */
     public function store(Request $request)
     {
+        if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
         
-          // retrieve data from serialize array becarful with order of input
+        // retrieve data from serialize array becarful with order of input
 
         $Date=$request->mydata[1]['value'];
-/*        $Facture=$request->mydata[2]['value'];*/
+        /*$Facture=$request->mydata[2]['value'];*/
         $fournissour_id=$request->mydata[2]['value'];
-
-      /*  $total=0;*/
-
+        /*  $total=0;*/
         // calculer total et reduce qtte from stock
-       foreach ($request->myproduct as $p) {
-
+       foreach ($request->myproduct as $p) 
+       {
             /*$total+=$p['prix']*$p['RQtte'];*/
             $produit = Produit::find($p['id']);
             $produit->quantite += $p['RQtte'];
             $produit->save();
         }
 
-
         //add Achat
         $achat = new Achat;
         $achat->date = $Date ;
-      /*  $achat->status = $Status ;
+        /* $achat->status = $Status ;
         $achat->total = $total ;*/
         $achat->user_id = $fournissour_id ;
         $achat->save();
@@ -91,7 +98,7 @@ class AchatsController extends Controller
 
             $achat->Produits()->attach($p['id'],['quantite' =>  $p['RQtte']]);
 
-  /*          $lignecommande = new Lignecommande;
+             /*$lignecommande = new Lignecommande;
             $lignecommande->quantite = $p['RQtte'];
             $lignecommande->prix_unite = $p['prix'];
             $lignecommande->produit_id = $p['id'];
@@ -115,6 +122,8 @@ class AchatsController extends Controller
      */
     public function show($id)
     {
+        if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         $achat_produit = Achat_produit::where('achat_id','=',$id)
                         ->join('produits', 'produits.id', '=', 'achat_produit.produit_id')
                         ->select('produits.id', 'produits.nom', 'produits.image','achat_produit.quantite as RQtte')
@@ -137,11 +146,12 @@ class AchatsController extends Controller
      */
     public function edit($id)
     {
+        if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
 
-               $achat_produit = Achat_produit::where('achat_id','=',$id)
-                            ->join('produits', 'produits.id', '=', 'achat_produit.produit_id')
-                            ->select('produits.id', 'produits.nom', 'produits.image','achat_produit.quantite as RQtte')
-                            ->get();
+        $achat_produit = Achat_produit::where('achat_id','=',$id)
+                        ->join('produits', 'produits.id', '=', 'achat_produit.produit_id')
+                        ->select('produits.id', 'produits.nom', 'produits.image','achat_produit.quantite as RQtte')
+                        ->get();
 
         $achat = Achat::findOrFail($id);
         $fournisseurs = User::where('type_id',4)->get();
@@ -159,6 +169,7 @@ class AchatsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
 
         // retrieve data from serialize array becarful with order of input
          $Date=$request->mydata[2]['value'];
@@ -166,9 +177,7 @@ class AchatsController extends Controller
         $fournissour_id=$request->mydata[3]['value'];
         $total=0;
 
-
-         $achat_produitss = Achat_produit::where('achat_id','=',$id)->get();
-
+        $achat_produitss = Achat_produit::where('achat_id','=',$id)->get();
 
         foreach ($achat_produitss as $achat) {
 
@@ -188,9 +197,6 @@ class AchatsController extends Controller
             }
             
         }
-
-
-
 
         // calculer total et reduce qtte from stock
         foreach ($request->myproduct as $p) {
@@ -214,11 +220,8 @@ class AchatsController extends Controller
                 $produit->quantite += $p['RQtte'];
             }
 
-           
-
             $produit->save();
         }
-
 
         //add Commande
 
@@ -256,8 +259,6 @@ class AchatsController extends Controller
 
      /*   dd($data );*/
 
- 
-
         echo 'update avec Succes';
         
       /*  $requestData = $request->all();
@@ -277,6 +278,8 @@ class AchatsController extends Controller
      */
     public function destroy($id)
     {
+        if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         Achat::destroy($id);
 
         return redirect('admin/achats')->with('flash_message', 'Achat deleted!');

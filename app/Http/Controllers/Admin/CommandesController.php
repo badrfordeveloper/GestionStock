@@ -25,6 +25,8 @@ class CommandesController extends Controller
      */
     public function index(Request $request)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         $keyword = $request->get('search');
         $perPage = 25;
 
@@ -48,6 +50,8 @@ class CommandesController extends Controller
      */
     public function create()
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         $clients = User::where('type_id',3)->get();
         return view('admin.commandes.create',compact('clients'));
     }
@@ -61,7 +65,8 @@ class CommandesController extends Controller
      */
     public function store(Request $request)
     {
-        
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         // retrieve data from serialize array becarful with order of input
         $Date=$request->mydata[1]['value'];
         $Status=$request->mydata[2]['value'];
@@ -119,6 +124,8 @@ class CommandesController extends Controller
      */
     public function show($id)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
          $commande_produit = Commande_produit::where('commande_id','=',$id)
                             ->join('produits', 'produits.id', '=', 'commande_produit.produit_id')
                             ->select('produits.id', 'produits.created_at', 'produits.updated_at', 'produits.nom','produits.image', 'produits.description', 'produits.image', 'commande_produit.prix_unite as prix', 'commande_produit.quantite', 'produits.categorie_id','produits.quantite as StockQuantite','produits.prix as Currentprix')
@@ -142,6 +149,8 @@ class CommandesController extends Controller
      */
     public function edit($id)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
 /*
             Currentprix: 200
             StockQuantite: 10
@@ -182,7 +191,7 @@ class CommandesController extends Controller
     public function update(Request $request, $id)
     {
 
-
+        if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
 
          // retrieve data from serialize array becarful with order of input
         $Date=$request->mydata[2]['value'];
@@ -261,6 +270,7 @@ class CommandesController extends Controller
      */
     public function destroy($id)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
 
         $commande=Commande::find($id);
 

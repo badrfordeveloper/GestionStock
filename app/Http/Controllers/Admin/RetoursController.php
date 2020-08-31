@@ -66,6 +66,8 @@ class RetoursController extends Controller
 
     public function index(Request $request)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         $keyword = $request->get('search');
         $perPage = 25;
 
@@ -86,6 +88,8 @@ class RetoursController extends Controller
      */
     public function create()
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         return view('admin.retours.create');
     }
 
@@ -98,7 +102,8 @@ class RetoursController extends Controller
      */
     public function store(Request $request)
     {
-        
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         $requestData = $request->all();
         
         Retour::create($requestData);
@@ -115,6 +120,8 @@ class RetoursController extends Controller
      */
     public function show($id)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         $retour = Retour::findOrFail($id);
                  $commande_produit = Commande_produit::where('commande_id','=',$retour->vente->commande_id)
                             ->join('produits', 'produits.id', '=', 'commande_produit.produit_id')
@@ -138,6 +145,8 @@ class RetoursController extends Controller
      */
     public function edit($id)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         $retour = Retour::findOrFail($id);
 
         return view('admin.retours.edit', compact('retour'));
@@ -153,7 +162,8 @@ class RetoursController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         $requestData = $request->all();
         
         $retour = Retour::findOrFail($id);
@@ -171,6 +181,8 @@ class RetoursController extends Controller
      */
     public function destroy($id)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         Retour::destroy($id);
 
         return redirect('admin/retours')->with('flash_message', 'Retour deleted!');

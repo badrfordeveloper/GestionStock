@@ -24,6 +24,8 @@ class ProduitsController extends Controller
      */
     public function index(Request $request)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         $keyword = $request->get('search');
         $perPage = 25;
 
@@ -49,6 +51,8 @@ class ProduitsController extends Controller
      */
     public function create()
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         $categories=Category::All();
         return view('admin.produits.create',compact('categories'));
     }
@@ -62,6 +66,8 @@ class ProduitsController extends Controller
      */
     public function store(Request $request)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
 
         $directoryPhoto = 'produits';
         Storage::makeDirectory($directoryPhoto);
@@ -101,6 +107,8 @@ class ProduitsController extends Controller
      */
     public function show($id)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         $produit = Produit::findOrFail($id);
 
         return view('admin.produits.show', compact('produit'));
@@ -115,6 +123,8 @@ class ProduitsController extends Controller
      */
     public function edit($id)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         $categories=Category::All();
         $produit = Produit::findOrFail($id);
 
@@ -131,6 +141,8 @@ class ProduitsController extends Controller
      */
     public function update(Request $request, $id)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         
         $requestData = $request->all();
         
@@ -174,6 +186,8 @@ class ProduitsController extends Controller
      */
     public function destroy($id)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
          $produit=Produit::find($id);
         Storage::delete($produit->image);
         Produit::destroy($id);

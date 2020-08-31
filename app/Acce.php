@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Type extends Model
+class Acce extends Model
 {
-    /**
+	/**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'types';
+    protected $table = 'acces';
 
     /**
     * The database primary key value.
@@ -25,16 +25,11 @@ class Type extends Model
      *
      * @var array
      */
-    protected $fillable = ['libelle'];
+    protected $fillable = ['table','action'];
 
-    public function users()
+    public function types()
     {
-        return $this->hasMany('App\User');
-    }
-     public function acces()
-    {
-        return $this->belongsToMany('App\Acce');
+        return $this->belongsToMany('App\Type');
     }
 
-    
 }

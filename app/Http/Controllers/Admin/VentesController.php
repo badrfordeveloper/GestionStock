@@ -78,6 +78,8 @@ class VentesController extends Controller
 
     public function index(Request $request)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         $keyword = $request->get('search');
         $perPage = 25;
 
@@ -100,6 +102,8 @@ class VentesController extends Controller
      */
     public function create()
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         return view('admin.ventes.create');
     }
 
@@ -112,6 +116,7 @@ class VentesController extends Controller
      */
     public function store(Request $request)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
         
         $requestData = $request->all();
         
@@ -129,7 +134,7 @@ class VentesController extends Controller
      */
     public function show($id)
     {
-        
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
 
             $vente = Vente::findOrFail($id);
 
@@ -157,6 +162,8 @@ class VentesController extends Controller
      */
     public function edit($id)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         $vente = Vente::findOrFail($id);
 
         return view('admin.ventes.edit', compact('vente'));
@@ -172,6 +179,7 @@ class VentesController extends Controller
      */
     public function update(Request $request, $id)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
         
         $requestData = $request->all();
         
@@ -190,6 +198,8 @@ class VentesController extends Controller
      */
     public function destroy($id)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         Vente::destroy($id);
 
         return redirect('admin/ventes')->with('flash_message', 'Vente deleted!');

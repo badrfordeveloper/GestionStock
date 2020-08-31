@@ -21,6 +21,8 @@ class CategoriesController extends Controller
      */
     public function index(Request $request)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         $keyword = $request->get('search');
         $perPage = 25;
 
@@ -41,6 +43,8 @@ class CategoriesController extends Controller
      */
     public function create()
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         return view('admin.categories.create');
     }
 
@@ -53,7 +57,8 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         $requestData = $request->all();
         
         Category::create($requestData);
@@ -70,6 +75,8 @@ class CategoriesController extends Controller
      */
     public function show($id)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         $category = Category::findOrFail($id);
 
         return view('admin.categories.show', compact('category'));
@@ -99,6 +106,8 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         
         $requestData = $request->all();
         
@@ -117,6 +126,8 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
+                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+
         Category::destroy($id);
 
         return redirect('admin/categories')->with('flash_message', 'Category deleted!');
