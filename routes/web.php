@@ -43,6 +43,10 @@ Route::get('/commander/{id}', 'HomeController@commanderNow');
 Route::post('envoyerdemmande', 'HomeController@placeorder');
 Route::post('envoyerdemmandenow', 'HomeController@placeorderNow');
 Route::get('/merci', 'HomeController@thanks');
+Route::get('/thank-you', 'HomeController@thank_you');
+Route::get('/landing-page-1', 'HomeController@landingPage1');
+Route::get('/landing-page-2', 'HomeController@landingPage2');
+Route::post('/check-out/{id}', 'HomeController@checkout');
 
 
 

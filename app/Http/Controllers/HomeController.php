@@ -279,6 +279,13 @@ class HomeController extends Controller
         return view('public/merci',$data);
     }
 
+    public function thank_you()
+    {
+        $data =array("categories"=> $this->categories,"currency"=>"dhs");
+
+        return view('public/thank_you',$data);
+    }
+
     public function placeorder(Request $request)
     {
         $cart = session()->get('cart');
@@ -331,6 +338,68 @@ class HomeController extends Controller
         $this->addToCart($request->input('key'),false,$request->input('qty'));
         $this->placeorder($request);
          return redirect('merci');
+    }
+
+
+
+    public function landingPage1()
+    {
+        $id = 1 ;
+        return view('public/landing_page_1',compact('id'));
+
+    }
+
+    public function landingPage2()
+    {
+        $id = 2 ;
+        return view('public/landing_page_2',compact('id'));
+
+    }
+
+    public function checkout(Request $request,$id)
+    {
+
+        $idProductLp =  $id ;
+        $user=User::firstOrNew([
+
+                'email' => $request->input('email'),
+
+                'nom' => $request->input('nom'),
+
+              ]);
+
+        if(!$user->id)
+        {
+            $user->nom = $request->input('nom');
+
+            $user->email = $request->input('email');
+
+            $user->tel = $request->input('tel');
+
+            $user->adresse = $request->input('adresse');
+
+            $user->type_id = 3;
+
+            $user->save();
+        }
+
+        $produit = Produit::find($idProductLp);
+
+        $commande =new Commande();
+
+        $commande->date = date("Y-m-d H:i:s");
+
+        $commande->status="en attente";
+
+        $commande->total = $request->input('qty')*$produit->prix ;
+
+        $commande->user_id=$user->id;
+
+        $commande->save();
+
+        $commande->Produits()->attach($idProductLp,['quantite' =>  $request->input('qty'),'prix_unite' => $produit->prix ]);
+
+        return redirect('thank-you');
     }
 
 }
