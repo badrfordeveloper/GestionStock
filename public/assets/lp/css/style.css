@@ -203,7 +203,7 @@ input {
 }
 
 #h h2 {
-  color: #1BA39C;
+  color: white;
 }
 
 @media (max-width: 768px) {
@@ -260,7 +260,7 @@ input {
 }
 
 #g h1 {
-  font-size: 80px;
+  font-size: 52px;
   font-weight: 700;
   text-align: center;
 }
@@ -273,7 +273,7 @@ input {
 /* Red Section */
 
 #r {
-  background: #F62459;
+  background: black;
  /* padding-bottom: 50px;
   padding-top: 50px;*/
   min-height: 420px;
@@ -281,7 +281,7 @@ input {
 }
 
 #r h1 {
-  font-size: 80px;
+  font-size: 52px;
   font-weight: 700;
   text-align: center;
 }
@@ -302,7 +302,7 @@ input {
 }
 
 #b h1 {
-  font-size: 80px;
+  font-size: 52px;
   font-weight: 700;
   text-align: center;
 }
