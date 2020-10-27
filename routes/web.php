@@ -46,6 +46,7 @@ Route::get('/merci', 'HomeController@thanks');
 Route::get('/thank-you', 'HomeController@thank_you');
 Route::get('/landing-page-1', 'HomeController@landingPage1');
 Route::get('/landing-page-2', 'HomeController@landingPage2');
+Route::get('/landing-page-3', 'HomeController@landingPage3');
 Route::post('/check-out/{id}', 'HomeController@checkout');
 
 
