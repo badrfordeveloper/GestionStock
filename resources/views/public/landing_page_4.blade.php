@@ -48,7 +48,7 @@
 
 
   <style type="text/css">
-       #h { background: url({{ asset('assets/lp/img/parapluie/header.jpg') }}) no-repeat center top; 
+       #h { background: url({{ asset('assets/lp/img/khamla/header.jpg') }}) no-repeat center top; 
        }
        img{
             box-shadow: 0 10px 38px rgb(0 0 0 / 58%);
@@ -148,7 +148,7 @@
 
         <div class="col-md-6 centered min">
 
-          <img src="{{ asset('assets/lp/img/parapluie/parapluie_1.jpg') }}" class="img-responsive aligncenter" width="320" alt="" data-effect="slide-left">
+          <img src="{{ asset('assets/lp/img/khamla/khamla_1.jpg') }}" class="img-responsive aligncenter" width="320" alt="" data-effect="slide-left">
 
         </div>
 
@@ -233,7 +233,7 @@
 
         <div class="col-md-6 centered min">
 
-          <img src="{{ asset('assets/lp/img/parapluie/parapluie_5.jpg') }}" class="img-responsive aligncenter" width="320" alt="" data-effect="slide-right">
+          <img src="{{ asset('assets/lp/img/khamla/khamla_2.jpg') }}" class="img-responsive aligncenter" width="320" alt="" data-effect="slide-right">
 
         </div>
 
@@ -291,7 +291,7 @@
 
         <div class="col-md-6 centered min">
 
-          <img src="{{ asset('assets/lp/img/parapluie/parapluie_4.jpg') }}" class="img-responsive aligncenter" width="320" alt="" data-effect="slide-left">
+          <img src="{{ asset('assets/lp/img/khamla/khamla_3.jpg') }}" class="img-responsive aligncenter" width="320" alt="" data-effect="slide-left">
 
         </div>
 

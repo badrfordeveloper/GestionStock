@@ -346,21 +346,42 @@ class HomeController extends Controller
     {
         $id = 1 ;
         return view('public/landing_page_1',compact('id'));
-
     }
 
     public function landingPage2()
     {
         $id = 2 ;
         return view('public/landing_page_2',compact('id'));
-
     }
 
     public function landingPage3()
     {
         $id = 3 ;
         return view('public/landing_page_3',compact('id'));
+    }
 
+    public function landingPage4()
+    {
+        $id = 4 ;
+        return view('public/landing_page_4',compact('id'));
+    }
+
+    public function landingPage5()
+    {
+        $id = 5 ;
+        return view('public/landing_page_5',compact('id'));
+    }
+
+    public function landingPage6()
+    {
+        $id = 6 ;
+        return view('public/landing_page_6',compact('id'));
+    }
+
+    public function landingPage7()
+    {
+        $id = 7 ;
+        return view('public/landing_page_7',compact('id'));
     }
 
     public function checkout(Request $request,$id)

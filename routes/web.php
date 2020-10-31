@@ -44,9 +44,15 @@ Route::post('envoyerdemmande', 'HomeController@placeorder');
 Route::post('envoyerdemmandenow', 'HomeController@placeorderNow');
 Route::get('/merci', 'HomeController@thanks');
 Route::get('/thank-you', 'HomeController@thank_you');
+
 Route::get('/landing-page-1', 'HomeController@landingPage1');
 Route::get('/landing-page-2', 'HomeController@landingPage2');
 Route::get('/landing-page-3', 'HomeController@landingPage3');
+Route::get('/landing-page-4', 'HomeController@landingPage4');
+Route::get('/landing-page-5', 'HomeController@landingPage5');
+Route::get('/landing-page-6', 'HomeController@landingPage6');
+Route::get('/landing-page-7', 'HomeController@landingPage7');
+
 Route::post('/check-out/{id}', 'HomeController@checkout');
 
 
