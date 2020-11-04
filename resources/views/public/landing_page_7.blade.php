@@ -6,7 +6,7 @@
 
   <meta charset="utf-8">
 
-  <title>Minimallanding - Bootstrap Landing Template</title>
+  <title>حقيبة السرير</title>
 
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -34,6 +34,28 @@
 
   <link href="{{ asset('assets/lp/lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <style type="text/css">
+    .float{
+  position:fixed;
+  width:60px;
+  height:60px;
+  bottom:40px;
+  right:40px;
+  background-color:#25d366;
+  color:#FFF;
+  border-radius:50px;
+  text-align:center;
+  font-size:30px;
+  box-shadow: 2px 2px 2px #686666;
+  z-index:100;
+}
+
+.my-float{
+  margin-top:16px;
+}
+</style>
+
 
 
   <!-- Libraries CSS Files -->
@@ -48,7 +70,7 @@
 
 
   <style type="text/css">
-       #h { background: url({{ asset('assets/lp/img/parapluie/header.jpg') }}) no-repeat center top; 
+       #h { background: url({{ asset('assets/lp/img/sac/header.jpg') }}) no-repeat center top; 
        }
        img{
             box-shadow: 0 10px 38px rgb(0 0 0 / 58%);
@@ -84,9 +106,9 @@
 
       <div class="row centered">
 
-        <h1>المظلة المعكوسة</h1>
+        <h1>حقيبة السرير</h1>
 
-        <h2>سلسلة الاستعمال ومقاومة للرياح</h2>
+        <h2>الحقيبة العجيبة التي تتحول الى فراش و تحمل كل أغراض طفلك</h2>
 
         <a class="btn btn-large send-link" href="#frompost">اطلب الآن</a>
 
@@ -148,7 +170,7 @@
 
         <div class="col-md-6 centered min">
 
-          <img src="{{ asset('assets/lp/img/parapluie/parapluie_1.jpg') }}" class="img-responsive aligncenter" width="320" alt="" data-effect="slide-left">
+          <img src="{{ asset('assets/lp/img/sac/sac1.jpg') }}" class="img-responsive aligncenter" width="320" alt="" data-effect="slide-left">
 
         </div>
 
@@ -161,8 +183,11 @@
           <h1 data-effect="slide-right">1</h1>
 
           <p>
-		  المقبض الكلاسيكي على شكل حرف C يساعدك بسهولة على الرد على المكالمات والتعامل مع حقائب الطعام وحتى الإمساك بأيدي الأطفال. مقبض على شكل حرف C مريح يسمح لك بالتحكم في  الانزلاق المظلة على الساعد أو معصمك حتى تتمكن من القيام بمهام اخرى .
-		    </p>        </div>
+هل أنت في انتظار قدوم مولودك الجديد ولا تعلمين أي شيء عن حقيبة الحفاضات التي سوف تشترينها؟ هل لديك رضيع أو طفل عمره ثلاث سنوات أو أقل؟ إذا كنت من الأمهات اللاتي تهتم كثيرا بأناقتها وتبحث عن اللأغراض المناسبة و العملية فلا بد من إكتشاف هذا المنتج الرائع.
+
+إليك حقيبة ظهر ذات سعة كبيرة مع سرير أطفال قابل للطي  2 في 1، يحتوي على طاولة تغيير حفاضات محمولة مقاومة للماء.
+		    </p>        
+		</div>
 
         <!--/col-md-4 -->
 
@@ -221,19 +246,23 @@
         <div class="col-md-4 col-md-offset-2">
 
           <h1 data-effect="slide-left">2</h1>
+		  
+		   <p>مميزات الحقيبة</p> 
+		 <p> <ul>
+			<li> حقيبة عملية ومتعددة الأغراض مريحة  و واسعة بسخاء ، دع طفلك ينام في أي مكان بشكل مريح وآمن. يوفر مساحة آمنة وصحية لتغيير طفلك أو ترويضه للراحة في أي وقت وفي أي مكان.</li>
+			<li>تصميم قابل للطي: يمكن بسهولة تحويل سرير السفر إلى حقيبة ظهر وتحتاج فقط إلى دقيقة واحدة لخلق مساحة للنوم للطفل. سرير الطفل المشترك للنوم يمثل مساحة داخلية إضافية تجعله حقيبة حفاضات بديلة. هذا الحل المثالي والعملي يجعل سفر الأم بأكملها مع الطفل أسهل وأكثر راحة. تأتي أيضًا مع حزام كتف مريح يساعدك على تحملها دون عناء.</li>
+			<li>مقاوم للماء وسهل التنظيف: وسادة السرير مضادة للماء ، في حين أن البطانة القابلة للإزالة بالكامل قابلة للغسل في الغسالة ، لذلك لا داعي للقلق بشأن الانسكابات أو الفوضى أو التضاريس الوعرة. </li>
+		  </ul>
+		  </p>
 
-          <p>
-		    بنقرة واحدة ودفعة بسيطة ، يمكنك فتح وإغلاق المظلة في الأماكن الضيقة عند الدخول أو الخروج من مبنى أو سيارة
-
-وهو أقل صعوبة وأكثر أمانًا للفتح والإغلاق عندما تكون في حشود ، نظرًا لأن التصميم قد أزال خطر الوخز في عيون الناس. 
-        
- تصميم يضيف لمسة لطيفة لمظلتنا الكلاسيكية من خلال التقليب من الداخل للخارج ،  بهذه الطريقة يأتي الجانب الداخلي الجاف للمظلة من الخارج ، ويبقي الجانب الرطب بعيدًا ليجعلك جافًا عند خروجك من المطر.  </p>        </div>
+                
+		</div>
 
         <!--/col-md-4 -->
 
         <div class="col-md-6 centered min">
 
-          <img src="{{ asset('assets/lp/img/parapluie/parapluie_5.jpg') }}" class="img-responsive aligncenter" width="320" alt="" data-effect="slide-right">
+          <img src="{{ asset('assets/lp/img/sac/sac2.jpg') }}" class="img-responsive aligncenter" width="320" alt="" data-effect="slide-right">
 
         </div>
 
@@ -291,7 +320,7 @@
 
         <div class="col-md-6 centered min">
 
-          <img src="{{ asset('assets/lp/img/parapluie/parapluie_4.jpg') }}" class="img-responsive aligncenter" width="320" alt="" data-effect="slide-left">
+          <img src="{{ asset('assets/lp/img/sac/sac3.jpg') }}" class="img-responsive aligncenter" width="320" alt="" data-effect="slide-left">
 
         </div>
 
@@ -303,7 +332,11 @@
 
           <h1 data-effect="slide-right">3</h1>
 
-          <p>نظرًا لتصميمها الديناميكي الهوائي ، تجد المظلة دائمًا الموضع الأكثر راحة في الريح مما يجعلها ممتعة بشكل استثنائي للاستخدام ، حتى في الطقس القوي . إذا انقلبت المظلة ، يمكن تصحيحها بضغطة زر واحدة</p>
+          <p>
+		  ثلاثة في واحد
+
+ يمكن استخدام حقيبة الحفاضات الأنيقة هذه كسرير للسفر أو حقيبة حفاضات أو طاولة تغيير حفاضات كما يمكن استخدامها كحقيبة ظهر أو حقيبة كتف أو حقيبة حمل أو ببساطة تعليقها على عربة الأطفال. مريحة للغاية في الاستخدام وتجعل حياتك أسهل.
+		  </p>
 
         </div>
 
@@ -473,6 +506,10 @@
     </div>
 
   </div>
+
+<a href="https://api.whatsapp.com/send?phone=51955081075&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="float" target="_blank">
+<i class="fa fa-whatsapp my-float"></i>
+</a>
 
   <!-- / contact -->
 
