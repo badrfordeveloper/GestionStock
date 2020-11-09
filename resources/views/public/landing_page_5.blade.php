@@ -48,7 +48,7 @@
 
 
   <style type="text/css">
-       #h { background: url({{ asset('assets/lp/img/parapluie/header.jpg') }}) no-repeat center top; 
+       #h { background: url({{ asset('assets/lp/img/facialSteamer/header.jpg') }}) no-repeat center top; 
        }
        img{
             box-shadow: 0 10px 38px rgb(0 0 0 / 58%);
@@ -84,9 +84,9 @@
 
       <div class="row centered">
 
-        <h1>المظلة المعكوسة</h1>
+        <h1>جهاز بخار لحب الشباب</h1>
 
-        <h2>سلسلة الاستعمال ومقاومة للرياح</h2>
+        <h2>سلسلة الاستعمال و ذات جودة ممتازة</h2>
 
         <a class="btn btn-large send-link" href="#frompost">اطلب الآن</a>
 
@@ -148,7 +148,7 @@
 
         <div class="col-md-6 centered min">
 
-          <img src="{{ asset('assets/lp/img/parapluie/parapluie_1.jpg') }}" class="img-responsive aligncenter" width="320" alt="" data-effect="slide-left">
+          <img src="{{ asset('assets/lp/img/facialSteamer/facialSteamer_1.jpg') }}" class="img-responsive aligncenter" width="320" alt="" data-effect="slide-left">
 
         </div>
 
@@ -160,9 +160,10 @@
 
           <h1 data-effect="slide-right">1</h1>
 
-          <p>
-		  المقبض الكلاسيكي على شكل حرف C يساعدك بسهولة على الرد على المكالمات والتعامل مع حقائب الطعام وحتى الإمساك بأيدي الأطفال. مقبض على شكل حرف C مريح يسمح لك بالتحكم في  الانزلاق المظلة على الساعد أو معصمك حتى تتمكن من القيام بمهام اخرى .
-		    </p>        </div>
+          <p>قبل ابتكار أجهزة بخار الوجه كانت الطريقة القديمة للتبخير تتم عبر صب بعض الماء الساخن في وعاء وتغطية الوجه بمنشفة وترك البخار يتصاعد للوجه. المشكلة هي أن هذه الطريقة ليست فعالة جدا لأن الجلد لا يستفيد من البخار بفعالية وسرعان ما يصبح الماء بارد.
+
+أجهزة البخار تحل هذه المشكلة عن طريق توليد بخار بدرجات حرارة عالية جدا و تمنع الماء من التعرض للبرودة. وينتج عن ذلك تغلغل أعمق في الجلد، مما يؤدى إلى بشرة نضرة المظهر.
+ </p>        </div>
 
         <!--/col-md-4 -->
 
@@ -222,18 +223,13 @@
 
           <h1 data-effect="slide-left">2</h1>
 
-          <p>
-		    بنقرة واحدة ودفعة بسيطة ، يمكنك فتح وإغلاق المظلة في الأماكن الضيقة عند الدخول أو الخروج من مبنى أو سيارة
-
-وهو أقل صعوبة وأكثر أمانًا للفتح والإغلاق عندما تكون في حشود ، نظرًا لأن التصميم قد أزال خطر الوخز في عيون الناس. 
-        
- تصميم يضيف لمسة لطيفة لمظلتنا الكلاسيكية من خلال التقليب من الداخل للخارج ،  بهذه الطريقة يأتي الجانب الداخلي الجاف للمظلة من الخارج ، ويبقي الجانب الرطب بعيدًا ليجعلك جافًا عند خروجك من المطر.  </p>        </div>
+          <p>يولد كمية كبيرة من الضباب الساخن في غضون 30 ثانية مع شريحة تسخين السيراميك PTC. كمية الضباب الهائلة تجعله SPA لكامل الوجه. تعمل أبخرة الوجه محلية الصنع على تفتيت الماء النقي لتنظيف الرذاذ الناعم ، وهو طبيعي وآمن. مناسب للنساء والرجال وجميع أفراد الأسرة. </p>        </div>
 
         <!--/col-md-4 -->
 
         <div class="col-md-6 centered min">
 
-          <img src="{{ asset('assets/lp/img/parapluie/parapluie_5.jpg') }}" class="img-responsive aligncenter" width="320" alt="" data-effect="slide-right">
+          <img src="{{ asset('assets/lp/img/facialSteamer/facialSteamer_2.jpg') }}" class="img-responsive aligncenter" width="320" alt="" data-effect="slide-right">
 
         </div>
 
@@ -291,7 +287,7 @@
 
         <div class="col-md-6 centered min">
 
-          <img src="{{ asset('assets/lp/img/parapluie/parapluie_4.jpg') }}" class="img-responsive aligncenter" width="320" alt="" data-effect="slide-left">
+          <img src="{{ asset('assets/lp/img/facialSteamer/facialSteamer_3.jpg') }}" class="img-responsive aligncenter" width="320" alt="" data-effect="slide-left">
 
         </div>
 
@@ -303,7 +299,7 @@
 
           <h1 data-effect="slide-right">3</h1>
 
-          <p>نظرًا لتصميمها الديناميكي الهوائي ، تجد المظلة دائمًا الموضع الأكثر راحة في الريح مما يجعلها ممتعة بشكل استثنائي للاستخدام ، حتى في الطقس القوي . إذا انقلبت المظلة ، يمكن تصحيحها بضغطة زر واحدة</p>
+          <p>رذاذ ساخن للوجه لتنظيف عميق للوجه ، عندما تعرض بشرتك للبخار ، فإن أبخرة الوجه النقية المحمولة لدينا تفتح مسامك وتزيل بقايا مستحضرات التجميل وتساعد على تنعيم الرؤوس السوداء مثل الأوساخ لمزيد من التنظيف عميق. كل ما يتطلبه الأمر هو spa لطيف لمدة 8 دقائق من رذاذ الوجه الساخن في المنزل. يمكنك الاستمتاع بوجه مشبع بالبخار على مستوى غرفة المعيشة أثناء الاسترخاء في حوض الاستحمام ، أو الاعتماد على الأريكة والتخلص من إجهاد العمل طوال اليوم.</p>
 
         </div>
 
