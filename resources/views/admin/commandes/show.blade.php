@@ -16,18 +16,36 @@
                     </div>
                     <div class="ibox-content  text-center">
 
+                        <div class="row">
+                            <div class="col-md-6">    
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover">
+                                        <tbody>
+                                            <tr><th> Date </th><td> {{ $commande->date }} </td></tr>
+                                            <tr><th> Total </th><td> {{ $commande->total }} </td></tr>
+                                            <tr><th> Status </th><td> {{ $commande->status }} </td></tr>
+                                           
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-md-6">    
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover">
+                                        <tbody>
+                                            <tr><th> Client </th><td> {{ $commande->user->nom.' '. $commande->user->prenom }} </td></tr>
+
+                                            <tr><th> Client Téléphone </th><td> <a href="https://wa.me/212{{$commande->user->tel}}" target="_blank"> {{ $commande->user->tel }}</a> </td></tr>
+                                            <tr><th> Client Adresse </th><td> {{ $commande->user->adresse }} </td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
                        
 
-                        <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover">
-                                <tbody>
-                                    <tr>
-                                        <th>ID</th><td>{{ $commande->id }}</td>
-                                    </tr>
-                                    <tr><th> Date </th><td> {{ $commande->date }} </td></tr><tr><th> Total </th><td> {{ $commande->total }} </td></tr><tr><th> Status </th><td> {{ $commande->status }} </td></tr><tr><th> Client </th><td> {{ $commande->user->nom.' '. $commande->user->prenom }} </td></tr>
-                                </tbody>
-                            </table>
-                        </div>
+                     
 
                         <div class="row">
                             <div class="col-md-12">

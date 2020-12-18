@@ -6,7 +6,7 @@
 
   <meta charset="utf-8">
 
-  <title>Minimallanding - Bootstrap Landing Template</title>
+  <title>المظلة المعكوسة</title>
 
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -34,7 +34,47 @@
 
   <link href="{{ asset('assets/lp/lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
+  <style type="text/css">
+
+    .float{
+
+  position:fixed;
+
+  width:60px;
+
+  height:60px;
+
+  bottom:40px;
+
+  right:40px;
+
+  background-color:#25d366;
+
+  color:#FFF;
+
+  border-radius:50px;
+
+  text-align:center;
+
+  font-size:30px;
+
+  box-shadow: 2px 2px 2px #686666;
+
+  z-index:100;
+
+}
+
+
+
+.my-float{
+
+  margin-top:16px;
+
+}
+
+</style>
 
   <!-- Libraries CSS Files -->
 
@@ -57,20 +97,38 @@
         min-height: 359px;
        }
   </style>
+    <style type="text/css"> 
+  html { scroll-behavior: smooth;}
+  .section-price{   text-align:center;        margin: 70px auto 10px;  } 
+  .pricebox { width:250px;  padding: 0.5rem 1rem;  position: relative;  z-index: 0;  font-weight: bold;  font-size: 3.8rem;  color: #232323;  margin:0 auto; direction:ltr;}
+  .pricebox::before {  content: "";  display: block;  position: absolute;  top: 0;  left: 0;  right: 0;  bottom: 0;  background: #eee;  z-index: -1;  transform: skew(-10deg);  box-shadow: 0 0 6px 0px rgba(0, 0, 0, 0.1);}
+  .pricebox__sale {  position: absolute;  transform: translate(10%, -160%);  font-size: 0.8rem;  white-space: nowrap;  display: flex;  right: 0;}
+  .pricebox__sale::after {  content: "";  display: block;  position: absolute;  top: 100%;  left: 0;  right: 10%;  height: 4px;  background: #bbb;  z-index: -1;  transform: skew(30deg);  transform-origin: left top;}
+  .pricebox__actual {  padding: 0.25rem 0.5rem 0.25rem;  position: relative;  display: flex;  align-items: center;      font-size: 18px;    direction: ltr;}
+  .pricebox__actual::before {  content: "";  display: block;  position: absolute;  top: 0;  left: 0;  right: 0;  bottom: 0;  background: #eee;  z-index: -1;  transform: skew(-10deg);  box-shadow: 0 0 3px 0px rgba(0, 0, 0, 0.1);}
+  .pricebox__actual::after {  content: "";  display: block;  border-top: 1px solid rgba(0, 0, 0, 0.4);  top: 50%;  left: 0.25em;  right: 0.25em;  z-index: 3;  position: absolute;}
+  .pricebox__savings {  padding: 0.25rem 0.5rem 0.25rem;  position: relative;  color: #fff;  display: flex;  align-items: center;}
+  .pricebox__savings::before {  content: "";  display: block;  position: absolute;  top: 0;  left: 0;  right: 0;  bottom: 0;  background: #dc4949;  z-index: -1;  transform: skew(-10deg);  box-shadow: 0 0 3px 0px rgba(0, 0, 0, 0.1);}
+  .icon {  display: inline-flex;  background: #eee;  color: #dc4949;  border-radius: 50%;  padding: 0.15rem;  font-size: 65%;  margin-right: 0.2rem;  justify-content: center;  align-items: center;  width: 1em;}  
+  </style>
 
-
-
-  <!-- =======================================================
-
-    Template Name: MinimalLanding
-
-    Template URL: https://templatemag.com/minimallanding-bootstrap-landing-template/
-
-    Author: TemplateMag.com
-
-    License: https://templatemag.com/license/
-
-  ======================================================= -->
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '171574484639743');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=171574484639743&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
 
 </head>
 
@@ -84,9 +142,14 @@
 
       <div class="row centered">
 
-        <h1>المظلة المعكوسة</h1>
+        <h1>
+            المظلة المعكوسة
+            </h1>
 
         <h2>سلسلة الاستعمال ومقاومة للرياح</h2>
+
+
+    <div class="section-price">   <div class="pricebox">      <div class="pricebox__sale">      <span class="pricebox__actual">199 DHS</span>      <span class="pricebox__savings"><small class="icon">%</small>-20%</span>      </div>      159 DHS   </div>    </div>
 
         <a class="btn btn-large send-link" href="#frompost">اطلب الآن</a>
 
@@ -192,7 +255,7 @@
 
         <div class="col-md-8 col-md-offset-2 centered">
 
-          <p> الكمية محدودة جدا. اطلبي الآن</p>
+          <p> الكمية محدودة جدا. اطلب الآن</p>
 
         </div>
 
@@ -335,7 +398,7 @@
 
         <div class="col-md-8 col-md-offset-2 centered">
 
-          <p> التخفيض غادي يسالي و الثمن غادي يرجع DH 498 </p>
+          <p> التخفيض غادي يسالي و الثمن غادي يرجع DH 199 </p>
 
         </div>
 
@@ -394,18 +457,28 @@
 
       <div class="row">
 
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-6 col-md-offset-3">
 
-          <h2 class="centered">إطلبي الان</h2>
+          <h2 class="centered">إطلب الآن</h2>
 
           <form class="contact-frm" role="form" action="{{ url('check-out/'.$id) }}" id="frompost" method="POST">
 
           	{{ csrf_field() }}
 
             <div class="form-group">
-
-              <input type="number" name="qty" class="form-control" id="contact-qty" placeholder="الكمية"  data-msg="" >
-
+                <select name="qty" class="form-control" id="contact-qty" >
+                    <option selected value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            
               <div class="validate"></div>
 
             </div>
@@ -476,7 +549,11 @@
 
   <!-- / contact -->
 
+<a href="https://api.whatsapp.com/send?phone=212679524603" class="float" target="_blank">
 
+<i class="fa fa-whatsapp my-float"></i>
+
+</a>
 
   <div id="copyrights">
 

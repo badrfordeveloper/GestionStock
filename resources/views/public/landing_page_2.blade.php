@@ -6,7 +6,7 @@
 
   <meta charset="utf-8">
 
-  <title>Minimallanding - Bootstrap Landing Template</title>
+  <title>Flip Jack</title>
 
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -20,8 +20,6 @@
 
   <link href="{{ asset('assets/lp/img/favicon.png')}}" rel="icon">
 
-  <link href="{{ asset('assets/lp/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
-
 
 
   <!-- Google Fonts -->
@@ -33,6 +31,48 @@
   <!-- Bootstrap CSS File -->
 
   <link href="{{ asset('assets/lp/lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <style type="text/css">
+
+    .float{
+
+  position:fixed;
+
+  width:60px;
+
+  height:60px;
+
+  bottom:40px;
+
+  right:40px;
+
+  background-color:#25d366;
+
+  color:#FFF;
+
+  border-radius:50px;
+
+  text-align:center;
+
+  font-size:30px;
+
+  box-shadow: 2px 2px 2px #686666;
+
+  z-index:100;
+
+}
+
+
+
+.my-float{
+
+  margin-top:16px;
+
+}
+
+</style>
 
 
 
@@ -45,20 +85,39 @@
   <!-- Main Stylesheet File -->
 
   <link href="{{ asset('assets/lp/css/style.css') }}" rel="stylesheet">
+  <style type="text/css"> 
+  html { scroll-behavior: smooth;}
+  .section-price{	  text-align:center;	      margin: 70px auto 10px;  } 
+  .pricebox {	width:250px;  padding: 0.5rem 1rem;  position: relative;  z-index: 0;  font-weight: bold;  font-size: 3.8rem;  color: #232323;  margin:0 auto; direction:ltr;}
+  .pricebox::before {  content: "";  display: block;  position: absolute;  top: 0;  left: 0;  right: 0;  bottom: 0;  background: #eee;  z-index: -1;  transform: skew(-10deg);  box-shadow: 0 0 6px 0px rgba(0, 0, 0, 0.1);}
+  .pricebox__sale {  position: absolute;  transform: translate(10%, -160%);  font-size: 0.8rem;  white-space: nowrap;  display: flex;  right: 0;}
+  .pricebox__sale::after {  content: "";  display: block;  position: absolute;  top: 100%;  left: 0;  right: 10%;  height: 4px;  background: #bbb;  z-index: -1;  transform: skew(30deg);  transform-origin: left top;}
+  .pricebox__actual {  padding: 0.25rem 0.5rem 0.25rem;  position: relative;  display: flex;  align-items: center;      font-size: 18px;    direction: ltr;}
+  .pricebox__actual::before {  content: "";  display: block;  position: absolute;  top: 0;  left: 0;  right: 0;  bottom: 0;  background: #eee;  z-index: -1;  transform: skew(-10deg);  box-shadow: 0 0 3px 0px rgba(0, 0, 0, 0.1);}
+  .pricebox__actual::after {  content: "";  display: block;  border-top: 1px solid rgba(0, 0, 0, 0.4);  top: 50%;  left: 0.25em;  right: 0.25em;  z-index: 3;  position: absolute;}
+  .pricebox__savings {  padding: 0.25rem 0.5rem 0.25rem;  position: relative;  color: #fff;  display: flex;  align-items: center;}
+  .pricebox__savings::before {  content: "";  display: block;  position: absolute;  top: 0;  left: 0;  right: 0;  bottom: 0;  background: #dc4949;  z-index: -1;  transform: skew(-10deg);  box-shadow: 0 0 3px 0px rgba(0, 0, 0, 0.1);}
+  .icon {  display: inline-flex;  background: #eee;  color: #dc4949;  border-radius: 50%;  padding: 0.15rem;  font-size: 65%;  margin-right: 0.2rem;  justify-content: center;  align-items: center;  width: 1em;}  
+  </style>
 
 
-
-  <!-- =======================================================
-
-    Template Name: MinimalLanding
-
-    Template URL: https://templatemag.com/minimallanding-bootstrap-landing-template/
-
-    Author: TemplateMag.com
-
-    License: https://templatemag.com/license/
-
-  ======================================================= -->
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '382331216514773');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=382331216514773&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
 
 </head>
 
@@ -78,7 +137,7 @@
 
         <h1>Flip Jack </h1>
 
-        <h2>المقلاة السحرة ذات الوجهين </h2>
+        <h2> المقلاة السحرية ذات الوجهين </h2>		<div class="section-price">		<div class="pricebox">		  <div class="pricebox__sale">			<span class="pricebox__actual">249 DHS</span>			<span class="pricebox__savings"><small class="icon">%</small>-30%</span>		  </div>		  179 DHS		</div>		</div>
 
         <a class="btn btn-large send-link" href="#frompost"> اطلب الآن</a>
 
@@ -106,7 +165,7 @@
 
         <div class="col-md-8 col-md-offset-2">
 
-          <h4>تخفيض % 50 اليوم فقط عند مريح و التوصيل إلى باب دارك <i class="glyphicon glyphicon-heart"></i></h4>
+          <h4>  تخفيض % 30 اليوم والتوصيل إلى باب دارك  <i class="glyphicon glyphicon-heart"></i></h4>
 
           <br/>
 
@@ -152,13 +211,7 @@
 
 			<h1 data-effect="slide-right">1</h1>
 
-			<p>
-			
-				Flip Jack من Orgreenic هو مقلاة الفطائر الجديدة غير اللاصقة !
-				يستخدم Flip Jack طلاء أواني الطهي غير اللاصق لصنع الفطائر بالحجم المثالي بسهولة في كل مرة ! مع Flip Jack ،
-				ببساطة صب خليط الفطائر المفضل لديك ، أغلق الغطاء واقلب مقلاة. من السهل جدًا قلب الفطائر بيد واحدة قبل إخراجها من المقلاة! ستحصل 
-				على الفطائر بشكل مثالي ، تمامًا كما هو الحال في المطعم !
-
+			<p>					Flip Jack من Orgreenic هي مقلاة الفطائر الجديدة غير اللاصقة !يستخدم Flip Jack طلاء أواني الطهي غير اللاصق لصنع الفطائر بالحجم المثالي بسهولة في كل مرة ! مع Flip Jack ،ببساطة صب خليط الفطائر المفضل لديك ، أغلق الغطاء واقلب مقلاة. من السهل جدًا قلب الفطائر بيد واحدة قبل إخراجها من المقلاة! ستحصل على الفطائر بشكل مثالي ، تمامًا كما هو الحال في المطعم !
 			</p>       
 		</div>
 
@@ -304,8 +357,7 @@
 			<h1 data-effect="slide-right">3</h1>
 			
 			<p>
-				هذه المقلاة ذات الوجهين عبارة عن أواني مطبخ رائعة ، يمكنك استخدامها لصنع الفطائر والخبز المحمص والبيض المقلي ، وهي تستخدم مكواة ممتازة مع طلاء غ
-				ير لاصق ، سهلة التنظيف ومتينة.
+				هذه المقلاة ذات الوجهين عبارة عن أواني مطبخ رائعة ، يمكنك استخدامها لصنع الفطائر والخبز المحمص والبيض المقلي ، وهي تستخدم مكواة ممتازة مع طلاء غير لاصق ، سهلة التنظيف ومتينة.
 			</p>
 			<p>
 				من مميزاتها أنها مصنوعة من مكواة عالية الجودة ، وهي آمنة وقوية ومتينة ، ويضمن طلاء السطح بالسيراميك سهولة التنظيف وعدم الالتصاق ، و مريح للغاية في الاستخدام. إنها أداة مطبخ رائعة. مناسبة للطبخ المنزلي ، ويمكن استخدامها بأمان على موقد الغاز.
@@ -342,7 +394,10 @@
 
         <div class="col-md-8 col-md-offset-2 centered">
 
-          <p> التخفيض غادي يسالي و الثمن غادي يرجع DH 498  إطلبي الان!</p>
+            <p>
+               التخفيض غادي يسالي و الثمن غادي يرجع DH 249  إطلبي الان !
+            </p>
+               
 
         </div>
 
@@ -362,7 +417,7 @@
 
   <!--  ********** FOOTER SECTION ********** -->
 
-  <div id="f">
+ <!-- <div id="f">
 
     <div class="container">
 
@@ -382,7 +437,7 @@
 
         </div>
 
-      </div>
+      </div>-->
 
       <!--/row -->
 
@@ -414,7 +469,7 @@
 
             <div class="form-group">
 
-              <input type="number" name="qty" class="form-control" id="contact-qty" placeholder="الكمية"  data-msg="" >
+              <input type="number" name="qty" class="form-control" id="contact-qty" placeholder="الكمية"  data-msg value="1" >
 
               <div class="validate"></div>
 
@@ -486,7 +541,11 @@
 
   <!-- / contact -->
 
+<a href="https://api.whatsapp.com/send?phone=212679524603" class="float" target="_blank">
 
+<i class="fa fa-whatsapp my-float"></i>
+
+</a>
 
   <div id="copyrights">
 

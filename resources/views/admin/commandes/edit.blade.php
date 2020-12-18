@@ -11,7 +11,6 @@
         background-color: red !important
 
     }
-    
 </style>
 @endsection
 
@@ -269,6 +268,9 @@
 
 
                    if(myproduct[i].quantite>myproduct[i].StockQuantite){
+                       
+                       console.log(myproduct[i].quantite>myproduct[i].StockQuantite);
+                       
                         myclass="error"
                          $("#mysubmit").prop("disabled", true);
                     }

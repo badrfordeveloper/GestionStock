@@ -12,37 +12,33 @@ use App\Lignecommande;
 use App\Commande_produit; 
 use App\Helpers\Checker;
 
+use Auth;
+use Config;
 use Illuminate\Http\Request;
 
 class CommandesController extends Controller
 {
     protected $table = "commandes";
+
     public function __construct()
     {
         $this->middleware('auth');
     }
-    /**
+    /*
+     *
      * Display a listing of the resource.
      *
      * @return \Illuminate\View\View
      */
     public function index(Request $request)
     {
-                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+       /* if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}*/
 
-        $keyword = $request->get('search');
-        $perPage = 25;
 
-        if (!empty($keyword)) {
-            $commandes = Commande::where('date', 'LIKE', "%$keyword%")
-                ->orWhere('total', 'LIKE', "%$keyword%")
-                ->orWhere('status', 'LIKE', "%$keyword%")
-                ->orWhere('user_id', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
-        } else {
-            $commandes = Commande::latest()->paginate($perPage);
-        }
+        $commandes = Commande::all();
 
+      
+       
         return view('admin.commandes.index', compact('commandes'));
     }
 
@@ -53,9 +49,9 @@ class CommandesController extends Controller
      */
     public function create()
     {
-                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+       /* if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}*/
 
-        $clients = User::where('type_id',3)->get();
+         $clients = User::where('type_id',3)->get();
         return view('admin.commandes.create',compact('clients'));
     }
 
@@ -68,8 +64,8 @@ class CommandesController extends Controller
      */
     public function store(Request $request)
     {
-                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
-
+              /*  if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+*/
         // retrieve data from serialize array becarful with order of input
         $Date=$request->mydata[1]['value'];
         $Status=$request->mydata[2]['value'];
@@ -127,9 +123,9 @@ class CommandesController extends Controller
      */
     public function show($id)
     {
-                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+     /*   if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}*/
 
-         $commande_produit = Commande_produit::where('commande_id','=',$id)
+          $commande_produit = Commande_produit::where('commande_id','=',$id)
                             ->join('produits', 'produits.id', '=', 'commande_produit.produit_id')
                             ->select('produits.id', 'produits.created_at', 'produits.updated_at', 'produits.nom','produits.image', 'produits.description', 'produits.image', 'commande_produit.prix_unite as prix', 'commande_produit.quantite', 'produits.categorie_id','produits.quantite as StockQuantite','produits.prix as Currentprix')
                             ->get();
@@ -152,31 +148,19 @@ class CommandesController extends Controller
      */
     public function edit($id)
     {
-                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+       /* if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}*/
 
-/*
-            Currentprix: 200
-            StockQuantite: 10
-            categorie_id: 2
-            created_at: "2020-06-29T10:17:25.000000Z"
-            description: "description products"
-            id: 1
-            image: "produits/y1MnjR4g6YZajhtqpmE4mMoFQ5QwpwxfCbeRFWyE.png"
-            nom: "produits1"
-            prix: 200
-            quantite: 10
-            updated_at: "2020-07-14T09:52:48.000000Z"
-
-            $*/
-
-        $commande_produit = Commande_produit::where('commande_id','=',$id)
+         $commande_produit = Commande_produit::where('commande_id','=',$id)
                             ->join('produits', 'produits.id', '=', 'commande_produit.produit_id')
                             ->select('produits.id', 'produits.created_at', 'produits.updated_at', 'produits.nom','produits.image', 'produits.description', 'produits.image', 'commande_produit.prix_unite as prix', 'commande_produit.quantite', 'produits.categorie_id','produits.quantite as StockQuantite','produits.prix as Currentprix')
                             ->get();
+                            
+                 
+                         
                
         $commande = Commande::findOrFail($id);
 
-  /*      dd($commande_produit) ;*/
+     
    
         $clients = User::where('type_id',3)->get();
 
@@ -191,7 +175,7 @@ class CommandesController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, $id)
+  public function update(Request $request, $id)
     {
 
         if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
@@ -271,10 +255,10 @@ class CommandesController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function destroy($id)
+     public function destroy($id)
     {
-                if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
-
+             /*   if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}
+*/
         $commande=Commande::find($id);
 
         if($commande->status != "en vente"){

@@ -350,16 +350,16 @@ input {
 .contact-frm .form-send button,.send-link {
   background: #19B5FE;
   border: 0;
-  padding: 14px 30px;
+  padding: 14px 45px;
   color: #fff;
   transition: 0.4s;
   cursor: pointer;
-  border-radius: 2px;
-  font-size: 18px;
+  border-radius: 10px;
+  font-size: 32px;
 }
 .send-link
 {
-  margin :2% 0;
+  margin :4% 0;
 }
 
 .contact-frm .form-send button:hover {

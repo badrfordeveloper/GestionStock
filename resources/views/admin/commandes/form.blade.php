@@ -1,15 +1,14 @@
 <div class="form-group row {{ $errors->has('date') ? 'has-error' : ''}}">
     <label for="date" class="col-sm-2 col-form-label">{{ 'Date' }}</label>
-	<div class="col-sm-10">
-    	<input class="form-control" name="date" type="datetime-local" id="date" value="{{ isset($commande->date) ?  \Carbon\Carbon::parse($commande->date)->toDatetimelocalString() : ''}}">
+    <div class="col-sm-10">
+        <input class="form-control" name="date" type="datetime-local" id="date" value="{{ isset($commande->date) ?  \Carbon\Carbon::parse($commande->date)->toDatetimelocalString() : ''}}">
     {!! $errors->first('date', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
-
 <div class="form-group row {{ $errors->has('status') ? 'has-error' : ''}}">
     <label for="status" class="col-sm-2 col-form-label">{{ 'Status' }}</label>
-	<div class="col-sm-10">
-    	<input class="form-control" name="status" type="text" id="status" value="{{ isset($commande->status) ? $commande->status : old('status') }}" >
+    <div class="col-sm-10">
+        <input class="form-control" name="status" type="text" id="status" value="{{ isset($commande->status) ? $commande->status : old('status') }}" >
 
     {!! $errors->first('status', '<p class="help-block">:message</p>') !!}
     </div>

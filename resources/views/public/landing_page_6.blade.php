@@ -6,7 +6,7 @@
 
   <meta charset="utf-8">
 
-  <title>Minimallanding - Bootstrap Landing Template</title>
+  <title>آلة التصبين الكهربائية العجيبة</title>
 
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -20,8 +20,6 @@
 
   <link href="{{ asset('assets/lp/img/favicon.png')}}" rel="icon">
 
-  <link href="{{ asset('assets/lp/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
-
 
 
   <!-- Google Fonts -->
@@ -34,7 +32,47 @@
 
   <link href="{{ asset('assets/lp/lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
+  <style type="text/css">
+
+    .float{
+
+  position:fixed;
+
+  width:60px;
+
+  height:60px;
+
+  bottom:40px;
+
+  right:40px;
+
+  background-color:#25d366;
+
+  color:#FFF;
+
+  border-radius:50px;
+
+  text-align:center;
+
+  font-size:30px;
+
+  box-shadow: 2px 2px 2px #686666;
+
+  z-index:100;
+
+}
+
+
+
+.my-float{
+
+  margin-top:16px;
+
+}
+
+</style>
 
   <!-- Libraries CSS Files -->
 
@@ -48,7 +86,7 @@
 
 
   <style type="text/css">
-       #h { background: url({{ asset('assets/lp/img/parapluie/header.jpg') }}) no-repeat center top; 
+       #h { background: url({{ asset('assets/lp/img/machine/header.jpg') }}) no-repeat center top; 
        }
        img{
             box-shadow: 0 10px 38px rgb(0 0 0 / 58%);
@@ -58,20 +96,37 @@
        }
   </style>
 
+  <style type="text/css"> 
+  html { scroll-behavior: smooth;}
+  .section-price{	  text-align:center;	      margin: 70px auto 10px;  } 
+  .pricebox {	width:250px;  padding: 0.5rem 1rem;  position: relative;  z-index: 0;  font-weight: bold;  font-size: 3.8rem;  color: #232323;  margin:0 auto; direction:ltr;}
+  .pricebox::before {  content: "";  display: block;  position: absolute;  top: 0;  left: 0;  right: 0;  bottom: 0;  background: #eee;  z-index: -1;  transform: skew(-10deg);  box-shadow: 0 0 6px 0px rgba(0, 0, 0, 0.1);}
+  .pricebox__sale {  position: absolute;  transform: translate(10%, -160%);  font-size: 0.8rem;  white-space: nowrap;  display: flex;  right: 0;}
+  .pricebox__sale::after {  content: "";  display: block;  position: absolute;  top: 100%;  left: 0;  right: 10%;  height: 4px;  background: #bbb;  z-index: -1;  transform: skew(30deg);  transform-origin: left top;}
+  .pricebox__actual {  padding: 0.25rem 0.5rem 0.25rem;  position: relative;  display: flex;  align-items: center;      font-size: 18px;    direction: ltr;}
+  .pricebox__actual::before {  content: "";  display: block;  position: absolute;  top: 0;  left: 0;  right: 0;  bottom: 0;  background: #eee;  z-index: -1;  transform: skew(-10deg);  box-shadow: 0 0 3px 0px rgba(0, 0, 0, 0.1);}
+  .pricebox__actual::after {  content: "";  display: block;  border-top: 1px solid rgba(0, 0, 0, 0.4);  top: 50%;  left: 0.25em;  right: 0.25em;  z-index: 3;  position: absolute;}
+  .pricebox__savings {  padding: 0.25rem 0.5rem 0.25rem;  position: relative;  color: #fff;  display: flex;  align-items: center;}
+  .pricebox__savings::before {  content: "";  display: block;  position: absolute;  top: 0;  left: 0;  right: 0;  bottom: 0;  background: #dc4949;  z-index: -1;  transform: skew(-10deg);  box-shadow: 0 0 3px 0px rgba(0, 0, 0, 0.1);}
+  .icon {  display: inline-flex;  background: #eee;  color: #dc4949;  border-radius: 50%;  padding: 0.15rem;  font-size: 65%;  margin-right: 0.2rem;  justify-content: center;  align-items: center;  width: 1em;}  
+  </style>
+  
+  
 
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '382331216514773');
+fbq('track', 'PageView');
+</script>
 
-  <!-- =======================================================
-
-    Template Name: MinimalLanding
-
-    Template URL: https://templatemag.com/minimallanding-bootstrap-landing-template/
-
-    Author: TemplateMag.com
-
-    License: https://templatemag.com/license/
-
-  ======================================================= -->
-
+  
 </head>
 
 
@@ -84,10 +139,14 @@
 
       <div class="row centered">
 
-        <h1>المظلة المعكوسة</h1>
+        <h1 style="color:#FFF">آلة التصبين الكهربائية العجيبة</h1>
 
-        <h2>سلسلة الاستعمال ومقاومة للرياح</h2>
-
+        <h2></h2>
+		
+		  <div class="section-price">		
+        <div class="pricebox">		  
+          <div class="pricebox__sale">			<span class="pricebox__actual">1299 DHS</span>			<span class="pricebox__savings"><small class="icon">%</small>-33%</span>		  </div>		  849 DHS		</div>		</div>
+	
         <a class="btn btn-large send-link" href="#frompost">اطلب الآن</a>
 
       </div>
@@ -148,7 +207,7 @@
 
         <div class="col-md-6 centered min">
 
-          <img src="{{ asset('assets/lp/img/parapluie/parapluie_1.jpg') }}" class="img-responsive aligncenter" width="320" alt="" data-effect="slide-left">
+          <img src="{{ asset('assets/lp/img/machine/machine_1.jpg') }}" class="img-responsive aligncenter" width="320" alt="" data-effect="slide-left">
 
         </div>
 
@@ -161,8 +220,9 @@
           <h1 data-effect="slide-right">1</h1>
 
           <p>
-		  المقبض الكلاسيكي على شكل حرف C يساعدك بسهولة على الرد على المكالمات والتعامل مع حقائب الطعام وحتى الإمساك بأيدي الأطفال. مقبض على شكل حرف C مريح يسمح لك بالتحكم في  الانزلاق المظلة على الساعد أو معصمك حتى تتمكن من القيام بمهام اخرى .
-		    </p>        </div>
+الغسالة مصنوعة من البلاستيك صديقة للبيئة ، وهي متينة. يمكن أن تتحمل حوالي 5 كلغرام  من وزن الملابس. غسالة صغيرة محمولة تعتمد على تصميم  فريد ومناسب للغسيل الشخصي.الغسالة المحمولة لا تسمح فقط بتوفيرالمياه، ولكن أيضًا توفيرالمزيد الكهرباء. 
+		    </p>        
+		</div>
 
         <!--/col-md-4 -->
 
@@ -221,19 +281,19 @@
         <div class="col-md-4 col-md-offset-2">
 
           <h1 data-effect="slide-left">2</h1>
+		  
+		  <p>
+الغسالة المحمولة صغيرة وعملية، صغيرة وسهلة الحمل مناسبة جدًا للسفر.الآن مع الغسالة المحمولة العجيبة ما عليك سوى الضغط على زر لبدء الغسالة ، عجلة الموجة ثنائية الاتجاه، الغسالة المحمولة مضادة للبكتيريا للتأكد من نظافة الملابس.كما أنها مثالية لغسل الملابس الخفيفة التي تحتاج إلى التنظيف بشكل منفصل
 
-          <p>
-		    بنقرة واحدة ودفعة بسيطة ، يمكنك فتح وإغلاق المظلة في الأماكن الضيقة عند الدخول أو الخروج من مبنى أو سيارة
-
-وهو أقل صعوبة وأكثر أمانًا للفتح والإغلاق عندما تكون في حشود ، نظرًا لأن التصميم قد أزال خطر الوخز في عيون الناس. 
-        
- تصميم يضيف لمسة لطيفة لمظلتنا الكلاسيكية من خلال التقليب من الداخل للخارج ،  بهذه الطريقة يأتي الجانب الداخلي الجاف للمظلة من الخارج ، ويبقي الجانب الرطب بعيدًا ليجعلك جافًا عند خروجك من المطر.  </p>        </div>
+		  </p>
+    
+	   </div>
 
         <!--/col-md-4 -->
 
         <div class="col-md-6 centered min">
 
-          <img src="{{ asset('assets/lp/img/parapluie/parapluie_5.jpg') }}" class="img-responsive aligncenter" width="320" alt="" data-effect="slide-right">
+          <img src="{{ asset('assets/lp/img/machine/machine_2.jpg') }}" class="img-responsive aligncenter" width="320" alt="" data-effect="slide-right">
 
         </div>
 
@@ -291,7 +351,7 @@
 
         <div class="col-md-6 centered min">
 
-          <img src="{{ asset('assets/lp/img/parapluie/parapluie_4.jpg') }}" class="img-responsive aligncenter" width="320" alt="" data-effect="slide-left">
+          <img src="{{ asset('assets/lp/img/machine/machine_3.jpg') }}" class="img-responsive aligncenter" width="320" alt="" data-effect="slide-left">
 
         </div>
 
@@ -302,8 +362,11 @@
         <div class="col-md-4">
 
           <h1 data-effect="slide-right">3</h1>
-
-          <p>نظرًا لتصميمها الديناميكي الهوائي ، تجد المظلة دائمًا الموضع الأكثر راحة في الريح مما يجعلها ممتعة بشكل استثنائي للاستخدام ، حتى في الطقس القوي . إذا انقلبت المظلة ، يمكن تصحيحها بضغطة زر واحدة</p>
+     
+          <p>
+		  من مميزات المصبنة المحمولة العجيبة أنها سهلة التنظيف والتفكيك، تمنحك تجربة غسيل مريحة ونظيفة وقابلة للطي و للفصل والسفر والتخييم. مناسبة جدًا لغسل الملابس الخفيفة مثل ربطات العنق والاقمصة والملابس الداخلية وملابس الأطفال التي يجب غسلها بشكل منفصل.
+		   
+		   </p> 
 
         </div>
 
@@ -335,7 +398,7 @@
 
         <div class="col-md-8 col-md-offset-2 centered">
 
-          <p> التخفيض غادي يسالي و الثمن غادي يرجع DH 498 </p>
+          <p> التخفيض غادي يسالي و الثمن غادي يرجع DH 1299 </p>
 
         </div>
 
@@ -476,7 +539,11 @@
 
   <!-- / contact -->
 
+<a href="https://api.whatsapp.com/send?phone=212679524603&text=المنتج الة التصبين" class="float" target="_blank">
 
+<i class="fa fa-whatsapp my-float"></i>
+
+</a>
 
   <div id="copyrights">
 

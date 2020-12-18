@@ -36,7 +36,7 @@ class HomeController extends Controller
         $currency ="Dhs";
         $categories=$this->categories;
 
-        return view('home',compact('produits','currency','produitsPromo','categories'));
+        return view('public.index',compact('produits','currency','produitsPromo','categories'));
     }
 
     public function search(Request $request)
@@ -279,9 +279,9 @@ class HomeController extends Controller
         return view('public/merci',$data);
     }
 
-    public function thank_you()
+    public function thank_you($pr)
     {
-        $data =array("categories"=> $this->categories,"currency"=>"dhs");
+        $data =array("categories"=> $this->categories,"currency"=>"dhs","pr"=>$pr);
 
         return view('public/thank_you',$data);
     }
@@ -293,13 +293,12 @@ class HomeController extends Controller
         if (count($cart) > 0) 
         {
             $user=User::firstOrNew([
-                    'email' => $request->input('email'),
-                    'nom' => $request->input('nom'),
+                    'tel' => $request->input('tel')
                   ]);
             if(!$user->id)
             {
                 $user->nom = $request->input('nom');
-                $user->email = $request->input('email');
+                /*$user->email = $request->input('email');*/
                 $user->tel = $request->input('tel');
                 $user->adresse = $request->input('adresse');
                 $user->type_id = 3;
@@ -356,7 +355,7 @@ class HomeController extends Controller
 
     public function landingPage3()
     {
-        $id = 3 ;
+        $id = 5 ;
         return view('public/landing_page_3',compact('id'));
     }
 
@@ -374,7 +373,7 @@ class HomeController extends Controller
 
     public function landingPage6()
     {
-        $id = 6 ;
+        $id = 4 ;
         return view('public/landing_page_6',compact('id'));
     }
 
@@ -382,6 +381,17 @@ class HomeController extends Controller
     {
         $id = 7 ;
         return view('public/landing_page_7',compact('id'));
+    }
+    public function landingPage8()
+    {
+        //not working
+        $id = 8 ;
+        return view('public/landing_page_8',compact('id'));
+    }
+    public function landingPage9()
+    {
+        $id = 2 ;
+        return view('public/landing_page_9',compact('id'));
     }
 
     public function checkout(Request $request,$id)
@@ -426,8 +436,22 @@ class HomeController extends Controller
         $commande->save();
 
         $commande->Produits()->attach($idProductLp,['quantite' =>  $request->input('qty'),'prix_unite' => $produit->prix ]);
+        $pr ="";
+        
+        if($idProductLp ==5)
+        {
+             $pr ="parapluie";
+        }
+        elseif($idProductLp ==4)
+        {
+             $pr ="machine";
+        }
+        if($idProductLp ==2)
+        {
+             $pr ="cutting-board";
+        }
 
-        return redirect('thank-you');
+        return redirect('thank-you/'.$pr);
     }
 
 }

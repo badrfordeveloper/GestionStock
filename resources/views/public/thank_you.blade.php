@@ -6,7 +6,7 @@
 
   <meta charset="utf-8">
 
-  <title>Minimallanding - Bootstrap Landing Template</title>
+  <title>Promo Shop Online</title>
 
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -19,9 +19,6 @@
   <!-- Favicons -->
 
   <link href="{{ asset('assets/lp/img/favicon.png')}}" rel="icon">
-
-  <link href="{{ asset('assets/lp/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
-
 
 
   <!-- Google Fonts -->
@@ -47,18 +44,44 @@
   <link href="{{ asset('assets/lp/css/style.css') }}" rel="stylesheet">
 
 
-
-  <!-- =======================================================
-
-    Template Name: MinimalLanding
-
-    Template URL: https://templatemag.com/minimallanding-bootstrap-landing-template/
-
-    Author: TemplateMag.com
-
-    License: https://templatemag.com/license/
-
-  ======================================================= -->
+@if($pr == "machine")
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '382331216514773');
+        fbq('track', 'PageView');
+        </script>
+        <script>
+        fbq('track', 'Purchase');
+    </script>
+@elseif($pr == "parapluie")
+    <!-- Facebook Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '171574484639743');
+    fbq('track', 'PageView');
+    </script>
+    <script>
+    fbq('track', 'Purchase');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=171574484639743&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+@endif
 
 </head>
 
@@ -77,7 +100,14 @@
                     <h5 style="color: red;font-size: 24px"> سوف نتصل بك في أقل من 24 ساعة  <br> لتأكيد الطلب ،
  <br> شكرا لك ! </h5>
 
-                    <a href="{{ url('/') }}" class="btn btn-success" style="float: none;font-size: 20PX;font-weight: 700;"><i class="fa fa-angle-left"></i> الاستمرار بالتسوق  </a>
+                
+               <button class="btn btn-success"  style="float: none;font-size: 20PX;font-weight: 700;" onclick="goBack()"><i class="fa fa-angle-left"></i> الاستمرار بالتسوق </button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
                 </div>
             </div>
         </section>

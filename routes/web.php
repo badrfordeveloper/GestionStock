@@ -18,7 +18,8 @@ use App\Acce;
 Route::group(
     ['middleware' => ['auth']],
     function () {
-        Route::get(Config::get('constants.ADMIN_PATH'), 'AdminController@index');
+        /*Route::get(Config::get('constants.ADMIN_PATH'), 'AdminController@index');*/
+        Route::get(Config::get('constants.ADMIN_PATH'), 'Admin\\CommandesController@index');
         Route::get(Config::get('constants.ADMIN_PATH').'projets', 'AdminController@index');
 		/*Route::resource(Config::get('constants.ADMIN_PATH').'categories', 'Admin\\CategoriesController');*/
 		/*=== Route Employeur ===*/
@@ -31,7 +32,7 @@ Route::group(
 );
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+/*Route::get('/', 'HomeController@index')->name('home');
 Route::get('/categorie-liste/{id}', 'HomeController@byCategorie');
 Route::get('/detail-produit/{id}/{name}', 'HomeController@detailProduct');
 Route::get('/panier', 'HomeController@panier');
@@ -43,24 +44,26 @@ Route::get('/commander/{id}', 'HomeController@commanderNow');
 Route::post('envoyerdemmande', 'HomeController@placeorder');
 Route::post('envoyerdemmandenow', 'HomeController@placeorderNow');
 Route::get('/merci', 'HomeController@thanks');
-Route::get('/thank-you', 'HomeController@thank_you');
+
 
 Route::get('/landing-page-1', 'HomeController@landingPage1');
 Route::get('/landing-page-2', 'HomeController@landingPage2');
-Route::get('/landing-page-3', 'HomeController@landingPage3');
 Route::get('/landing-page-4', 'HomeController@landingPage4');
 Route::get('/landing-page-5', 'HomeController@landingPage5');
 Route::get('/landing-page-6', 'HomeController@landingPage6');
-Route::get('/landing-page-7', 'HomeController@landingPage7');
+Route::get('/landing-page-7', 'HomeController@landingPage7');*/
+Route::get('/', 'HomeController@index');
 
+
+Route::get('TraitementCommande/{idcommande}/{etape}','Admin\\TraitementController@traitement_commande');
+
+Route::get('/parapluie', 'HomeController@landingPage3');
+Route::get('/machine-a-laver', 'HomeController@landingPage6');
+Route::get('/cutting-board', 'HomeController@landingPage9');
+/*Route::get('/landing-page-8', 'HomeController@landingPage8');
+Route::get('/thank-you', 'HomeController@thank_you');*/
+Route::get('/thank-you/{pr}', 'HomeController@thank_you');
 Route::post('/check-out/{id}', 'HomeController@checkout');
-
-
-
-Auth::routes();
-
-
-
 
 Route::resource('admin/users', 'Admin\\UsersController');
 Route::resource('admin/categories', 'Admin\\CategoriesController');
@@ -72,8 +75,6 @@ Route::resource('admin/produits', 'Admin\\ProduitsController');
 Route::resource('admin/retours', 'Admin\\RetoursController');
 Route::resource('admin/types', 'Admin\\TypesController');
 Route::resource('admin/ventes', 'Admin\\VentesController');
-
-
 
 Route::resource('admin/users', 'Admin\\UsersController');
 Route::resource('admin/produits', 'Admin\\ProduitsController');
