@@ -12,7 +12,6 @@ use App\User;
 use App\Helpers\Checker;
 use Illuminate\Http\Request;
 
-
 class AchatsController extends Controller
 {
     protected $table = "achats";
