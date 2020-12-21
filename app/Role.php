@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Type extends Model
+class Role extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'types';
+    protected $table = 'roles';
 
     /**
     * The database primary key value.

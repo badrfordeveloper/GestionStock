@@ -90,21 +90,29 @@ Route::get('admin/toVente/{commande}', 'Admin\\VentesController@addVenteFromComm
 Route::get('admin/toRetour/{vente}', 'Admin\\RetoursController@addRetourFromVente');
 
 
+Route::resource('admin/roles', 'Admin\\RolesController');
+
+
 Route::get('myrole',function(){
 
-	  /*$tables = array("societes","banques","abonnements","agencebancaires","comptesbancaires","conditionfinancieres","credocs","demandereglements","detailslivraisonexports","dossierexports","dossierimports","droitconstates","echances","factorings","fluxexploitations","lignesbancaires","loiabonnements","matricefluxerps","naturedefluxs","transporteurs","users");*/
-	  $acces = array("liste","ajouter","modifier","supprimer","afficher");
-
-	  $tables =array("achats","produits","categories","commandes","retours","types","users","ventes");
- 
-	    foreach ($tables as $table) 
-	    {
-	    	foreach ($acces as $obj) 
-	    	{
-	    		$acce =Acce::firstOrNew(['table' => $table,"action" =>$obj ]);
-	    		$acce->table = $table;
-            	$acce->action = $obj;
-            	$acce->save();
-	    	}
-		}
+    /*  $tables = array("societes","banques","abonnements","agencebancaires","comptesbancaires","conditionfinancieres","credocs","demandereglements","detailslivraisonexports","dossierexports","dossierimports","droitconstates","echances","factorings","fluxexploitations","lignesbancaires","loiabonnements","matricefluxerps","naturedefluxs","transporteurs","users");*/
+      $acces = array("validation");
+     // $acces = array("liste","ajouter","modifier","supprimer","afficher","files");
+  
+//$tables =array("demandereglements","detailslivraisonexports","transporteurs","armateurs","incoterms","regimes"," typedemandes","dossierexports","dossierimports");
+    /* $tables =array("fluxexploitations","echeances","droitconstates","credocs","factorings","modepaiments","categories");*/
+    /* */
+    $tables =array("Demandereglements");
+  
+        foreach ($tables as $table) 
+        {
+            foreach ($acces as $obj) 
+            {
+                $acce =Acce::firstOrNew(['table' => $table,"action" =>$obj ]);
+                $acce->table = $table;
+                $acce->action = $obj;
+                $acce->save();
+            }
+        }
+        echo "succes !";
 });

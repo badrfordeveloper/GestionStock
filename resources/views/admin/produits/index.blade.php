@@ -54,6 +54,7 @@
                                     <th>Image</th>
                                     <th>Nom</th>
                                     <th>Description</th>
+                                    <th>P.Achat</th>
                                     <th>Prix</th>
                                     <th>Quantite</th>
                                     <th>Categorie</th>
@@ -68,6 +69,7 @@
                                   <td><img src="{{ asset('storage/'.$item->image) }}" height="60px" alt=""></td>
                                   <td>{{ $item->nom }}</td>
                                   <td>{{ $item->description }}</td>
+                                  <td>{{ $item->prix_Achat }}</td>
                                   <td>{{ $item->prix }}</td>
                                   <td>{{ $item->quantite }}</td>
                                   <td>{{ $item->categorie->libelle}}</td>
@@ -107,6 +109,7 @@
                                 <th>Image</th>
                                 <th>Nom</th>
                                 <th>Description</th>
+                                <th>P.Achat</th>
                                 <th>Prix</th>
                                 <th>Quantite</th>
                                 <th>Categorie</th>

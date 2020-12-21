@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('tel')->nullable();
             $table->mediumText('adresse')->nullable();
             $table->string('societe')->nullable();
-            $table->foreignId('type_id')->constrained('types')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('role_id')->constrained('roles')->onDelete('cascade')->onUpdate('cascade');
             });
     }
 

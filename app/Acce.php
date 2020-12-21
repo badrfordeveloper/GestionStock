@@ -27,9 +27,9 @@ class Acce extends Model
      */
     protected $fillable = ['table','action'];
 
-    public function types()
+    public function roles()
     {
-        return $this->belongsToMany('App\Type');
+        return $this->belongsToMany('App\Role');
     }
 
 }

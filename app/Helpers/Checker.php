@@ -32,6 +32,7 @@ class Checker {
 
     public static function checkAcces($table ,$action )
     {
+
        if ($action == "create" || $action == "store") {
            $action = "ajouter";
        }
@@ -49,14 +50,27 @@ class Checker {
        {
             $action = "liste";        
        }
+       else if ($action == "validation" )
+       {
+            $action = "validation";        
+       }
 
         $acce = Acce::where("table",$table)->where("action",$action)->get()->first();
+        //dd($acce);
         $check = 0;
-        foreach (Auth::user()->type->acces as $ar) {
-            if ($ar->id == $acce->id) {
-              
-                $check++;
-            }
+        //dd($acce);
+        if (@count(Auth::user()->role->acces) > 0 && @count($acce)>0) 
+        {
+         
+          foreach (Auth::user()->role->acces as $ar) {
+
+              if ($ar->id == $acce->id) {
+
+
+                
+                  $check++;
+              }
+          }
         }
 
          if ($check == 0) {

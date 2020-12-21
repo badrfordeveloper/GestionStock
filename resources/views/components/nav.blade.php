@@ -34,38 +34,73 @@
                         <a href="{{ url(Config::get('constants.ADMIN_PATH'))}}"><i class="fa fa-th-large"></i> <span class="nav-label">Tabeau de Board</span></a>
                         
                     </li>
+             
+
+                    @if(App\Helpers\Checker::checkAcces('produits','liste'))
                     <li>
                         <a href="{{ url(Config::get('constants.ADMIN_PATH').'produits')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Produits</span></a>
                     </li>
+                    @endif
+                    @if(App\Helpers\Checker::checkAcces('users','liste'))
 
                      <li>
                         <a href="{{ url(Config::get('constants.ADMIN_PATH').'users')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Users</span></a>
                     </li>
+                    @endif
+                    @if(App\Helpers\Checker::checkAcces('achats','liste'))
 
                     <li>
                         <a href="{{ url(Config::get('constants.ADMIN_PATH').'achats')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Achats</span></a>
                     </li>
+                    @endif
+                    @if(App\Helpers\Checker::checkAcces('commandes','liste'))
                     <li>
                         <a href="{{ url(Config::get('constants.ADMIN_PATH').'commandes')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Commandes</span></a>
                     </li>
+                    @endif
+                    @if(App\Helpers\Checker::checkAcces('ligneachats','liste'))
                     <li>
                         <a href="{{ url(Config::get('constants.ADMIN_PATH').'ligneachats')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Ligne achats</span></a>
                     </li>
+                    @endif
+                    @if(App\Helpers\Checker::checkAcces('categories','liste'))
                     <li>
                         <a href="{{ url(Config::get('constants.ADMIN_PATH').'categories')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Catégories</span></a>
                     </li>
+                    @endif
+                    @if(App\Helpers\Checker::checkAcces('lignecommandes','liste'))
                     <li>
                         <a href="{{ url(Config::get('constants.ADMIN_PATH').'lignecommandes')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Ligne commandes</span></a>
-                    </li>  
+                    </li> 
+                    @endif
+                    @if(App\Helpers\Checker::checkAcces('retours','liste')) 
                     <li>
                         <a href="{{ url(Config::get('constants.ADMIN_PATH').'retours')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Retours</span></a>
-                    </li>    
+                    </li>  
+                    @endif
+                    @if(App\Helpers\Checker::checkAcces('types','liste'))  
                     <li>
                         <a href="{{ url(Config::get('constants.ADMIN_PATH').'types')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Types</span></a>
-                    </li>     
+                    </li>  
+                    @endif
+                    @if(App\Helpers\Checker::checkAcces('ventes','liste'))   
                     <li>
                         <a href="{{ url(Config::get('constants.ADMIN_PATH').'ventes')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Ventes</span></a>
-                    </li>            
+                    </li>  
+                    @endif
+                     
+                    @if(App\Helpers\Checker::checkAcces('users','liste'))
+
+                    <li >
+                        <a href="#"><i class="fas fa-cogs"></i> <span class="nav-label">Autres</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                           
+                            <li class="active"><a href="{{ url(Config::get('constants.ADMIN_PATH').'users')}}"> Utilisateurs </a></li>
+                            
+                            <li class="active"><a href="{{ url(Config::get('constants.ADMIN_PATH').'roles')}}"> Roles </a></li>
+                        </ul>
+                    </li>
+                    @endif         
 
                     
                     <!-- <li>

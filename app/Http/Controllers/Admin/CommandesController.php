@@ -51,7 +51,7 @@ class CommandesController extends Controller
     {
        /* if(!Checker::checkAcces($this->table,debug_backtrace()[0]["function"])) {return redirect()->back();}*/
 
-         $clients = User::where('type_id',3)->get();
+         $clients = User::where('role_id',3)->get();
         return view('admin.commandes.create',compact('clients'));
     }
 
@@ -134,7 +134,7 @@ class CommandesController extends Controller
 
   /*      dd($commande_produit) ;*/
    
-        $clients = User::where('type_id',3)->get();
+        $clients = User::where('role_id',3)->get();
 
         return view('admin.commandes.show', compact('commande','clients','commande_produit'));
     }
@@ -162,7 +162,7 @@ class CommandesController extends Controller
 
      
    
-        $clients = User::where('type_id',3)->get();
+        $clients = User::where('role_id',3)->get();
 
         return view('admin.commandes.edit', compact('commande','clients','commande_produit'));
     }

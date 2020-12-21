@@ -52,6 +52,10 @@
                                     <th>Image</th>
                                     <td>{{ $produit->image }}</td>
                                 </tr>
+                                 <tr>
+                                    <th>P.Achat</th>
+                                    <td>{{ $produit->prix_Achat }}</td>
+                                </tr>
                                 <tr>
                                     <th>Prix</th>
                                     <td>{{ $produit->prix }}</td>

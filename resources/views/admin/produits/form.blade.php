@@ -97,6 +97,14 @@
  
 </div> -->
 
+<div class="form-group row {{ $errors->has('prix_Achat') ? 'has-error' : ''}}">
+    <label for="prix_Achat" class="col-sm-2 col-form-label">{{ 'prix Achat' }}</label>
+    <div class="col-sm-10">
+        <input class="form-control" name="prix_Achat" type="number" id="prix_Achat" value="{{ isset($produit->prix_Achat) ? $produit->prix_Achat : old('prix_Achat') }}" >
+
+    {!! $errors->first('prix_Achat', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
 
 <div class="form-group row {{ $errors->has('prix') ? 'has-error' : ''}}">
     <label for="prix" class="col-sm-2 col-form-label">{{ 'Prix' }}</label>
