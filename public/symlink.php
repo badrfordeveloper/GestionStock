@@ -1,8 +1,8 @@
 <?php 
 
-$linkName = '/home/websuspc/promo-shop-online.com/storage';
+$linkName = '/home/websuspc/promo-shop-online.com/public/storage';
 
-$target = '/home/websuspc/promo-shop-online.com/gestionstock/storage/app/public';
+$target = '/home/websuspc/promo-shop-online.com/storage/app/public';
 
 symlink($target, $linkName);
 
