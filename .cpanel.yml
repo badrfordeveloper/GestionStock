@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/websuspc/promo-shop-online.com/
+    - /bin/cp * $DEPLOYPATH
