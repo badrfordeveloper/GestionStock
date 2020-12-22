@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/websuspc/promo-shop-online.com/
-    - /bin/cp -R * $DEPLOYPATH
+    - /bin cp /home/websuspc/test.promo-shop-online.com/* $DEPLOYPATH
