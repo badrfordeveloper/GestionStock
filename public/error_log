@@ -12,3 +12,5 @@
 [13-Nov-2020 06:36:20 America/New_York] PHP Warning:  Use of undefined constant MYSQLI_OPT_INT_AND_FLOAT_NATIVE - assumed 'MYSQLI_OPT_INT_AND_FLOAT_NATIVE' (this will throw an Error in a future version of PHP) in /home/websuspc/promo-shop-online.com/gestionstock/config/database.php on line 62
 [13-Nov-2020 06:36:37 America/New_York] PHP Warning:  Use of undefined constant MYSQLI_OPT_INT_AND_FLOAT_NATIVE - assumed 'MYSQLI_OPT_INT_AND_FLOAT_NATIVE' (this will throw an Error in a future version of PHP) in /home/websuspc/promo-shop-online.com/gestionstock/config/database.php on line 62
 [13-Nov-2020 06:36:37 America/New_York] PHP Warning:  Use of undefined constant MYSQLI_OPT_INT_AND_FLOAT_NATIVE - assumed 'MYSQLI_OPT_INT_AND_FLOAT_NATIVE' (this will throw an Error in a future version of PHP) in /home/websuspc/promo-shop-online.com/gestionstock/config/database.php on line 62
+[22-Dec-2020 06:37:33 America/New_York] PHP Warning:  symlink(): File exists in /home/websuspc/promo-shop-online.com/public/symlink.php on line 7
+[22-Dec-2020 06:38:08 America/New_York] PHP Warning:  symlink(): File exists in /home/websuspc/promo-shop-online.com/public/symlink.php on line 7

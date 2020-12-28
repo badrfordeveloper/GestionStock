@@ -394,6 +394,12 @@ class HomeController extends Controller
         return view('public/landing_page_9',compact('id'));
     }
 
+     public function landingPage10()
+    {
+        $id = 7 ;
+        return view('public/landing_page_10',compact('id'));
+    }
+
     public function checkout(Request $request,$id)
     {
 
