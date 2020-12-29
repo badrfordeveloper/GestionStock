@@ -113,6 +113,7 @@
   
   
 
+<!-- Facebook Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -122,9 +123,13 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '382331216514773');
+fbq('init', '171574484639743');
 fbq('track', 'PageView');
 </script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=171574484639743&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
 
   
 </head>
@@ -467,8 +472,18 @@ fbq('track', 'PageView');
 
             <div class="form-group">
 
-              <input type="number" name="qty" class="form-control" id="contact-qty" placeholder="الكمية"  data-msg="" >
-
+            <select name="qty" class="form-control" id="contact-qty" >
+                    <option selected value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
               <div class="validate"></div>
 
             </div>
@@ -496,17 +511,6 @@ fbq('track', 'PageView');
               <div class="validate"></div>
 
             </div>
-
-            <div class="form-group">
-
-              <input type="text" name="email" class="form-control" id="contact-email" placeholder="البريد الإلكتروني " data-rule="minlen:4" data-msg="Please enter a valid Email">
-
-              <div class="validate"></div>
-
-            </div>
-
-
-
 
 
            <!--  <div class="loading"></div>

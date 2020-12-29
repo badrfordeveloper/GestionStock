@@ -506,6 +506,7 @@ src="https://www.facebook.com/tr?id=171574484639743&ev=PageView&noscript=1"
               <div class="validate"></div>
 
             </div>
+            @if(1== 2)
 
             <div class="form-group">
 
@@ -514,6 +515,8 @@ src="https://www.facebook.com/tr?id=171574484639743&ev=PageView&noscript=1"
               <div class="validate"></div>
 
             </div>
+
+            @endif
 
 
 

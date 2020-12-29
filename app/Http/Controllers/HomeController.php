@@ -279,11 +279,11 @@ class HomeController extends Controller
         return view('public/merci',$data);
     }
 
-    public function thank_you($pr)
+    public function thank_you()
     {
-        $data =array("categories"=> $this->categories,"currency"=>"dhs","pr"=>$pr);
+        //$data =array("categories"=> $this->categories,"currency"=>"dhs","pr"=>$pr);
 
-        return view('public/thank_you',$data);
+        return view('public/thank_you');
     }
 
     public function placeorder(Request $request)
@@ -406,17 +406,13 @@ class HomeController extends Controller
         $idProductLp =  $id ;
         $user=User::firstOrNew([
 
-                'email' => $request->input('email'),
-
-                'nom' => $request->input('nom'),
+                'tel' => $request->input('tel'),
 
               ]);
 
         if(!$user->id)
         {
             $user->nom = $request->input('nom');
-
-            $user->email = $request->input('email');
 
             $user->tel = $request->input('tel');
 
@@ -444,20 +440,20 @@ class HomeController extends Controller
         $commande->Produits()->attach($idProductLp,['quantite' =>  $request->input('qty'),'prix_unite' => $produit->prix ]);
         $pr ="";
         
-        if($idProductLp ==5)
-        {
-             $pr ="parapluie";
-        }
-        elseif($idProductLp ==4)
-        {
-             $pr ="machine";
-        }
-        if($idProductLp ==2)
-        {
-             $pr ="cutting-board";
-        }
+        // if($idProductLp ==5)
+        // {
+        //      $pr ="parapluie";
+        // }
+        // elseif($idProductLp ==4)
+        // {
+        //      $pr ="machine";
+        // }
+        // if($idProductLp ==2)
+        // {
+        //      $pr ="cutting-board";
+        // }
 
-        return redirect('thank-you/'.$pr);
+        return redirect('thank-you/');
     }
 
 }
