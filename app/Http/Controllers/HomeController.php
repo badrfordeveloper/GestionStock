@@ -301,7 +301,7 @@ class HomeController extends Controller
                 /*$user->email = $request->input('email');*/
                 $user->tel = $request->input('tel');
                 $user->adresse = $request->input('adresse');
-                $user->type_id = 3;
+                $user->role_id = 3;
                 $user->save();
             }
 
@@ -418,7 +418,7 @@ class HomeController extends Controller
 
             $user->adresse = $request->input('adresse');
 
-            $user->type_id = 3;
+            $user->role_id = 3;
 
             $user->save();
         }
