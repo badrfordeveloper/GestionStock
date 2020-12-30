@@ -70,7 +70,7 @@
                                   <td>{{ $item->tel }}</td>
                                   <td>{{ $item->adresse }}</td>
                                   <td>{{ $item->societe }}</td>
-                                  <td>{{ $item->type->libelle }}</td>
+                                  <td>{{ $item->role->libelle }}</td>
                                   
 
 
