@@ -43,24 +43,6 @@
 
   <link href="{{ asset('assets/lp/css/style.css') }}" rel="stylesheet">
 
-
-@if($pr == "machine")
-    <script>
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '382331216514773');
-        fbq('track', 'PageView');
-        </script>
-        <script>
-        fbq('track', 'Purchase');
-    </script>
-@elseif($pr == "parapluie")
     <!-- Facebook Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
@@ -81,8 +63,6 @@
     src="https://www.facebook.com/tr?id=171574484639743&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Facebook Pixel Code -->
-@endif
-
 </head>
 
 

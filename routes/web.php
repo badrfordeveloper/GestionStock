@@ -60,10 +60,10 @@ Route::get('TraitementCommande/{idcommande}/{etape}','Admin\\TraitementControlle
 Route::get('/parapluie', 'HomeController@landingPage3');
 Route::get('/machine-a-laver', 'HomeController@landingPage6');
 Route::get('/cutting-board', 'HomeController@landingPage9');
-Route::get('/landing-page-10', 'HomeController@landingPage10');
+Route::get('/soft-baby', 'HomeController@landingPage10');
 /*Route::get('/landing-page-8', 'HomeController@landingPage8');
-Route::get('/thank-you', 'HomeController@thank_you');*/
-Route::get('/thank-you/{pr}', 'HomeController@thank_you');
+Route::get('/thank-you/{pr}', 'HomeController@thank_you');*/
+Route::get('/thank-you', 'HomeController@thank_you');
 Route::post('/check-out/{id}', 'HomeController@checkout');
 
 Route::resource('admin/users', 'Admin\\UsersController');
