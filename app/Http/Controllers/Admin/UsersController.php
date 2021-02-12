@@ -37,7 +37,7 @@ class UsersController extends Controller
                 ->orWhere('tel', 'LIKE', "%$keyword%")
                 ->orWhere('adresse', 'LIKE', "%$keyword%")
                 ->orWhere('societe', 'LIKE', "%$keyword%")
-                ->orWhere('type_id', 'LIKE', "%$keyword%")
+                ->orWhere('role_id', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
             $users = User::latest()->paginate($perPage);
