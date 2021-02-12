@@ -150,7 +150,7 @@ src="https://www.facebook.com/tr?id=171574484639743&ev=PageView&noscript=1"
 		
 		  <div class="section-price">		
         <div class="pricebox">		  
-          <div class="pricebox__sale">			<span class="pricebox__actual">1299 DHS</span>			<span class="pricebox__savings"><small class="icon">%</small>-33%</span>		  </div>		  849 DHS		</div>		</div>
+          <div class="pricebox__sale">			<span class="pricebox__actual">1299 DHS</span>			<span class="pricebox__savings"><small class="icon">%</small>-33%</span>		  </div>		  799 DHS		</div>		</div>
 	
         <a class="btn btn-large send-link" href="#frompost">اطلب الآن</a>
 
