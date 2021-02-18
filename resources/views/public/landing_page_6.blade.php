@@ -150,7 +150,7 @@ src="https://www.facebook.com/tr?id=171574484639743&ev=PageView&noscript=1"
 		
 		  <div class="section-price">		
         <div class="pricebox">		  
-          <div class="pricebox__sale">			<span class="pricebox__actual">1299 DHS</span>			<span class="pricebox__savings"><small class="icon">%</small>-33%</span>		  </div>		  799 DHS		</div>		</div>
+          <div class="pricebox__sale">			<span class="pricebox__actual">849 DHS</span>			<span class="pricebox__savings"><small class="icon">%</small>-33%</span>		  </div>		  699 DHS		</div>		</div>
 	
         <a class="btn btn-large send-link" href="#frompost">اطلب الآن</a>
 
@@ -403,7 +403,7 @@ src="https://www.facebook.com/tr?id=171574484639743&ev=PageView&noscript=1"
 
         <div class="col-md-8 col-md-offset-2 centered">
 
-          <p> التخفيض غادي يسالي و الثمن غادي يرجع DH 1299 </p>
+          <p> التخفيض غادي يسالي و الثمن غادي يرجع DH 849 </p>
 
         </div>
 
@@ -451,6 +451,44 @@ src="https://www.facebook.com/tr?id=171574484639743&ev=PageView&noscript=1"
   </div> -->
 
   <!--/F -->
+
+  <div class="container">
+    <div class="row">
+
+        <div class="col-md-8 col-md-offset-2 centered">
+
+          <p style="
+    font-size: 21pt;
+    font-weight: bold;
+">آراء الزبناء
+</p>
+
+        </div>
+
+    </div>
+  <div class="row">
+    <div class="col-md-6"style="
+    margin-top: 13px;
+     margin-bottom: 13px;
+">
+       <img src="{{ asset('assets/lp/img/machine/1.jpg') }}" class="img-responsive aligncenter" width="320" alt="" >
+    </div>
+    <div class="col-md-6"style="
+        margin-top: 13px;
+         margin-bottom: 13px;
+
+">
+      <img src="{{ asset('assets/lp/img/machine/2.jpg') }}" class="img-responsive aligncenter" width="320" alt="" >
+    </div>
+   <!--  <div class="col-md-6"style="
+        margin-top: 13px;
+        margin-bottom: 13px;
+
+">
+     <img src="{{ asset('assets/lp/img/machine/3.jpg') }}" class="img-responsive aligncenter" width="320" alt="" >
+    </div> -->
+  </div>
+</div>
 
 
 
@@ -561,17 +599,7 @@ src="https://www.facebook.com/tr?id=171574484639743&ev=PageView&noscript=1"
 
       <div class="credits">
 
-        <!--
-
-          You are NOT allowed to delete the credit link to TemplateMag with free version.
-
-          You can delete the credit link only if you bought the pro version.
-
-          Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/minimallanding-bootstrap-landing-template/
-
-          Licensing information: https://templatemag.com/license/
-
-        -->
+ 
 
         Créer par <a href="https://websites-ideal.com/">Web Ideal</a>
 
